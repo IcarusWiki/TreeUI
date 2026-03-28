@@ -1,0 +1,49 @@
+The page is a heavy work in progress as I try to navigate the complexities of standardization. If you would like me to rewite this page to match the other styles of the MoS, please let me know on Discord - 🐲[[User:NateEkat|Nathan Ekaterina]]🐲 14:32, 4 February 2026 (UTC)
+
+== General ==
+In general, Pages should NOT have a <code>Description</code> header, as "Description" should be reserved for the items actual description. <code>Overview</code> should also not be used as the overview exists between the <code><nowiki><h1>{{PAGENAME}}</h1></nowiki></code> and first <code><nowiki><h2>Header</h2></nowiki></code>
+
+For Item pages, a recommended h2 to start out a page is <code>Usage</code> to describe how an item can be used, followed by a <code>Crafting</code> header.
+=== Overview ===
+Pages should start with <code><nowiki>[[{{PAGENAME}}]]</nowiki></code> that cause the page name to become bolded. Then it should go into brief details about the page, including any links to the parent category. 
+
+Example: '''Cooked Meat''' is a [[Food]] that provides the "Cooked Meat" [[Status Effects|Status Effect]].
+
+Where the parent category of the page [[Cooked Meat]] is the page [[Food]]. This applies to all pages, whether they are item, mission, or creature pages.
+
+== Crafting and Recipes ==
+Bench pages can have two headers, there is the <code>Crafting</code> header, which describes how an item is made or crafted. There there should be a <code>Recipes</code> header underneath that, which will have the table with all possible crafting recipes for that bench.
+
+Do note that since tiered-up benches can have older tier recipes, it's recommended to only show the new recipes for those benches for readability. In the future, these tables will be rendered with {{tl|Get Recipes}}, but for now, if there's a manual table, the manual table should only have that Tier's recipes. When using get recipes, collapsible elements may be used if the tables get too long. For previous tier recipes, they MUST be used.
+
+==Used In vs Usage ==
+There are two headers that will be commenplace on the wiki, and this is <code>Used In</code> and <code>Usage</code> Below details the reason to use each header and why
+
+===Used In===
+'''Used In''' is primarily for items that are used as an intermediate crafting material. This should be a table or the likes showing off what recipes and item is used in
+
+=== Usage ===
+Usage is for describing the mechanics of an item or page. This is where editors can go into details about the intricacies of how an item/object is used in the game. This can include how to place a deployable, what variants, swinging at nodes, etc.
+
+==Buildings ==
+Due to the way MediaWiki handles pages with a slash (/) in the name, it will end up creating a subpage.
+The worksround for this is to have the two pages redirect to a page without the slash then use DISPLAYNAME to correct it. This prevents unnecessary breadcrumbs from appearing on the page unintentionally.
+
+If ever I can figure out how to hide breadcrumbs, then we can just have the Roof/Ramp page without the weird RoofRamp page.
+
+For example [[Beeswax Wood Roof]] and [[Beeswax Wood Roof/Ramp]] will both redirect to the page [[Beeswax Wood RoofRamp]]
+
+== Historical and Future Content ==
+Some pages will be removed entirely, or may not exist in the future. These pages need to be tagged with {{tl|Historical content}} or {{tl|Future content}}. Any pages that have historical and future content on them should NOT have any categories on them besides the ones these two templates give. This allows us to use cargo queries to check what categories are on what pages. If something that has been removed from the game has a category, it may appear in a location that is unintended.
+
+== Mechanics Pages ==
+Pages that are to be added to the [[:Category:Mechanics]] (Which redirects to the [[Game Mechanics]] page) should go into detail about how to perform said mechanic. This should include {{tl|Key|keyboard}} with the game's default key binding. '''This template may be replaced in the future to allow for similar rendering of keys for PC and console'''
+
+For example: A Varent can be selected by holding {{key|keyboard|R}}
+
+== See Also ==
+<dpl>
+titlematch=NateEkat/Blog/MoS/% 
+namespace=User 
+shownamespace=false 
+</dpl>

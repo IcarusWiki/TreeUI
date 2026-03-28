@@ -1,0 +1,72 @@
+{{ItemData
+|NOINFOBOX = true
+<!-- Wiki Data -->
+|categories = 
+|techLevelUnlock = 
+|techLevelNeeded = 
+|prerequisite = 
+|prerequisiteMission = 
+|RequiredFeatureLevel = 
+
+<!-- D_Itemable.json and D_ItemsStatic.json -->
+|Itemable_displayName = {{PAGENAME}}  <!--Glass-->
+|Itemable_icon = ITEM_{{PAGENAME}}.png  <!--ITEM_Glass.png-->
+|Itemable_name = Glass
+|Itemable_flavorText = Reflected in a sheet of glass is a simple fact: What looks familiar, is in fact a crystalline lattice unlike anything on Earth.
+|Itemable_description = Despite its imperfections, a workable sheet of glass.
+|Itemable_weight = 250
+|Itemable_maxStack = 20
+|Itemable_craftingExperience = 80
+|AdditionalStats =  <!-- Comma-seperated; formatting ex: BaseShieldBlockRadiusDegrees_+:90, StatName:Value -->
+|GameplayTags = Item.Resource  <!-- Comma-seperated -->
+}}{{Resource Template
+  | title1={{PAGENAME}}
+  | image1=ITEM_{{PAGENAME}}.png
+  | caption1=
+  | category=[[:Category:Crafted Resources|Crafted Resources]]
+  | techlvl=[[:Category:Tier 3|Tier 3]]
+  | required_level=20
+  | description=Despite its imperfections, a workable sheet of glass.
+  | flavor=Reflected in a sheet of glass is a simple fact: What looks familiar, is in fact a crystalline lattice unlike anything on Earth.
+  | bench={{Item icon|Concrete Furnace}}<br>{{Item icon|Electric Furnace}}
+  | weight=0.25 Kg
+  | stack_size=20
+}}
+==Description==
+{{PAGENAME}} is a crafted resource refined from {{Item icon|Silica Ore}} or {{Item icon|Sand}}.
+==Crafting==
+Forged in:
+*{{Item icon|Concrete Furnace}}
+*{{Item icon|Electric Furnace}}
+Used in:
+*{{Item icon|Lantern}}
+*{{Item icon|Biofuel Lamp}}
+*{{Item icon|Flashlight}}
+*{{Item icon|Biofuel Generator}}
+*{{Item icon|Solar Panel}}
+*{{Item icon|Basic Wall Light}}
+*{{Item icon|Basic Ceiling Light}}
+*{{Item icon|Directional Worklamp}}
+*{{Item icon|Omnidirectional Worklamp}}
+*{{Item icon|Biofuel Radar}}
+*{{Item icon|Electric Radar}}
+*{{Item icon|Electric Furnace}}
+*{{Item icon|Dehumidifier}}
+*{{Item icon|Electric Dehumidifier}}
+*{{Item icon|Vapor Condenser}}
+*{{Item icon|Chemistry Bench}}
+*{{Item icon|Electric Stove}}
+*{{Item icon|Aquarium}}
+*{{Item icon|Advanced Aquarium}}
+*{{Item icon|Large Advanced Aquarium}}
+*{{Item icon|Beehive Extractor}}
+*{{Item icon|Metal Oxite Dissolver}}
+*{{Item icon|Portable Beacon}}
+*{{Item icon|Encrypted Satellite Upgrade}}
+*{{Item icon|Thermos}}
+*{{Item icon|Glass Jar}}
+*{{Item icon|Glass Bottle}}
+*[[Glass Buildings|Glass Building Pieces]]
+
+[[Category:Resources]]
+[[Category:Crafted Resources]]

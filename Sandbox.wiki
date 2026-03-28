@@ -1,0 +1,19 @@
+== Workshop Tree ==
+
+{{#invoke:WorkshopTree|render}}
+
+== Mission Tree ==
+
+{{#invoke:MissionTree|render}}
+
+== Talent Tree ==
+
+{{#invoke:TalentTree|render}}
+
+== Blueprint Tree ==
+
+{{#invoke:TechTree|render}}
+
+== Animal Talent Trees ==
+
+{{#invoke:AnimalTalentTree|renderTabber}}

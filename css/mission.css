@@ -1,0 +1,838 @@
+/* === MISSION TREE THEME - Selector + prospect graph === */
+
+.iww-mission-tree-ui-wrapper {
+    --iww-tree-theme-accent: var(--wiki-accent-color, #a7c96d);
+    --iww-tree-theme-accent-dim: var(--wiki-content-border-color, #6d8447);
+    --iww-tree-theme-text: var(--iww-tree-heading-text, #eef3dc);
+    --iww-tree-theme-tooltip-bg: var(--wiki-content-background-color--secondary, #10140d);
+    --iww-tree-pan-buffer-top: 110px;
+    --iww-tree-pan-buffer-right: 280px;
+    --iww-tree-pan-buffer-bottom: 180px;
+    --iww-tree-pan-buffer-left: 280px;
+    flex-direction: column;
+    max-height: 82vh;
+    min-height: 680px;
+    border-color: color-mix(in srgb, var(--iww-tree-theme-accent) 30%, transparent);
+    background: color-mix(in srgb, var(--iww-tree-surface-bg) 94%, #080b07);
+}
+
+.iww-mission-tree-ui-background {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background-color: color-mix(in srgb, var(--iww-tree-surface-bg) 92%, #090c08);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: saturate(0.88) brightness(0.54);
+    transition: background-image 0.22s ease, transform 0.22s ease;
+}
+
+.iww-mission-tree-ui-background::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle at 50% 18%, color-mix(in srgb, var(--iww-tree-theme-text) 12%, transparent), transparent 22%),
+        linear-gradient(180deg, rgba(7, 9, 6, 0.16) 0%, rgba(7, 9, 6, 0.52) 48%, rgba(7, 9, 6, 0.82) 100%);
+}
+
+.iww-mission-tree-selector-surface,
+.iww-mission-tree-detail-surface {
+    position: relative;
+    z-index: 2;
+    flex: 1 1 auto;
+    min-height: 0;
+}
+
+.iww-mission-tree-detail-surface {
+    display: none;
+    overflow: hidden;
+}
+
+.iww-mission-tree-ui-wrapper:not(.iww-mission-tree-view-detail) .iww-mission-tree-selector-surface {
+    display: flex;
+}
+
+.iww-mission-tree-ui-wrapper:not(.iww-mission-tree-view-detail) .iww-mission-tree-ui-background {
+    background-size: contain;
+}
+
+.iww-mission-tree-ui-wrapper.iww-mission-tree-view-detail .iww-mission-tree-selector-surface {
+    display: none;
+}
+
+.iww-mission-tree-ui-wrapper.iww-mission-tree-view-detail .iww-mission-tree-detail-surface {
+    display: flex;
+    flex-direction: column;
+}
+
+.iww-mission-tree-selector-surface {
+    align-items: center;
+    justify-content: center;
+    padding: 40px 24px 48px;
+}
+
+.iww-mission-tree-selector-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 300px));
+    justify-content: center;
+    align-items: start;
+    gap: 20px;
+    width: 100%;
+}
+
+.iww-mission-tree-selector-shell {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 300px;
+}
+
+.iww-mission-tree-selector-world-label {
+    padding: 0 2px;
+    color: var(--iww-tree-theme-text);
+    font-size: 30px;
+    font-weight: 800;
+    letter-spacing: 1.7px;
+    line-height: 0.94;
+    text-transform: uppercase;
+}
+
+.iww-mission-tree-selector-card {
+    position: relative;
+    display: flex;
+    min-height: 405px;
+    overflow: visible;
+    padding: 10px;
+    border: 1px solid color-mix(in srgb, var(--iww-tree-theme-accent) 28%, transparent);
+    background: color-mix(in srgb, var(--iww-tree-surface-bg) 82%, transparent);
+    color: var(--iww-tree-theme-text);
+    text-align: left;
+    cursor: pointer;
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.iww-mission-tree-selector-card:hover,
+.iww-mission-tree-selector-card:focus {
+    transform: translateY(-3px);
+    border-color: color-mix(in srgb, var(--iww-tree-theme-text) 46%, transparent);
+    background: color-mix(in srgb, var(--iww-tree-theme-accent) 74%, var(--iww-tree-surface-bg) 26%);
+    box-shadow:
+        inset 0 0 0 1px color-mix(in srgb, var(--iww-tree-theme-text) 10%, transparent),
+        0 24px 44px -32px color-mix(in srgb, var(--iww-tree-theme-accent) 62%, transparent);
+}
+
+.iww-mission-tree-selector-card.active {
+    border-color: color-mix(in srgb, var(--iww-tree-theme-text) 52%, transparent);
+    background: color-mix(in srgb, var(--iww-tree-theme-accent) 82%, var(--iww-tree-surface-bg) 18%);
+    box-shadow:
+        inset 0 0 0 1px color-mix(in srgb, var(--iww-tree-theme-text) 12%, transparent),
+        0 24px 44px -32px color-mix(in srgb, var(--iww-tree-theme-accent) 78%, transparent);
+}
+
+.iww-mission-tree-selector-preview {
+    position: absolute;
+    inset: 10px;
+    display: flex;
+    align-items: stretch;
+    justify-content: stretch;
+    overflow: hidden;
+    border: 1px solid color-mix(in srgb, var(--iww-tree-theme-accent) 48%, transparent);
+    background: var(--iww-tree-theme-tooltip-bg, #10140d);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.iww-mission-tree-selector-card:hover .iww-mission-tree-selector-preview,
+.iww-mission-tree-selector-card:focus .iww-mission-tree-selector-preview {
+    border-color: color-mix(in srgb, var(--iww-tree-theme-text) 84%, transparent);
+    box-shadow:
+        inset 0 0 0 999px color-mix(in srgb, var(--iww-tree-theme-accent) 8%, transparent),
+        0 0 20px color-mix(in srgb, var(--iww-tree-theme-accent) 10%, transparent);
+}
+
+.iww-mission-tree-selector-card.active .iww-mission-tree-selector-preview {
+    border-color: color-mix(in srgb, var(--iww-tree-theme-text) 92%, transparent);
+    box-shadow:
+        inset 0 0 0 999px color-mix(in srgb, var(--iww-tree-theme-accent) 9%, transparent),
+        0 0 28px color-mix(in srgb, var(--iww-tree-theme-accent) 14%, transparent);
+}
+
+.iww-mission-tree-selector-preview.is-empty {
+    background:
+        linear-gradient(180deg, rgba(13, 16, 10, 0.88) 0%, rgba(8, 10, 7, 0.96) 100%),
+        linear-gradient(135deg, color-mix(in srgb, var(--iww-tree-theme-accent) 12%, transparent), transparent 62%);
+}
+
+.iww-mission-tree-selector-preview-media,
+.iww-mission-tree-selector-preview-media > span,
+.iww-mission-tree-selector-preview-media a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    line-height: 0;
+}
+
+.iww-mission-tree-selector-preview img {
+    display: block;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover;
+    object-position: center center;
+}
+
+.iww-mission-tree-selector-copy {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 100%;
+    padding: 13px 14px 14px;
+    background: linear-gradient(180deg, rgba(7, 9, 6, 0.02) 0%, rgba(7, 9, 6, 0.08) 18%, rgba(7, 9, 6, 0.24) 52%, rgba(7, 9, 6, 0.76) 100%);
+}
+
+.iww-mission-tree-selector-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.iww-mission-tree-selector-count {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    position: relative;
+    left: -34px;
+    min-height: 28px;
+    padding: 0 8px 0 7px;
+    border: 1px solid color-mix(in srgb, var(--iww-tree-theme-accent-dim) 80%, transparent);
+    background: color-mix(in srgb, var(--iww-tree-theme-accent) 78%, white 22%);
+    color: color-mix(in srgb, var(--iww-tree-surface-bg) 80%, #2d3425);
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.iww-mission-tree-selector-count-icon {
+    position: relative;
+    width: 13px;
+    height: 13px;
+    flex: 0 0 auto;
+}
+
+.iww-mission-tree-selector-count-diamond {
+    position: absolute;
+    display: block;
+    box-sizing: border-box;
+    line-height: 0;
+    width: 10px;
+    height: 10px;
+    transform: rotate(45deg);
+}
+
+.iww-mission-tree-selector-count-diamond.is-fill {
+    top: 0;
+    left: 0;
+    z-index: 2;
+    background: color-mix(in srgb, var(--iww-tree-surface-bg) 74%, #39412d);
+    opacity: 1;
+}
+
+.iww-mission-tree-selector-count-diamond.is-outline {
+    top: 4px;
+    left: 0;
+    z-index: 1;
+    border: 1px solid color-mix(in srgb, var(--iww-tree-surface-bg) 74%, #39412d);
+    background: transparent;
+    opacity: 1;
+}
+
+.iww-mission-tree-selector-count-text {
+    line-height: 1;
+}
+
+.iww-mission-tree-world-danger {
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 3px;
+    padding-top: 4px;
+}
+
+.iww-mission-tree-world-skull {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    line-height: 1;
+    opacity: 0.34;
+    filter: grayscale(1) brightness(0.74);
+}
+
+.iww-mission-tree-world-skull.is-active {
+    opacity: 1;
+}
+
+.iww-mission-tree-world-skull a,
+.iww-mission-tree-world-skull > span,
+.iww-mission-tree-world-skull img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    line-height: 0;
+}
+
+.iww-mission-tree-world-skull img {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+.iww-mission-tree-world-danger.is-olympus .iww-mission-tree-world-skull.is-active {
+    filter: brightness(0) saturate(100%) invert(82%) sepia(19%) saturate(417%) hue-rotate(33deg) brightness(88%) contrast(90%);
+}
+
+.iww-mission-tree-world-danger.is-styx .iww-mission-tree-world-skull.is-active {
+    filter: brightness(0) saturate(100%) invert(74%) sepia(63%) saturate(615%) hue-rotate(357deg) brightness(91%) contrast(90%);
+}
+
+.iww-mission-tree-world-danger.is-prometheus .iww-mission-tree-world-skull.is-active {
+    filter: brightness(0) saturate(100%) invert(33%) sepia(65%) saturate(1658%) hue-rotate(359deg) brightness(95%) contrast(92%);
+}
+
+.iww-mission-tree-world-danger.is-elysium .iww-mission-tree-world-skull.is-active {
+    filter: brightness(0) saturate(100%) invert(25%) sepia(94%) saturate(3812%) hue-rotate(286deg) brightness(99%) contrast(94%);
+}
+
+.iww-mission-tree-selector-desc {
+    display: block;
+    width: 100%;
+    margin-top: 14px;
+    padding-right: 2px;
+    max-height: 6.3em;
+    overflow: hidden;
+    color: color-mix(in srgb, var(--iww-tree-theme-text) 86%, var(--iww-tree-surface-text) 14%);
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1.38;
+    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.58);
+}
+
+.iww-mission-tree-selector-bottom {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    margin-top: auto;
+    padding-top: 16px;
+}
+
+.iww-mission-tree-selector-feature {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    min-height: 30px;
+    padding: 0 12px;
+    border: 1px solid color-mix(in srgb, var(--iww-tree-theme-text) 24%, transparent);
+    background: linear-gradient(180deg, color-mix(in srgb, var(--iww-tree-surface-bg) 84%, transparent) 0%, color-mix(in srgb, var(--iww-tree-surface-bg) 92%, black 8%) 100%);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.03);
+    color: color-mix(in srgb, var(--iww-tree-theme-text) 88%, var(--iww-tree-surface-text) 12%);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+}
+
+.iww-mission-tree-selector-feature-icon,
+.iww-mission-tree-selector-feature-icon > span,
+.iww-mission-tree-selector-feature-icon a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    line-height: 0;
+}
+
+.iww-mission-tree-selector-feature-icon img {
+    max-width: 18px !important;
+    max-height: 18px !important;
+}
+
+.iww-mission-tree-selector-feature-label {
+    line-height: 1;
+}
+
+.iww-mission-tree-detail-surface::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background:
+        linear-gradient(180deg, rgba(7, 9, 6, 0.22) 0%, rgba(7, 9, 6, 0.48) 100%),
+        url('/wiki/Special:Redirect/file/T_TopographicalTexture.png');
+    background-position: center, center;
+    background-repeat: no-repeat, repeat;
+    background-size: auto, 960px 960px;
+    opacity: 0.42;
+}
+
+.iww-mission-tree-detail-corners {
+    position: absolute;
+    inset: 18px;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.iww-mission-tree-detail-corners::before,
+.iww-mission-tree-detail-corners::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-repeat: no-repeat;
+}
+
+.iww-mission-tree-detail-corners::before {
+    background-image:
+        linear-gradient(90deg, color-mix(in srgb, var(--iww-tree-theme-text) 82%, transparent), color-mix(in srgb, var(--iww-tree-theme-text) 82%, transparent)),
+        linear-gradient(180deg, color-mix(in srgb, var(--iww-tree-theme-text) 82%, transparent), color-mix(in srgb, var(--iww-tree-theme-text) 82%, transparent)),
+        linear-gradient(90deg, color-mix(in srgb, var(--iww-tree-theme-text) 82%, transparent), color-mix(in srgb, var(--iww-tree-theme-text) 82%, transparent)),
+        linear-gradient(180deg, color-mix(in srgb, var(--iww-tree-theme-text) 82%, transparent), color-mix(in srgb, var(--iww-tree-theme-text) 82%, transparent));
+    background-position: left top, left top, right top, right top;
+    background-size: 18px 2px, 2px 18px, 18px 2px, 2px 18px;
+}
+
+.iww-mission-tree-detail-corners::after {
+    background-image:
+        linear-gradient(90deg, color-mix(in srgb, var(--iww-tree-theme-text) 82%, transparent), color-mix(in srgb, var(--iww-tree-theme-text) 82%, transparent)),
+        linear-gradient(180deg, color-mix(in srgb, var(--iww-tree-theme-text) 82%, transparent), color-mix(in srgb, var(--iww-tree-theme-text) 82%, transparent)),
+        linear-gradient(90deg, color-mix(in srgb, var(--iww-tree-theme-text) 82%, transparent), color-mix(in srgb, var(--iww-tree-theme-text) 82%, transparent)),
+        linear-gradient(180deg, color-mix(in srgb, var(--iww-tree-theme-text) 82%, transparent), color-mix(in srgb, var(--iww-tree-theme-text) 82%, transparent));
+    background-position: left bottom, left bottom, right bottom, right bottom;
+    background-size: 18px 2px, 2px 18px, 18px 2px, 2px 18px;
+}
+
+.iww-mission-tree-back-button {
+    position: absolute;
+    right: 38px;
+    bottom: 34px;
+    z-index: 4;
+    min-width: 168px;
+    min-height: 42px;
+    padding: 0 22px;
+    border: 1px solid color-mix(in srgb, var(--iww-tree-theme-text) 32%, transparent);
+    background: color-mix(in srgb, var(--iww-tree-surface-bg) 72%, transparent);
+    color: color-mix(in srgb, var(--iww-tree-theme-text) 90%, transparent);
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.iww-mission-tree-back-button:hover,
+.iww-mission-tree-back-button:focus {
+    border-color: color-mix(in srgb, var(--iww-tree-theme-text) 50%, transparent);
+    background: color-mix(in srgb, var(--iww-tree-surface-bg) 78%, var(--iww-tree-theme-accent) 22%);
+}
+
+.iww-mission-tree-detail-surface .iww-tree-content-area {
+    position: relative;
+    z-index: 2;
+    flex: 1 1 auto;
+    min-height: 0;
+    padding: 0;
+    background: transparent;
+}
+
+.iww-mission-tree-ui-wrapper .iww-tree-section-title {
+    display: none !important;
+}
+
+.iww-mission-tree-ui-wrapper.js-ready .iww-mission-tree-view.active > :not(.iww-tree-section-title) {
+    margin: auto;
+}
+
+.iww-mission-tree-node {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    align-items: stretch;
+    justify-content: stretch;
+    font-size: 12px;
+    color: var(--iww-tree-theme-text);
+    overflow: visible;
+}
+
+.iww-mission-tree-node:hover {
+    background: transparent;
+    box-shadow: none;
+}
+
+.iww-mission-tree-node .iww-tree-node-frame {
+    background-image: url('/wiki/Special:Redirect/file/ProspectMission_Base.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    filter: brightness(0.98);
+    z-index: 4;
+}
+
+.iww-mission-tree-node:hover .iww-tree-node-frame {
+    background-image: url('/wiki/Special:Redirect/file/ProspectMission_BaseHovered.png');
+    filter: brightness(1.03);
+}
+
+.iww-mission-tree-node .iww-tree-glow {
+    inset: -10px;
+}
+
+.iww-mission-tree-node .iww-tree-page-link {
+    z-index: 8;
+}
+
+.iww-mission-tree-node-card {
+    position: relative;
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    padding: 7px 8px 8px;
+    overflow: hidden;
+}
+
+.iww-mission-tree-node-header {
+    position: relative;
+    z-index: 9;
+    min-height: 18px;
+    padding: 1px 22px 0 6px;
+}
+
+.iww-mission-tree-node-title {
+    color: color-mix(in srgb, var(--iww-tree-surface-bg) 82%, #111507);
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 0.55px;
+    line-height: 0.96;
+    text-transform: uppercase;
+}
+
+.iww-mission-tree-node-body {
+    position: relative;
+    z-index: 6;
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow: hidden;
+    border: 1px solid color-mix(in srgb, var(--iww-tree-theme-text) 8%, transparent);
+    background: var(--iww-tree-theme-tooltip-bg, #10140d);
+}
+
+.iww-mission-tree-node-image {
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(180deg, rgba(13, 16, 10, 0.22) 0%, rgba(13, 16, 10, 0.86) 100%),
+        linear-gradient(135deg, rgba(167, 201, 109, 0.16), rgba(0, 0, 0, 0.02));
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.iww-mission-tree-node-image.is-empty {
+    background:
+        linear-gradient(180deg, rgba(17, 21, 13, 0.84) 0%, rgba(8, 10, 7, 0.96) 100%),
+        linear-gradient(135deg, rgba(167, 201, 109, 0.12), transparent 70%);
+}
+
+.iww-mission-tree-node-top {
+    position: absolute;
+    top: 7px;
+    left: 7px;
+    right: 7px;
+    z-index: 10;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.iww-mission-tree-node-tech {
+    display: inline-flex;
+    align-items: center;
+    min-height: 22px;
+    padding: 0 6px;
+    border: 1px solid rgba(104, 175, 248, 0.5);
+    background: rgba(8, 24, 44, 0.92);
+    color: #95d8ff;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.3px;
+}
+
+.iww-mission-tree-node-tech.is-empty {
+    opacity: 0;
+}
+
+.iww-mission-tree-node-danger {
+    display: inline-flex;
+    align-items: center;
+    gap: 1px;
+}
+
+.iww-mission-tree-node-danger-skull {
+    font-size: 10px;
+    line-height: 1;
+    color: rgba(220, 227, 206, 0.3);
+}
+
+.iww-mission-tree-node-danger.is-easy .iww-mission-tree-node-danger-skull.is-active {
+    color: #dceaa0;
+    text-shadow: 0 0 8px rgba(220, 234, 160, 0.44);
+}
+
+.iww-mission-tree-node-danger.is-normal .iww-mission-tree-node-danger-skull.is-active {
+    color: #f0f1df;
+    text-shadow: 0 0 8px rgba(240, 241, 223, 0.42);
+}
+
+.iww-mission-tree-node-danger.is-hard .iww-mission-tree-node-danger-skull.is-active {
+    color: #e0c843;
+    text-shadow: 0 0 8px rgba(224, 200, 67, 0.42);
+}
+
+.iww-mission-tree-node-danger.is-extreme .iww-mission-tree-node-danger-skull.is-active {
+    color: #b64a27;
+    text-shadow: 0 0 8px rgba(182, 74, 39, 0.42);
+}
+
+.iww-mission-tree-node-rail {
+    position: absolute;
+    top: 46px;
+    right: 5px;
+    bottom: 8px;
+    z-index: 11;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 4px;
+}
+
+.iww-mission-tree-node-type {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    border: 1px solid rgba(219, 230, 189, 0.18);
+    background: rgba(12, 16, 10, 0.74);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.02);
+}
+
+.iww-mission-tree-node-type img {
+    max-width: 13px !important;
+    max-height: 13px !important;
+}
+
+.iww-mission-tree-node-footer {
+    position: relative;
+    z-index: 9;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 8px;
+    min-height: 28px;
+    padding: 4px 4px 0;
+}
+
+.iww-mission-tree-node-rewards {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1px;
+    min-width: 30px;
+}
+
+.iww-mission-tree-node-reward {
+    display: inline-flex;
+    align-items: center;
+    gap: 2px;
+    min-height: 11px;
+    padding: 0;
+    border: none;
+    background: transparent;
+    color: #f8c944;
+    white-space: nowrap;
+}
+
+.iww-mission-tree-node-reward--credits {
+    color: #f8c944;
+}
+
+.iww-mission-tree-node-reward--exotic1 {
+    color: #dabdef;
+}
+
+.iww-mission-tree-node-reward--exotic_red {
+    color: #ef1a00;
+}
+
+.iww-mission-tree-node-reward-icon,
+.iww-mission-tree-node-reward-icon a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 0;
+}
+
+.iww-mission-tree-node-reward-icon img {
+    max-width: 11px !important;
+    max-height: 11px !important;
+}
+
+.iww-mission-tree-node-reward-amount {
+    font-size: 10px;
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: 0.3px;
+}
+
+.iww-mission-tree-node-duration {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    margin-left: auto;
+    min-width: 66px;
+    color: #f4f7ea;
+    text-align: center;
+}
+
+.iww-mission-tree-node-duration-value {
+    font-family: Consolas, 'Courier New', monospace;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 1px;
+    white-space: nowrap;
+}
+
+.iww-mission-tree-node-duration-label {
+    margin-top: 1px;
+    color: #c2c9b0;
+    font-size: 6px;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 0.7px;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.iww-mission-tree-ui-wrapper .iww-tree-tooltip-floating {
+    max-width: 320px;
+    white-space: normal;
+    text-transform: none;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1.45;
+    background-color: rgba(15, 18, 12, 0.96);
+}
+
+@media (max-width: 1280px) {
+    .iww-mission-tree-selector-grid {
+        grid-template-columns: repeat(2, minmax(0, 300px));
+    }
+
+    .iww-mission-tree-selector-world-label {
+        font-size: 28px;
+    }
+
+    .iww-mission-tree-selector-card {
+        min-height: 405px;
+    }
+}
+
+@media (max-width: 900px) {
+    .iww-mission-tree-ui-wrapper {
+        min-height: 0;
+    }
+
+    .iww-mission-tree-selector-surface {
+        padding: 20px 16px 24px;
+    }
+
+    .iww-mission-tree-selector-grid {
+        grid-template-columns: minmax(0, 320px);
+        justify-content: center;
+        gap: 14px;
+    }
+
+    .iww-mission-tree-selector-shell {
+        width: 100%;
+        max-width: 320px;
+    }
+
+    .iww-mission-tree-selector-world-label {
+        font-size: 26px;
+    }
+
+    .iww-mission-tree-selector-card {
+        min-height: 432px;
+    }
+
+    .iww-mission-tree-selector-copy {
+        padding: 13px 14px 14px;
+    }
+
+    .iww-mission-tree-selector-count {
+        left: -28px;
+        font-size: 13px;
+    }
+
+    .iww-mission-tree-back-button {
+        right: 18px;
+        bottom: 18px;
+        min-width: 132px;
+    }
+
+    .iww-mission-tree-detail-corners {
+        inset: 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    .iww-mission-tree-ui-wrapper {
+        max-height: none;
+    }
+
+    .iww-mission-tree-ui-wrapper.js-ready .iww-mission-tree-view {
+        display: none !important;
+    }
+
+    .iww-mission-tree-ui-wrapper.js-ready .iww-mission-tree-view.active {
+        display: flex !important;
+    }
+
+    .iww-mission-tree-detail-surface .iww-tree-content-area {
+        overflow: auto !important;
+    }
+
+    .iww-mission-tree-ui-wrapper .iww-mission-tree-view,
+    .iww-mission-tree-ui-wrapper .iww-mission-tree-view.active {
+        min-width: calc(100% + 32px) !important;
+        min-height: 0 !important;
+        padding: 16px !important;
+    }
+
+    .iww-mission-tree-back-button {
+        position: sticky;
+        align-self: flex-end;
+        margin: 10px 16px 16px auto;
+    }
+}

@@ -1,0 +1,106 @@
+{{ItemData/Firearms
+<!-- Wiki Data -->
+|isWorkshop = yes
+|categories = Pistols, Workshop Firearms, Field Guide Ranged
+|techLevelUnlock = Orbital
+
+
+<!-- D_Itemable.json and D_ItemsStatic.json -->
+|Itemable_displayName = {{PAGENAME}}
+|Itemable_icon = ITEM_{{PAGENAME}}.png
+|Itemable_name = Pistol_CHAC
+|Itemable_flavorText = The latest addition from the China Hangzhou Armament Company
+|Itemable_description = A modern pistol made in the classic 3D printed CHAC style.
+|Itemable_weight = 1000
+|AdditionalStats = BaseProjectileDamage_+%:25, BaseCriticalDamage_+%:25
+|GameplayTags = Item.Weapon.Firearm.Pistol, Item.Meta
+
+
+<!-- D_Talents.json -->
+|Talents_name = Workshop_CHAC_Pistol
+|Talents_positionX = 500
+|Talents_positionY = 800
+|Talents_sizeX = 250
+|Talents_sizeY = 250
+|TalentTree =  Workshop_Firearms
+
+
+<!-- D_Durable.json -->
+|Durable_maxDurability = 25000
+|ItemsForRepair = Meta_Repair_Item:1
+
+
+<!-- D_FirearmData.json -->
+|hipAccuracyX = 0.4000000059604645
+|hipAccuracyY = 0.4000000059604645
+|aimAccuracyX = 0.10000000149011612
+|aimAccuracyY = 0.10000000149011612
+|launchForce = 600
+|ammoCapacity = 6
+|roundsPerMinute = 115
+|reloadTime = 2.3499999046325684
+|weaponLoudness = 3
+
+|projectileDamage = +25
+|criticalDamage = +25
+
+|ChargeData_chargeSpeed = 0
+
+|VisualData_visualRecoil = 20
+|VisualData_aimFOVMultiplier = 0.8500000238418579
+
+|ValidAmmoTypes = AllPistol
+
+
+<!-- D_WorkshopItems.json -->
+|WorkshopItems_research_ren = 1000
+|WorkshopItems_research_exotics = 500
+|WorkshopItems_research_redExotics = 
+|WorkshopItems_research_biomass = 
+|WorkshopItems_crafting_ren = 500
+|WorkshopItems_crafting_exotics = 250
+|WorkshopItems_crafting_redExotics = 
+|WorkshopItems_crafting_biomass = 
+}}
+The {{PAGENAME}} was introduced in the [[Changelog:V2.2.7.123661|Week 132 Update]], becoming the first firearm added to the [[Workshop]], and was introduced alongside the [[9mm CHAC Ammo Box]] (Previously called Jacketed Workshop Pistol Ammo).
+
+When the pistol was first introduced, it only held 4 rounds and had a slightly slower reload speed at 2.65 seconds.
+
+
+
+==Description==
+The {{PAGENAME}} is an advanced handgun with increased projectile and critical damage that is comparable, or better than other [[:Category:Tier 4|Tier 4]] [[:Category:Firearms|Firearms]].
+
+It fires any [[:Category:9mm Rounds|9mm Rounds]] including [[9mm CHAC Ammo]] that can also be purchased from the [[Workshop]].
+
+"The CHAC Pistol is overall, a steady and reliable weapon. While it provides lower damage per shot than a rifle or high-tier bow, it compensates with a fast fire rate and even faster reload speed for situations that require quick reactions. "<ref name="dev" />
+
+==Obtaining==
+The {{PAGENAME}} must be researched and purchased from the [[Workshop]] and brought down to the planet in a Prospector's loadout or requested with the [[Orbital Exchange Interface]].
+
+==Cost==
+{| class="wikitable" style="text-align: center;"
+|+ style="text-align: center;" |[[Workshop]]
+! style="background-color:#d3e5ae; color:#231f20;" |'''Research Cost'''
+! style="background-color:#d3e5ae; color:#231f20;" |'''Crafting Cost'''
+|-
+|1000 {{Icon link|Ren|notext}}<br>500 {{Icon link|Exotics (Currency)|notext}}
+|500 {{Icon link|Ren|notext}}<br>250 {{Icon link|Exotics (Currency)|notext}}
+|}
+
+
+==Repair==
+As with most Workshop items, it can be repaired while on orbit using {{Icon link|Ren|notext}} or down on the planet using a [[Workshop Repair Kit]] at the [[Repair Bench]].
+
+==References==
+<references>
+<ref name="dev">{{Citation
+|title=Icarus Week 132 Update {{!}} New fast-fire CHAC Pistol
+|url=https://store.steampowered.com/news/app/1149460/view/4173227169195475616
+|website=Steam Store
+|publisher=RocketWerkz
+|date=14 June 2024
+|time=02:32 AM GMT
+|accessdate=6 October 2025
+}}</ref>
+</references>

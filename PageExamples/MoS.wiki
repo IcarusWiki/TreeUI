@@ -1,0 +1,94 @@
+The [[{{FULLPAGENAME}}|Manual of Style (MoS)]] is a style guide for the entire {{SITENAME}}, encompassing articles, templates, documentation, and Cargo Tables. This guide is designed to help editors craft articles with clear, consistent, and precise language, including layout and formatting. The goal is to make the encyclopedia easier and more intuitive to use. Consistency in style and formatting promotes clarity and cohesion; this is especially important within an article. These guidelines are not set in stone, but they should generally be followed in order to maintain consistency across pages. If you have any questions about the MoS, please visit the [https://discord.gg/6EUVzRSX6T ICARUS Wiki Discord], or make a post on the [[User talk:NateEkat/Blog/MoS|Discussion Page]].
+
+==General Wiki Structure ==
+The following sections outline the basics of formatting the corresponding pages correctly. For more detailed information, please refer to the 'See Also' section below the subheaders.
+=== Articles ===
+''See also: [[User:NateEkat/Blog/MoS/Articles|Manual of Style/Articles]]''
+
+Articles are pages that exist in the (Main) Namespace; these are pages that are user-searchable and contain most of the content on {{SITENAME}}. Since these are the pages that have the most visibility, it is imperative to follow the MoS to the best of the editor's ability.
+
+=== Categories ===
+''See also: [[User:NateEkat/Blog/MoS/Categories|Manual of Style/Categories]]''
+
+[[support:Categories|Categories]] are used for grouping related pages. All wiki pages, including templates and modules, should have a category assigned. The goal is to create a category hierarchy, or "Category Tree", where parent categories only contain child categories. The only pages allowed in parent categories are the overview pages detailing the category.
+
+=== Images ===
+''See also: [[User:NateEkat/Blog/MoS/Images|Manual of Style/Images]]''
+
+[[support:Images|Images]] work a little bit differently than regular content. They need to be uploaded through a [[Special:Upload|special page]] or through utilities in both the source and visual editors. Names for images are very important, as many templates use {{SITENAME}}'s naming convention to pull the proper image. When uploading an image, a license must be selected. Most in-game assets will use the "This content comes from the game or it's official media" license. Screenshot can use the "This will be used in a way that qualifies as "fair use" under US law" license. If an image is not properly attributed, it is at risk of being deleted.
+
+=== Templates ===
+''See also: [[User:NateEkat/Blog/MoS/Templates|Manual of Style/Templates]]''
+
+Templates are used for various functionality, from organizing the main page of a wiki to inserting data. These are [[mw:Transclusion|Transcluded]] onto pages and permit editors to quickly add data to pages in consistent ways. Templates should always be documented, either by transcluding a parent's document page or by having one of its own.
+
+== Spelling ==
+While the game is developed by a team in New Zealand, it has been confirmed that ICARUS's primary language is NATO Standard, with U.S. English serving as a fallback. Therefore, all wiki pages should use [[wikipedia:American English|American English]] spelling. There can be some exceptions:
+* When quoting a source, never alter any part of the quotation, even if it does not use American spelling.
+* Changelogs consist mostly of commit notes made by the developers. These should remain relatively unchanged unless a word is misspelled significantly, which would impact the reader's ability to understand the patch note.
+* Regional variations in spelling may be used in all other contexts on the {{SITENAME}}, such as comments, talk pages, user pages, and blog posts.
+* In-game names, descriptions, and flavor text should remain untouched. If a discrepancy is noted, please verify the spelling of an item in-game before making any modifications. 
+
+=== Icarus vs ICARUS ===
+Since Icarus is a very common term used on many pages, there are two stylizations of the name. When referring to the game, '''ICARUS''', use all caps. When referring to the moon, '''Icarus''', it is to be capitalized as it is a proper noun. On lore pages, it can also be written as '''Wolf 1061ca "Icarus"''' as Wolf 1061ca is the official designation of the moon, but it is colloquially known as Icarus.
+
+The exception to this is DLC pages, which use '''Icarus: <nowiki>{{PAGENAME}}</nowiki>''', just as the storefront name does.
+
+== Numbers ==
+In general, write whole numbers one through nine as words when used within a sentence, write other numbers that take two words or fewer to say as either numerals or words, and write all other numbers as numerals. (This applies to both ordinal and cardinal numbers.)
+* '''1/5''' or '''one fifth''', '''84''' or '''eighty-four''', '''200''' or '''two hundred'''
+* '''3.75''', '''544''', '''21&nbsp;million''' This applies to both ordinal and cardinal numbers.
+* Use a comma to delimit numbers with four or more digits to the left of the decimal point: '''12,345''' and '''1,000'''.
+** This only applies to content on pages. See [[User:NateEkat/Blog/MoS/Templates|Manual of Style/Templates]] for template numbers.
+
+When expressing a unit of measurement, please follow the NIST guideline for Writing SI Metric System Units.<ref name="NIST"/> Any unit of measurement in the kilo- range (kg, km, kw) or higher should always show the tenths decimal place. Use a period to indicate a decimal point.
+* For example, '''20 kg''' should be expressed as '''20.0 kg'''.
+If a number has more decimal places of precision, then those should always be expressed. For small numbers that are expressed with a large prefix, add parentheses with the smaller unit of measurement next to the value.
+* For example, '''0.123 kg''' should be expressed as '''0.123 kg (123 g)'''
+
+== Punctuation ==
+Punctuation, as well as spacing, can make or break the readability of pages. Below are some general guidelines to follow, along with a few articles worth reading.
+=== Commas and Semicolons===
+Formal writing should be used on all article pages. This includes reducing the number of comma splices that exist on a page. "A comma splice is a joining of two independent clauses with nothing but a comma."<ref name="Merriam-Webster"/> "There are three ways to fix a comma splice. You can add a conjunction, change the comma to a semicolon, or make each independent clause its own sentence."<ref name="Grammarly"/>
+* If you find yourself struggling with a comma, there are usually ways to simplify a sentence so that fewer are needed.
+
+A semicolon ( ; ) is sometimes an alternative to a period, enabling related material to be kept in the same sentence; it marks a more decisive division in a sentence than a comma. If the semicolon separates clauses, normally each clause must be independent (meaning that it could stand on its own as a sentence); often, only a comma or only a semicolon will be correct in a given sentence.
+* A semicolon does not force a capital letter in the word that follows it.
+*A sentence may contain several semicolons, especially when the clauses are parallel; multiple unrelated semicolons are often signs that the sentence should be divided into shorter sentences, or otherwise refashioned.
+
+=== Apostrophes and Quotes ===
+Consistent use of the straight (or typewriter) apostrophes ( '''<nowiki>' '</nowiki>''' ) and quotes  ('''<nowiki>" "</nowiki>''' ) is '''recommended''', as opposed to the curly (or typographic) apostrophe ( '''&lsquo; &rsquo;''' )  and quotes ( '''&ldquo; &rdquo;''' ).
+
+=== Terminal punctuation ===
+* Clusters of question marks, exclamation marks, or a combination of them (such as the interrobang), are highly informal and inappropriate in articles.
+* '''Use the exclamation mark with restraint'''. It is an expression of surprise or emotion that is generally unsuitable for an encyclopedia.
+
+=== Spacing ===
+* '''Never''' place a space before commas, semicolons, colons, or terminal punctuation.
+* '''Always''' place a space after the punctuation marks just mentioned, unless it is the end of a paragraph, dot point, list element or the article.
+* '''Use one space after terminal punctuation.''' The use of double spaces is pointless as MediaWiki automatically condenses any number of spaces to just one when rendering the page.
+
+== References ==
+<references>
+<ref name="NIST">{{Citation
+|url=https://www.nist.gov/pml/owm/writing-si-metric-system-units
+|title=Writing with SI (Metric System) Units
+|website=NIST
+|publisher=NIST
+|accessdate=23 November 2025
+}}</ref>
+<ref name="Merriam-Webster">{{Citation
+|url=https://www.merriam-webster.com/grammar/maybe-you-like-comma-splices-maybe-you-dont
+|title=Comma Splices: What They Are and How to Correct Them (or not)
+|website=Merriam-Webster
+|publisher=Merriam-Webster
+|accessdate=23 November 2025
+}}</ref>
+<ref name="Grammarly">{{Citation
+|url=https://www.grammarly.com/blog/punctuation-capitalization/comma-splice/
+|title=What Is a Comma Splice? With Examples
+|website=Grammarly
+|publisher=Grammarly
+|orig-date=01 June 2023
+|accessdate=23 November 2025}}</ref>
+</references>

@@ -1,0 +1,186 @@
+/* === WORKSHOP THEME - Purple palette + Sidebar layout === */
+/* Loaded alongside TreeShared/styles.css by WorkshopTree.lua. */
+
+/* =====================================================================
+   1. THEME VARIABLES (purple)
+   ===================================================================== */
+.iww-workshop-tree-ui-wrapper {
+    --iww-tree-theme-accent:        var(--wiki-accent-color, #b580c9);
+    --iww-tree-theme-accent-dim:    var(--wiki-content-border-color, #8e6896);
+    --iww-tree-theme-text:          var(--iww-tree-link-text, #d698e8);
+    --iww-tree-theme-tooltip-bg:    var(--wiki-content-background-color--secondary, #1a1a1a);
+}
+
+/* =====================================================================
+   2. SIDEBAR
+   ===================================================================== */
+.iww-workshop-tree-ui-wrapper .iww-tree-sidebar {
+    width: 220px;
+    background-color: color-mix(in srgb, var(--iww-tree-surface-bg) 88%, #0b0b0b);
+    border-right: 1px solid var(--iww-tree-surface-border-soft);
+    display: flex;
+    flex-direction: column;
+    padding-top: 30px;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 10;
+    overflow-y: auto;
+}
+
+.iww-workshop-tree-ui-wrapper .iww-tree-sidebar-title {
+    padding: 0 0 15px 25px;
+    color: #fff;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    opacity: 0.8;
+}
+
+.iww-workshop-tree-ui-wrapper .iww-tree-sidebar-button {
+    padding: 12px 0 12px 25px;
+    cursor: pointer;
+    color: #666;
+    transition: color 0.2s, background 0.2s, border-color 0.2s, box-shadow 0.2s;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-left: 4px solid transparent;
+    font-weight: 600;
+    position: relative;
+}
+
+/* Hover: purple fill gradient */
+.iww-workshop-tree-ui-wrapper .iww-tree-sidebar-button:hover {
+    color: #fff;
+    background: linear-gradient(
+        90deg,
+        color-mix(in srgb, var(--iww-tree-theme-accent) 35%, transparent) 0%,
+        color-mix(in srgb, var(--iww-tree-theme-accent) 8%, transparent) 100%
+    );
+}
+
+/* Active: purple text + underglow */
+.iww-workshop-tree-ui-wrapper .iww-tree-sidebar-button.active {
+    color: var(--iww-tree-theme-text);
+    border-left-color: var(--iww-tree-theme-accent);
+    background: linear-gradient(
+        90deg,
+        color-mix(in srgb, var(--iww-tree-theme-accent) 12%, transparent) 0%,
+        transparent 100%
+    );
+    box-shadow: 0 6px 14px -4px color-mix(in srgb, var(--iww-tree-theme-accent) 40%, transparent);
+}
+
+/* Active + Hover */
+.iww-workshop-tree-ui-wrapper .iww-tree-sidebar-button.active:hover {
+    background: linear-gradient(
+        90deg,
+        color-mix(in srgb, var(--iww-tree-theme-accent) 30%, transparent) 0%,
+        color-mix(in srgb, var(--iww-tree-theme-accent) 6%, transparent) 100%
+    );
+}
+
+/* =====================================================================
+   3. SECTION TITLES (mobile fallback)
+   ===================================================================== */
+.iww-workshop-tree-ui-wrapper .iww-tree-section-title {
+    color: var(--iww-tree-theme-text) !important;
+    font-size: 13px !important;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 8px 0 6px;
+    border-bottom: 1px solid var(--iww-tree-surface-border);
+    margin-bottom: 4px;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Horizontal line after title text */
+.iww-workshop-tree-ui-wrapper .iww-tree-section-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        color-mix(in srgb, var(--iww-tree-theme-accent-dim) 60%, transparent) 0%,
+        transparent 100%
+    );
+}
+
+/* =====================================================================
+   4. RESPONSIVE - sidebar adjustments
+   ===================================================================== */
+@media (max-width: 1100px) {
+    .iww-workshop-tree-ui-wrapper .iww-tree-sidebar {
+        width: 160px;
+    }
+
+    .iww-workshop-tree-ui-wrapper .iww-tree-sidebar-title {
+        padding: 0 0 12px 16px;
+        font-size: 11px;
+    }
+
+    .iww-workshop-tree-ui-wrapper .iww-tree-sidebar-button {
+        padding: 10px 0 10px 16px;
+        font-size: 12px;
+    }
+
+    .iww-workshop-tree-ui-wrapper .iww-tree-content-area {
+        padding: 14px 16px 18px;
+    }
+
+    .iww-workshop-tree-ui-wrapper {
+        max-height: 70vh;
+    }
+}
+
+@media (max-width: 768px) {
+    .iww-workshop-tree-ui-wrapper .iww-tree-sidebar {
+        display: none !important;
+    }
+
+    .iww-workshop-tree-ui-wrapper {
+        max-height: 75vh;
+    }
+
+    .iww-workshop-tree-ui-wrapper .iww-tree-content-area {
+        padding: 10px 10px 14px;
+    }
+
+    .iww-workshop-tree-ui-wrapper .iww-tree-view {
+        --iww-tree-node-size: 64px !important;
+        --iww-tree-row-gap: 60px !important;
+    }
+
+    /* Show item names as persistent labels below each node */
+    .iww-workshop-tree-ui-wrapper.js-ready .iww-tree-node .iww-tree-tooltip,
+    .iww-workshop-tree-ui-wrapper:not(.js-ready) .iww-tree-node .iww-tree-tooltip {
+        display: block !important;
+        position: absolute !important;
+        top: calc(100% + 2px) !important;
+        bottom: auto !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        background: none !important;
+        border: none !important;
+        box-shadow: none !important;
+        color: #aaa !important;
+        font-size: 7px !important;
+        font-weight: 600 !important;
+        padding: 2px 0 0 !important;
+        white-space: normal !important;
+        overflow-wrap: break-word !important;
+        word-break: break-word !important;
+        text-align: center !important;
+        width: var(--iww-tree-node-size) !important;
+        max-width: var(--iww-tree-node-size) !important;
+        overflow: hidden !important;
+        line-height: 1.2 !important;
+        pointer-events: none !important;
+        text-transform: none !important;
+        letter-spacing: 0 !important;
+        z-index: auto !important;
+    }
+}

@@ -1,0 +1,440 @@
+/* === SHARED TREE UI - Grid, Connectors, Nodes, Tooltips === */
+/* Tree-specific styles can override these, but the shared layer also  */
+/* picks up wiki.gg theme tokens when they are available.              */
+
+/* Scoped border-box */
+.iww-tree-ui-wrapper,
+.iww-tree-ui-wrapper *,
+.iww-tree-ui-wrapper *::before,
+.iww-tree-ui-wrapper *::after {
+    box-sizing: border-box;
+}
+
+/* =====================================================================
+   1. MAIN LAYOUT
+   ===================================================================== */
+.iww-tree-ui-wrapper {
+    --iww-tree-surface-bg: var(--wiki-content-background-color, #050505);
+    --iww-tree-surface-bg-alt: var(--wiki-content-background-color--secondary, #080808);
+    --iww-tree-surface-border: var(--wiki-content-border-color, #333);
+    --iww-tree-surface-border-soft: var(--wiki-content-body-border-color, #222);
+    --iww-tree-surface-text: var(--wiki-content-text-color, #e0e0e0);
+    --iww-tree-heading-text: var(--wiki-content-heading-color, #f0f0f0);
+    --iww-tree-link-text: var(--wiki-content-link-color, #e0c56a);
+    --iww-tree-pan-buffer-left: 180px;
+    --iww-tree-pan-buffer-right: 180px;
+    --iww-tree-pan-buffer-top: 140px;
+    --iww-tree-pan-buffer-bottom: 140px;
+    --iww-tree-theme-tooltip-bg: var(--wiki-content-background-color--secondary, #1a1a1a);
+    --iww-tree-theme-glow-18: color-mix(in srgb, var(--iww-tree-theme-accent) 18%, transparent);
+    --iww-tree-theme-glow-30: color-mix(in srgb, var(--iww-tree-theme-accent) 30%, transparent);
+    --iww-tree-theme-glow-35: color-mix(in srgb, var(--iww-tree-theme-accent) 35%, transparent);
+    --iww-tree-theme-glow-50: color-mix(in srgb, var(--iww-tree-theme-accent) 50%, transparent);
+    display: flex;
+    background-color: var(--iww-tree-surface-bg);
+    border: 1px solid var(--iww-tree-surface-border);
+    max-height: 75vh;
+    font-family: 'Open Sans', sans-serif;
+    color: var(--iww-tree-surface-text);
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+/* =====================================================================
+   2. CONTENT AREA
+   ===================================================================== */
+.iww-tree-content-area {
+    flex-grow: 1;
+    padding: 20px 30px 30px;
+    background: radial-gradient(
+        ellipse at 30% 40%,
+        var(--iww-tree-surface-bg-alt) 0%,
+        var(--iww-tree-surface-bg) 100%
+    );
+    overflow: hidden;
+    position: relative;
+    min-width: 0;
+    min-height: 0;
+    z-index: 20;
+}
+
+.iww-tree-view {
+    display: block;   /* show all tabs as sections when JS is absent */
+    width: max-content;
+    min-width: 100%;
+}
+
+/* Section dividers between tabs when JS hasn't activated tab mode */
+.iww-tree-view + .iww-tree-view {
+    padding-top: 18px;
+    margin-top: 24px;
+}
+
+/* Once JS is ready, collapse all tabs and show only .active */
+.iww-tree-ui-wrapper.js-ready .iww-tree-view {
+    display: none;
+}
+.iww-tree-ui-wrapper.js-ready .iww-tree-content-area {
+    display: flex;
+}
+.iww-tree-ui-wrapper.js-ready .iww-tree-view.active {
+    display: flex;
+    flex: 0 0 auto;
+    min-width: calc(100% + var(--iww-tree-pan-buffer-left) + var(--iww-tree-pan-buffer-right));
+    min-height: calc(100% + var(--iww-tree-pan-buffer-top) + var(--iww-tree-pan-buffer-bottom));
+    padding:
+        var(--iww-tree-pan-buffer-top)
+        var(--iww-tree-pan-buffer-right)
+        var(--iww-tree-pan-buffer-bottom)
+        var(--iww-tree-pan-buffer-left);
+    animation: iwwTreeFadeIn 0.3s ease;
+}
+
+/* Section titles hidden in tab mode; shown on mobile (see @media below) */
+.iww-tree-section-title {
+    display: none;
+}
+
+.iww-tree-ui-wrapper.js-ready .iww-tree-view.active > :not(.iww-tree-section-title) {
+    margin: auto;
+}
+
+/* Remove section dividers in tab mode */
+.iww-tree-ui-wrapper.js-ready .iww-tree-view + .iww-tree-view {
+    border-top: none;
+    padding-top: 0;
+    margin-top: 0;
+}
+
+@keyframes iwwTreeFadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+/* =====================================================================
+   3. CANVAS (absolute positioning)
+   ===================================================================== */
+.iww-tree-canvas {
+    position: relative;
+    padding: 0;
+    flex-shrink: 0;
+}
+
+.iww-tree-canvas .iww-tree-node {
+    position: absolute;
+}
+
+/* .iww-tree-conn-svg and polyline styles are applied inline via JS
+   (drawConnections) since SVG properties are not supported by
+   MediaWiki's Sanitized CSS content model. */
+
+.iww-tree-ui-wrapper.js-ready .iww-tree-canvas.has-conn-fallback .iww-tree-conn-fallback {
+    display: none;
+}
+
+/* =====================================================================
+   4. ITEM NODE
+   ===================================================================== */
+.iww-tree-node {
+    width: var(--iww-tree-node-size);
+    height: var(--iww-tree-node-size);
+    background: color-mix(in srgb, var(--iww-tree-surface-bg-alt) 82%, #121217);
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: auto;
+    box-shadow: none;
+    font-size: 0;           /* hide broken File: text for missing images */
+    color: transparent;
+    /* No transform - pseudo-element lines must stay fixed on hover */
+    transition: box-shadow 0.25s, background 0.35s;
+}
+
+/* --- Icon display --- */
+.iww-tree-node a {
+    font-size: 0 !important;
+    color: transparent !important;
+    text-decoration: none !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 6;
+}
+
+.iww-tree-page-link {
+    position: absolute;
+    inset: 0;
+    z-index: 8;
+}
+
+.iww-tree-page-link a {
+    position: absolute !important;
+    inset: 0;
+    display: block !important;
+}
+
+.iww-tree-node img {
+    max-width: 64px !important;
+    max-height: 64px !important;
+    width: auto;
+    height: auto;
+    display: block;
+    object-fit: contain;
+    transition: filter 0.3s;
+}
+
+.iww-tree-node-frame {
+    position: absolute;
+    inset: 0;
+    background-image: url('/wiki/Special:Redirect/file/OrbitalNode_Unlocked_Normal.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    pointer-events: none;
+    z-index: 4;
+    transition: filter 0.25s;
+}
+
+/* Icon wrapper - clips broken File: text for missing images */
+.iww-tree-icon-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-size: 0 !important;
+    color: transparent !important;
+    position: relative;
+}
+
+/* Hide red links for missing files inside nodes */
+.iww-tree-icon-wrap a.new,
+.iww-tree-page-link a.new {
+    display: none;
+}
+
+/* Handle wiki templates that wrap in extra spans/divs */
+.iww-tree-node > span:not(.iww-tree-tooltip):not(.iww-tree-corner-cut):not(.iww-tree-glow):not(.iww-tree-node-frame):not(.iww-tree-icon-wrap):not(.iww-tree-page-link):not(.iww-talent-tree-level-counter):not(.iww-talent-tree-rank-badge),
+.iww-tree-node > div:not(.iww-mission-tree-node-card) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.iww-tree-node > span.iww-tree-page-link {
+    display: block;
+    width: auto;
+    height: auto;
+}
+
+/* =====================================================================
+   5. CORNER CUT (top-right diagonal)
+   ===================================================================== */
+.iww-tree-corner-cut {
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    width: 14px;
+    height: 14px;
+    background: var(--iww-tree-surface-bg);
+    clip-path: polygon(0 0, 100% 0, 100% 100%);
+    z-index: 15;
+    pointer-events: none;
+}
+
+.iww-tree-corner-cut::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 21px;
+    height: 2px;
+    background: var(--iww-tree-surface-border);
+    transform-origin: top right;
+    transform: rotate(-45deg);
+    z-index: 16;
+    transition: background 0.25s;
+}
+
+/* =====================================================================
+   6. EXPANDING GLOW FRAME (hover animation)
+   ===================================================================== */
+.iww-tree-glow {
+    position: absolute;
+    inset: -7px;
+    border: 1px solid transparent;
+    opacity: 0;
+    transform: scale(0.92);
+    transition: opacity 0.3s ease, transform 0.3s ease, border-color 0.3s ease,
+                box-shadow 0.3s ease;
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* =====================================================================
+   7. HOVER EFFECTS - no transform on .iww-tree-node!
+   ===================================================================== */
+.iww-tree-node:hover {
+    box-shadow: 0 0 18px var(--iww-tree-theme-glow-35);
+    background: radial-gradient(
+        circle at bottom left,
+        var(--iww-tree-theme-glow-30) 0%,
+        transparent 70%
+    ), color-mix(in srgb, var(--iww-tree-surface-bg) 86%, #141414);
+}
+
+.iww-tree-node:hover img {
+    filter: brightness(1.15);
+}
+
+.iww-tree-node:hover .iww-tree-node-frame {
+    filter: brightness(1.08) saturate(1.12);
+}
+
+.iww-tree-node:hover .iww-tree-glow {
+    opacity: 1;
+    transform: scale(1);
+    border-color: var(--iww-tree-theme-glow-50);
+    box-shadow: 0 0 22px var(--iww-tree-theme-glow-18);
+}
+
+/* =====================================================================
+   8. TOOLTIP
+   ===================================================================== */
+.iww-tree-tooltip {
+    display: none;
+    position: absolute;
+    bottom: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--iww-tree-theme-tooltip-bg, #1a1a1a);
+    color: #fff;
+    font-size: 11px;
+    font-weight: bold;
+    text-transform: uppercase;
+    white-space: nowrap;
+    padding: 6px 10px;
+    border: 1px solid var(--iww-tree-theme-accent);
+    border-top: 3px solid var(--iww-tree-theme-accent);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.8);
+    pointer-events: none;
+    z-index: 999;
+}
+
+.iww-tree-ui-wrapper:not(.js-ready) .iww-tree-node:hover .iww-tree-tooltip {
+    display: block;
+}
+
+.iww-tree-ui-wrapper.js-ready .iww-tree-node .iww-tree-tooltip {
+    display: none !important;
+}
+
+.iww-tree-tooltip-floating {
+    position: fixed;
+    left: -9999px;
+    top: -9999px;
+    z-index: 2147483647;
+    pointer-events: none;
+    white-space: nowrap;
+    padding: 6px 10px;
+    font-size: 11px;
+    font-weight: 700;
+    line-height: 1.2;
+    text-transform: uppercase;
+    color: #fff;
+    background-color: var(--iww-tree-theme-tooltip-bg, #1a1a1a);
+    border: 1px solid #b580c9;
+    border-top: 3px solid #b580c9;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.8);
+}
+
+/* =====================================================================
+   9. INBOX (unlinked items)
+   ===================================================================== */
+.iww-tree-inbox {
+    margin-top: 40px;
+    padding: 15px;
+    border: 1px dashed var(--iww-tree-surface-border);
+    background: color-mix(in srgb, var(--iww-tree-surface-bg) 88%, #0a0a0a);
+}
+
+.iww-tree-inbox h3,
+.iww-tree-inbox-title {
+    color: color-mix(in srgb, var(--iww-tree-surface-text) 35%, transparent);
+    font-size: 11px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.iww-tree-inbox-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+/* =====================================================================
+   10. RESPONSIVE - mobile unfolded layout
+   ===================================================================== */
+@media (max-width: 768px) {
+    /* Remove fixed height - wrapper expands to fit all sections */
+    .iww-tree-ui-wrapper {
+        max-height: none !important;
+    }
+
+    /* Content area: normal flow (page handles vertical scroll) */
+    .iww-tree-ui-wrapper .iww-tree-content-area {
+        display: block !important;
+        overflow: visible !important;
+    }
+
+    /* Show ALL tree-views stacked vertically */
+    .iww-tree-ui-wrapper .iww-tree-view {
+        display: block !important;
+    }
+
+    /* Remove pan-buffer layout from tree-views */
+    .iww-tree-ui-wrapper .iww-tree-view,
+    .iww-tree-ui-wrapper .iww-tree-view.active {
+        min-width: 0 !important;
+        min-height: 0 !important;
+        padding: 0 !important;
+        flex: unset !important;
+    }
+
+    /* Remove auto-centering margin on children */
+    .iww-tree-ui-wrapper .iww-tree-view > :not(.iww-tree-section-title) {
+        margin: 0 !important;
+    }
+
+    /* Show section titles */
+    .iww-tree-ui-wrapper .iww-tree-section-title {
+        display: flex !important;
+    }
+
+    /* Section dividers between stacked views */
+    .iww-tree-ui-wrapper .iww-tree-view + .iww-tree-view {
+        padding-top: 12px !important;
+        margin-top: 16px !important;
+    }
+
+    /* Constrain tree-view to parent width so overflow-x creates scrollbars.
+       The base rule sets width:max-content which must be overridden. */
+    .iww-tree-view {
+        width: auto !important;
+        min-width: 0 !important;
+        overflow-x: auto !important;
+    }
+
+    /* Talent: hide duplicate solo views if legacy markup is still present */
+    .iww-talent-tree-ui-wrapper .iww-talent-tree-solo-view ~ .iww-talent-tree-solo-view {
+        display: none !important;
+    }
+}

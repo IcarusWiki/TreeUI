@@ -1,0 +1,463 @@
+/* === TALENT TREE THEME - Gold palette + Horizontal top bar === */
+/* Loaded alongside TreeShared/styles.css by TalentTree.lua.    */
+
+/* =====================================================================
+   1. THEME VARIABLES (gold)
+   ===================================================================== */
+.iww-talent-tree-ui-wrapper {
+    --iww-tree-theme-accent:        var(--wiki-accent-color, #d4a832);
+    --iww-tree-theme-accent-dim:    var(--wiki-content-border-color, #8a7030);
+    --iww-tree-theme-text:          var(--iww-tree-link-text, #e8c84d);
+    --iww-tree-theme-tooltip-bg:    var(--wiki-content-background-color--secondary, #111);
+    --iww-tree-pan-buffer-top: 0px;
+}
+
+/* =====================================================================
+   2. LAYOUT OVERRIDE - column flex instead of row
+   ===================================================================== */
+.iww-talent-tree-ui-wrapper {
+    flex-direction: column;
+}
+
+/* =====================================================================
+   3. TOP BAR (horizontal navigation)
+   ===================================================================== */
+.iww-talent-tree-top-bar {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    background-color: color-mix(in srgb, var(--iww-tree-surface-bg) 88%, #0b0b0b);
+    border-bottom: 1px solid var(--iww-tree-surface-border-soft);
+    padding: 0 20px;
+    flex-shrink: 0;
+    z-index: 10;
+    min-height: 48px;
+}
+
+.iww-talent-tree-tab-group {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    grid-column: 2;
+}
+
+.iww-talent-tree-tab-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 12px 18px;
+    cursor: pointer;
+    color: #666;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 3px solid transparent;
+    transition: color 0.2s, background 0.2s, border-color 0.2s;
+    position: relative;
+    white-space: nowrap;
+}
+
+.iww-talent-tree-tab-icon {
+    display: inline-flex;
+    align-items: center;
+    width: 20px;
+    height: 20px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+/* Hide red links for missing tab icons */
+.iww-talent-tree-tab-icon a.new {
+    display: none;
+}
+
+.iww-talent-tree-tab-btn:hover {
+    color: #fff;
+    background: linear-gradient(
+        180deg,
+        transparent 0%,
+        color-mix(in srgb, var(--iww-tree-theme-accent) 15%, transparent) 100%
+    );
+}
+
+.iww-talent-tree-tab-btn.active {
+    color: #fff;
+    border-bottom-color: var(--iww-tree-theme-accent);
+    background: linear-gradient(
+        180deg,
+        transparent 0%,
+        color-mix(in srgb, var(--iww-tree-theme-accent) 18%, transparent) 40%,
+        color-mix(in srgb, var(--iww-tree-theme-accent) 30%, transparent) 100%
+    );
+    text-shadow: 0 0 8px color-mix(in srgb, var(--iww-tree-theme-accent) 50%, transparent);
+}
+
+.iww-talent-tree-tab-btn.active:hover {
+    background: linear-gradient(
+        180deg,
+        transparent 0%,
+        color-mix(in srgb, var(--iww-tree-theme-accent) 22%, transparent) 40%,
+        color-mix(in srgb, var(--iww-tree-theme-accent) 35%, transparent) 100%
+    );
+}
+
+/* =====================================================================
+   4. TALENTS / SOLO TOGGLE
+   ===================================================================== */
+.iww-talent-tree-mode-toggle {
+    display: flex;
+    align-items: center;
+    justify-self: end;
+    grid-column: 3;
+    border: 1px solid var(--iww-tree-theme-accent);
+    overflow: hidden;
+}
+
+.iww-talent-tree-mode-btn {
+    width: 90px;
+    padding: 6px 0;
+    cursor: pointer;
+    color: #666;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: center;
+    transition: color 0.2s, background 0.2s;
+    user-select: none;
+}
+
+.iww-talent-tree-mode-btn:hover {
+    color: #ccc;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.iww-talent-tree-mode-btn.active {
+    color: var(--iww-tree-theme-text);
+    background: color-mix(in srgb, var(--iww-tree-theme-accent) 15%, transparent);
+}
+
+/* =====================================================================
+   5. SUB-CATEGORY CONTAINER (side-by-side layout)
+   ===================================================================== */
+.iww-talent-tree-sub-container {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 40px;
+    align-items: flex-start;
+    width: max-content;
+    min-width: 100%;
+}
+
+.iww-talent-tree-sub-section {
+    flex-shrink: 0;
+}
+
+/* Solo view: single tree, centered */
+.iww-talent-tree-solo-view .iww-talent-tree-sub-container {
+    justify-content: center;
+    width: auto;
+    min-width: 0;
+}
+
+.iww-talent-tree-ui-wrapper.js-ready .iww-tree-view.active > :not(.iww-tree-section-title) {
+    margin: 0 auto auto;
+}
+
+.iww-talent-tree-sub-header {
+    color: var(--iww-tree-theme-text) !important;
+    font-size: 12px !important;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 0 0 8px;
+    margin: 0 0 4px;
+    border-bottom: 2px solid var(--iww-tree-theme-accent-dim);
+    text-align: center;
+    white-space: nowrap;
+}
+
+/* =====================================================================
+   6. TALENT NODE - level counter + frame override
+   ===================================================================== */
+.iww-talent-tree-level-counter {
+    position: absolute;
+    top: -6px;
+    left: -6px;
+    background: var(--iww-tree-theme-accent);
+    border: none;
+    color: #000;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 4px;
+    z-index: 12;
+    pointer-events: none;
+    line-height: 1.2;
+    min-width: 22px;
+    text-align: center;
+}
+
+.iww-talent-tree-rank-badge {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    z-index: 12;
+    pointer-events: none;
+    background: color-mix(in srgb, var(--iww-tree-surface-bg) 88%, #111);
+    padding: 1px;
+    line-height: 0;
+}
+
+.iww-talent-tree-node-frame {
+    background-image: url('/wiki/Special:Redirect/file/TalentNode_Normal.png');
+}
+
+/* =====================================================================
+   7. RICH TOOLTIP (talent details - matches in-game style)
+   ===================================================================== */
+.iww-talent-tree-tooltip-rich {
+    white-space: normal !important;
+    max-width: 340px;
+    min-width: 200px;
+    padding: 0 !important;
+    text-transform: none !important;
+    font-weight: 400 !important;
+    text-align: center;
+    background: var(--iww-tree-theme-tooltip-bg, #111) !important;
+    border: 1px solid var(--iww-tree-surface-border, #333) !important;
+    border-top: none !important;
+    overflow: hidden;
+}
+
+/* Title bar - yellow background with underglow */
+.iww-talent-tree-tip-name {
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #000;
+    background: linear-gradient(
+        180deg,
+        color-mix(in srgb, var(--iww-tree-theme-accent) 78%, white 22%) 0%,
+        color-mix(in srgb, var(--iww-tree-theme-accent-dim) 78%, black 22%) 100%
+    );
+    padding: 8px 16px;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 12px color-mix(in srgb, var(--iww-tree-theme-accent) 40%, transparent);
+}
+
+/* Description - white medium text */
+.iww-talent-tree-tip-desc {
+    font-size: 13px;
+    color: var(--iww-tree-surface-text);
+    padding: 10px 16px 6px;
+    line-height: 1.4;
+}
+
+/* Horizontal rule separators */
+.iww-talent-tree-tip-hr {
+    border: none;
+    border-top: 1px solid color-mix(in srgb, var(--iww-tree-surface-border) 70%, transparent);
+    margin: 4px 16px;
+}
+
+/* Level entries - yellow smaller text */
+.iww-talent-tree-tip-levels {
+    font-size: 11px;
+    color: var(--iww-tree-theme-text);
+    padding: 4px 16px;
+    line-height: 1.6;
+}
+
+.iww-talent-tree-tip-level {
+    padding: 1px 0;
+}
+
+/* =====================================================================
+   8. ANIMAL TREE COLLAPSIBLE SHELL
+   ===================================================================== */
+.iww-animal-talent-tree-collapsible {
+    width: 100%;
+    margin: 18px 0;
+    border: 1px solid color-mix(in srgb, var(--iww-tree-theme-accent) 28%, transparent);
+    background: linear-gradient(
+        180deg,
+        color-mix(in srgb, var(--iww-tree-surface-bg) 92%, var(--iww-tree-theme-accent) 8%) 0%,
+        color-mix(in srgb, var(--iww-tree-surface-bg) 96%, black 4%) 100%
+    );
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.35);
+    overflow: hidden;
+}
+
+.iww-animal-talent-tree-toggle-bar {
+    padding: 18px;
+    background:
+        radial-gradient(
+            circle at center,
+            color-mix(in srgb, var(--iww-tree-theme-accent) 18%, transparent) 0%,
+            color-mix(in srgb, var(--iww-tree-theme-accent) 6%, transparent) 38%,
+            transparent 72%
+        ),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.02) 0%, rgba(0, 0, 0, 0.08) 100%);
+}
+
+.iww-animal-talent-tree-collapsible:not(.mw-collapsed) .iww-animal-talent-tree-toggle-bar {
+    border-bottom: 1px solid color-mix(in srgb, var(--iww-tree-theme-accent) 22%, transparent);
+}
+
+.iww-animal-talent-tree-toggle-bar .mw-collapsible-toggle {
+    float: none;
+    display: block;
+    width: 100%;
+    margin: 0;
+}
+
+.iww-animal-talent-tree-toggle-bar .mw-collapsible-toggle a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 54px;
+    padding: 14px 24px;
+    border: 1px solid color-mix(in srgb, var(--iww-tree-theme-accent) 50%, transparent);
+    background:
+        linear-gradient(
+            180deg,
+            color-mix(in srgb, var(--iww-tree-theme-accent) 22%, transparent) 0%,
+            color-mix(in srgb, var(--iww-tree-theme-accent) 9%, transparent) 100%
+        ),
+        color-mix(in srgb, var(--iww-tree-surface-bg) 90%, #090909);
+    color: var(--iww-tree-theme-text);
+    font-size: 0;
+    font-weight: 800;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    text-decoration: none;
+    box-shadow:
+        inset 0 0 0 1px rgba(255, 255, 255, 0.04),
+        0 0 18px color-mix(in srgb, var(--iww-tree-theme-accent) 12%, transparent);
+    transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+}
+
+.iww-animal-talent-tree-toggle-bar .mw-collapsible-toggle a::after {
+    font-size: 14px;
+    line-height: 1;
+}
+
+.iww-animal-talent-tree-collapsible.mw-collapsed .iww-animal-talent-tree-toggle-bar .mw-collapsible-toggle a::after {
+    content: "Show Talent Tree";
+}
+
+.iww-animal-talent-tree-collapsible:not(.mw-collapsed) .iww-animal-talent-tree-toggle-bar .mw-collapsible-toggle a::after {
+    content: "Hide Talent Tree";
+}
+
+.iww-animal-talent-tree-toggle-bar .mw-collapsible-toggle a:hover,
+.iww-animal-talent-tree-toggle-bar .mw-collapsible-toggle a:focus {
+    border-color: var(--iww-tree-theme-accent);
+    box-shadow:
+        inset 0 0 0 1px rgba(255, 255, 255, 0.08),
+        0 0 24px color-mix(in srgb, var(--iww-tree-theme-accent) 22%, transparent);
+    transform: translateY(-1px);
+}
+
+.iww-animal-talent-tree-toggle-bar .mw-collapsible-toggle a:focus {
+    outline: 2px solid color-mix(in srgb, var(--iww-tree-theme-accent) 55%, transparent);
+    outline-offset: 2px;
+}
+
+.iww-animal-talent-tree-collapsible-content {
+    display: block;
+}
+
+.iww-animal-talent-tree-collapsible-content > .iww-animal-talent-tree-ui-wrapper {
+    border: none;
+}
+
+/* =====================================================================
+   9. RESPONSIVE
+   ===================================================================== */
+@media (max-width: 1100px) {
+    .iww-talent-tree-top-bar {
+        padding: 0 12px;
+    }
+
+    .iww-talent-tree-tab-btn {
+        padding: 10px 12px;
+        font-size: 12px;
+    }
+
+    .iww-talent-tree-sub-container {
+        gap: 24px;
+    }
+
+    .iww-talent-tree-ui-wrapper .iww-tree-content-area {
+        padding: 14px 16px 18px;
+    }
+
+    .iww-talent-tree-ui-wrapper {
+        max-height: 70vh;
+    }
+}
+
+@media (max-width: 768px) {
+    .iww-animal-talent-tree-toggle-bar {
+        padding: 12px;
+    }
+
+    .iww-animal-talent-tree-toggle-bar .mw-collapsible-toggle a {
+        min-height: 48px;
+        padding: 12px 16px;
+    }
+
+    /* Hide tab bar - all views shown as stacked sections */
+    .iww-talent-tree-top-bar {
+        display: none !important;
+    }
+
+    .iww-talent-tree-sub-container {
+        flex-direction: column;
+        gap: 30px;
+        width: auto;
+        min-width: 0;
+    }
+
+    .iww-talent-tree-ui-wrapper .iww-tree-content-area {
+        padding: 10px 10px 14px;
+    }
+
+    .iww-talent-tree-ui-wrapper .iww-tree-view {
+        --iww-tree-node-size: 64px !important;
+        --iww-tree-row-gap: 60px !important;
+    }
+
+    /* Show talent names as persistent labels below each node on mobile */
+    .iww-talent-tree-ui-wrapper.js-ready .iww-tree-node .iww-tree-tooltip,
+    .iww-talent-tree-ui-wrapper:not(.js-ready) .iww-tree-node .iww-tree-tooltip {
+        display: block !important;
+        position: absolute !important;
+        top: calc(100% + 2px) !important;
+        bottom: auto !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        background: none !important;
+        border: none !important;
+        box-shadow: none !important;
+        color: #aaa !important;
+        font-size: 7px !important;
+        font-weight: 600 !important;
+        padding: 2px 0 0 !important;
+        white-space: normal !important;
+        overflow-wrap: break-word !important;
+        word-break: break-word !important;
+        text-align: center !important;
+        width: var(--iww-tree-node-size) !important;
+        max-width: var(--iww-tree-node-size) !important;
+        overflow: hidden !important;
+        line-height: 1.2 !important;
+        pointer-events: none !important;
+        text-transform: none !important;
+        letter-spacing: 0 !important;
+        z-index: auto !important;
+    }
+}

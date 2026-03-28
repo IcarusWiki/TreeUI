@@ -1,0 +1,84 @@
+{{Prospect
+  | title={{PAGENAME}}
+  | image=Prospect_{{PAGENAME}}.png
+  | map=[[Olympus]]
+  | region=[[Forest]]
+  | difficulty=1
+  | duration=7 Days
+  | required_tech=1
+  | prereq_prospect=
+  | unlocked_prospect={{Mission icon|Dry Run}}<br>{{Mission icon|Homestead}}<br>{{Mission icon|Icestorm}}<br>{{Mission icon|Livewire}}<br>{{Mission icon|Potshot}}<br>{{Mission icon|Spelunking}}<br>{{Mission icon|Strange Harvest}}
+  | #_of_deposits=
+  | min_total_yield=
+  | max_total_yield=
+  | currency_Ren=25
+  | currency_Exotics=
+  | currency_RedExotics=
+  | currency_Biomass=
+  | melee_damage(normal)=-50%
+  | hp(normal)=-50%
+  | speed(normal)=-10%
+  | perception(normal)=-50%
+  | melee_damage(hard)=-30%
+  | hp(hard)=-20%
+  | speed(hard)=+0%
+  | perception(hard)=-20%
+}}
+[[{{PAGENAME}}]] is a [[Missions|Mission]] on [[Olympus]] in the [[Forest|Forest Biome]]. This mission cannot be started as an [[Operation]] in an [[Open World]].
+
+{{PAGENAME}} is '''not''' required to unlock subsequent missions on [[Olympus]].
+
+There is no difference in difficulty between Easy and Normal, except for experience gain and reward amount.
+{{Mission Briefing
+|title = UDA-MANDATED FIRST DROP FOR NEW PROSPECTORS
+|operator=UDA
+|biome=Forest
+|background=UDA regulations require new Icarus arrivals to demonstrate basic survival skills in this region before accepting further contracts.
+|mission=Prospectors are not expected to pursue specific objectives. Survival is deemed fulfilment.
+|terms=Contractors will be provided with a functioning envirosuit, and basic crafting information. They will be otherwise unassisted. No further tasking will occur until basic competency is attained.
+}}
+
+==Objectives==
+'''Recon: Forest Zone'''
+* Hunt, gather, craft.
+** Low on water: Find a {{Icon link|Water|water source}} to drink from.
+** Low on oxygen: Find {{Item icon|Oxite|blue oxites rocks}} on the ground to consume.
+** Low on food: Find {{Item icon|Wild Berry|berries}}, {{Item icon|Cooked Meat|meat}} or other [[Food|food]] to eat.
+* Gather {{Item icon|Stick|Sticks}}, {{Item icon|Stone|Stones}} off the ground and {{Item icon|Fiber}} from bushes then open the Crafting Menu (O) and Craft a {{Item icon|Stone Axe}} for Protection
+*All your actions grant experience: Level up for access to new skills and blueprints.
+**You leveled up: Spend your [[Blueprints|Blueprint]] and [[Talents|Talent Points]] (P)
+*Unlock a {{Item icon|Wood Rag Torch}} (P) and Craft it with (O) to provide yourself light during the night
+*Build a shelter and craft a {{Item icon|Bedroll|bedroll}} to survive the harsh Icarus environment.
+*Interact and Launch your Dropship to Complete the Mission
+----
+* Press (J) to open the Field Guide for more world and items information.
+
+== Hints and Tips==
+While {{PAGENAME}} is the first mission Prospectors may participate in, it is marked as completed by default. It does not count towards the overall mission progress for the achievement [[Achievements#Zero_To_Hero|Zero To Hero]].
+
+It is recommended that new prospectors begin with this mission before proceeding to [[Open World]]. Since there is no difference between Easy and Normal difficulty, it is recommended to play on Normal difficulty or above to avoid the experience and reward penalty.
+
+The {{Item icon|Wood Torch}} does not count towards the objective "to provide yourself light during the night", prospectors will need to craft the Wood Rag Torch.
+
+The {{Item icon|Bedroll}} will need to be in [[Shelter|shelter]] in order for the objective to count. The bedroll can be picked up and placed back down after the objective has been completed, and the prospector will not lose progress.
+
+Prospectors by default will have the following blueprints unlocked: {{Item icon|Stone Axe}}, {{Item icon|Stone Pickaxe}}, {{Item icon|Wood Pile}}, {{Item icon|Stone Pile}}
+* Using Wood Piles and Stone Piles is an optimal way to store {{Item icon|Wood}} and {{Item icon|Stone}} until the prospector unlocks alternate storage methods.
+
+Unlocking the {{Item icon|Stone Knife}} is required to skin [[Fauna|animals]] in order to gather the {{Item icon|Fur}} and {{Item icon|Leather}} needed to craft the Bedroll.
+* Unlocking a ranged weapon like the {{Item icon|Wood Bow}} and {{Item icon|Stone Arrow|Stone Arrows}} can help prospectors hunt animals easier.
+* Some weapons have throwing variants that unlock with a single blueprint point. Unlocking the Stone Knife also unlocks the {{Item icon|Stone Throwing Knife}}, just like how the {{Item icon|Wood Spear}} will also unlock {{Item icon|Wood Javelin|Wood Javelins}}. These can be used as alternatives to Bows and Arrows for ranged hunting.
+* Sneaking by crouching ({{Key|keyboard|Ctrl}}) provides a 2.5x times damage modifier if the target is unaware of your presence, indicated by the "eye" icon in the lower-center of your screen.
+
+[[Weather Events]] on {{PAGENAME}} is not as severe as on other prospects. When playing on normal difficulty, the highest-tier storm a prospector will encounter is a Tier 1 storm. At full exposure, this can harm the prospector, but it can be easily countered by consuming {{Item icon|Cooked Meat}} to replenish the lost health.
+* It is possible for prospectors to "Jump" back into their drop pods and wait out the storms, but the positioning to be "In Shelter" (to reduce exposure) can be tricky.
+
+== Gallery ==
+<gallery widths=250 class=centered>
+File:GALLERY_Beachhead_Shelter.png|A small 1x1 [[Thatch Building Pieces|Thatch Building]] with a [[Bedroll]] and [[Campfire]]
+File:GALLERY_Beachhead_Bedroll.png|A [[Bedroll]] in shelter
+File:GALLERY_Beachhead_Prospector.png|A Prospector taking shelter in their drop pod
+</gallery>
+
+{{Mission Footer}}
+[[Category:Missions]]
