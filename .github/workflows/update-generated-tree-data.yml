@@ -1,0 +1,99 @@
+name: Update Generated Tree Data
+
+on:
+  repository_dispatch:
+    types:
+      - icarus-updated
+  workflow_dispatch:
+    inputs:
+      data_ref:
+        description: "Optional IcarusWiki/Data ref or SHA to generate from"
+        required: false
+        type: string
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-generated-tree-data
+  cancel-in-progress: false
+
+jobs:
+  regenerate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout TreeUI
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Resolve upstream ref
+        id: resolve-ref
+        shell: bash
+        env:
+          DISPATCH_SHA: ${{ github.event.client_payload.sha }}
+          MANUAL_REF: ${{ inputs.data_ref }}
+        run: |
+          DATA_REF="$DISPATCH_SHA"
+          if [ -z "$DATA_REF" ]; then
+            DATA_REF="$MANUAL_REF"
+          fi
+          if [ -z "$DATA_REF" ]; then
+            DATA_REF="main"
+          fi
+
+          echo "data_ref=$DATA_REF" >> "$GITHUB_OUTPUT"
+          echo "Using IcarusWiki/Data ref: $DATA_REF"
+
+      - name: Checkout IcarusWiki/Data
+        uses: actions/checkout@v6
+        with:
+          repository: IcarusWiki/Data
+          ref: ${{ steps.resolve-ref.outputs.data_ref }}
+          path: upstream-data
+          fetch-depth: 1
+          persist-credentials: false
+          token: ${{ secrets.ORG_PAT != '' && secrets.ORG_PAT || github.token }}
+
+      - name: Verify upstream files
+        shell: bash
+        run: |
+          if [ ! -d "./upstream-data/InGameFiles" ]; then
+            echo "::error::Expected ./upstream-data/InGameFiles after checkout"
+            find ./upstream-data -maxdepth 3 -type d | sort || true
+            exit 1
+          fi
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Generate Lua data
+        shell: bash
+        run: |
+          python scripts/generate_tree_data.py \
+            --in-dir ./upstream-data/InGameFiles \
+            --out-dir ./generated
+
+      - name: Commit generated Lua if changed
+        id: commit
+        shell: bash
+        env:
+          DATA_REF: ${{ steps.resolve-ref.outputs.data_ref }}
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add generated/*.lua
+
+          if git diff --cached --quiet -- generated/; then
+            echo "Generated Lua unchanged, skipping commit"
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          SHORT_REF="${DATA_REF:0:12}"
+          git commit -m "Update generated Lua data (${SHORT_REF})"
+          git push
+          echo "changed=true" >> "$GITHUB_OUTPUT"

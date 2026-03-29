@@ -81,12 +81,6 @@ All files in `generated/` are auto-generated. Do not edit them manually; re-run 
 | `css/mission.css` | Mission selector cards, topographical backdrop, prospect card chrome | `#a7c96d` |
 | `css/tech.css` | Blueprint tier top bar and tier buttons | `#59bfff` |
 
-### Config
-
-| File | Purpose |
-|------|---------|
-| `config/page_archetypes.toml` | Declarative archetype map for `scripts/build_stub_inventory.py`: assigns kinds, anchor templates, optional page components, Cargo-linked component families, renderer families, and simple match rules so new wiki page families can often be added without expanding Python branching |
-
 ### JavaScript
 
 `common.js` is loaded as a MediaWiki gadget and provides:
@@ -103,22 +97,7 @@ All files in `generated/` are auto-generated. Do not edit them manually; re-run 
 `data.pak` into it, preserving the archive's directory structure exactly as stored.
 
 `scripts/generate_tree_data.py` reads `InGameFiles/` JSON and writes the Lua data modules in `generated/`.
-
-`scripts/build_stub_inventory.py` reads `config/page_archetypes.toml` to decide which
-template, linked tables, and renderer family each generated wiki page should use.
-Most new page families can be introduced by adding a config entry; only a brand-new
-page layout needs a new Python renderer function.
-
-`scripts/discover_wiki_schema.py` snapshots live Cargo tables, fields, sample rows,
-and selected category memberships into `generated/wiki_schema/`. It rate-limits
-requests, retries on transient failures, and supports `--resume` so schema discovery
-can be spread across multiple safe runs. It also derives a
-`cargo_template_families.json` summary that separates Cargo component families
-like `Template:Itemable/FirearmData/CargoDeclare` from top-level templates using
-Cargo like `Template:ItemData`. With `--inspect-templates`, it also captures
-template source, direct template dependencies, and transclusion data into
-`generated/wiki_schema/templates/` plus a `template_inspection_summary.json`
-overview to help identify archetype-anchor templates.
+Use `--in-dir` and `--out-dir` to point it at a sibling checkout during automation.
 
 Usage:
 

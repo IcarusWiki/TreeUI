@@ -5,22 +5,60 @@ for the wiki tree UIs (Talent, Workshop, Blueprint, Creature, Prospect).
 
 Usage:
     python scripts/generate_tree_data.py
+    python scripts/generate_tree_data.py --in-dir .\InGameFiles --out-dir .\generated
 
 Reads from the extracted pak data under InGameFiles/ and writes to generated/
 """
 
+import argparse
 import json
 import re
-import os
-import sys
 from pathlib import Path
 
 # ── Paths ──────────────────────────────────────────────────────────────────
 ROOT = Path(__file__).resolve().parent.parent
-IN_DIR = ROOT / "InGameFiles"
-DATA_DIR = IN_DIR
-OUT_DIR = ROOT / "generated"
+DEFAULT_DATA_DIR = ROOT / "InGameFiles"
+DEFAULT_OUT_DIR = ROOT / "generated"
+DATA_DIR = DEFAULT_DATA_DIR
+OUT_DIR = DEFAULT_OUT_DIR
 DATA_FILE_CACHE = {}
+
+
+def resolve_cli_path(path):
+    expanded = Path(path).expanduser()
+    if not expanded.is_absolute():
+        expanded = ROOT / expanded
+    return expanded.resolve()
+
+
+def parse_args():
+    parser = argparse.ArgumentParser(
+        description=(
+            "Read extracted Icarus game JSON files and generate the Lua data "
+            "modules used by the wiki tree UIs."
+        )
+    )
+    parser.add_argument(
+        "--in-dir",
+        type=Path,
+        default=DEFAULT_DATA_DIR,
+        help=f"Directory containing extracted game data (default: {DEFAULT_DATA_DIR})",
+    )
+    parser.add_argument(
+        "--out-dir",
+        type=Path,
+        default=DEFAULT_OUT_DIR,
+        help=f"Directory to write generated Lua modules into (default: {DEFAULT_OUT_DIR})",
+    )
+    return parser.parse_args()
+
+
+def configure_paths(args):
+    global DATA_DIR, OUT_DIR
+
+    DATA_DIR = resolve_cli_path(args.in_dir)
+    OUT_DIR = resolve_cli_path(args.out_dir)
+    DATA_FILE_CACHE.clear()
 
 # ── Rendering constants (web-only, not in game data) ──────────────────────
 # Game stride → web pixel mapping. These control how game coordinates
@@ -592,7 +630,12 @@ def build_levels_string(rewards, stats_lookup):
 # ── Main processing ───────────────────────────────────────────────────────
 
 def main():
+    args = parse_args()
+    configure_paths(args)
+
     print("Loading game data files...")
+    print(f"  Input directory: {DATA_DIR}")
+    print(f"  Output directory: {OUT_DIR}")
     talents_data = load_json("Talents", "D_Talents.json")
     trees_data = load_json("Talents", "D_TalentTrees.json")
     views_data = load_json("Talents", "D_TalentViews.json")
@@ -996,7 +1039,7 @@ def main():
         view_info, prospect_info,
     )
 
-    print("\nDone! Files written to generated/")
+    print(f"\nDone! Files written to {OUT_DIR}")
 
 
 def normalize_tree_positions(nodes_by_tree, scale, node_size, padding=10,
@@ -1178,7 +1221,7 @@ def generate_talent_data(talent_nodes, solo_nodes, all_connections, tree_info,
     lines.append("return data")
 
     # Write file
-    OUT_DIR.mkdir(exist_ok=True)
+    OUT_DIR.mkdir(parents=True, exist_ok=True)
     out_path = OUT_DIR / "TalentData.lua"
     with open(out_path, "w", encoding="utf-8") as f:
         f.write("\n".join(lines) + "\n")
@@ -1300,7 +1343,7 @@ def generate_animal_talent_data(creature_nodes, all_connections, tree_info,
     lines.append("")
     lines.append("return data")
 
-    OUT_DIR.mkdir(exist_ok=True)
+    OUT_DIR.mkdir(parents=True, exist_ok=True)
     out_path = OUT_DIR / "AnimalTalentData.lua"
     with open(out_path, "w", encoding="utf-8") as f:
         f.write("\n".join(lines) + "\n")
@@ -1428,7 +1471,7 @@ def generate_workshop_data(workshop_nodes, all_connections, tree_info,
     lines.append("return data")
 
     # Write file
-    OUT_DIR.mkdir(exist_ok=True)
+    OUT_DIR.mkdir(parents=True, exist_ok=True)
     out_path = OUT_DIR / "WorkshopData.lua"
     with open(out_path, "w", encoding="utf-8") as f:
         f.write("\n".join(lines) + "\n")
@@ -1547,7 +1590,7 @@ def generate_tech_data(tech_nodes, all_connections, tree_info,
     lines.append("")
     lines.append("return data")
 
-    OUT_DIR.mkdir(exist_ok=True)
+    OUT_DIR.mkdir(parents=True, exist_ok=True)
     out_path = OUT_DIR / "TechData.lua"
     with open(out_path, "w", encoding="utf-8") as f:
         f.write("\n".join(lines) + "\n")
@@ -1815,7 +1858,7 @@ def generate_mission_data(prospect_nodes, all_connections, tree_info,
     lines.append("")
     lines.append("return data")
 
-    OUT_DIR.mkdir(exist_ok=True)
+    OUT_DIR.mkdir(parents=True, exist_ok=True)
     out_path = OUT_DIR / "MissionData.lua"
     with open(out_path, "w", encoding="utf-8") as f:
         f.write("\n".join(lines) + "\n")
