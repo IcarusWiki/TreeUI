@@ -66,7 +66,7 @@ jobs:
           fi
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: "3.12"
 
@@ -103,3 +103,4 @@ jobs:
           git remote set-url origin "https://x-access-token:${ORG_PAT}@github.com/${GITHUB_REPOSITORY}.git"
           git push
           echo "changed=true" >> "$GITHUB_OUTPUT"
+

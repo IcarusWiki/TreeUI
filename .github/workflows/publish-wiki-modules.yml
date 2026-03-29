@@ -14,11 +14,11 @@ permissions:
 # Edit these five page titles to point at sandbox pages while testing.
 env:
   WIKI_API_URL: "https://icarus.wiki.gg/api.php"
-  TALENT_DATA_PAGE: "Module:Light_Breeze:TalentTree/TalentData"
-  TECH_DATA_PAGE: "Module:Light_Breeze:TechTree/TechData"
-  ANIMAL_TALENT_DATA_PAGE: "Module:Light_Breeze:AnimalTalentTree/AnimalTalentData"
-  MISSION_DATA_PAGE: "Module:Light_Breeze:MissionTree/MissionData"
-  WORKSHOP_DATA_PAGE: "Module:Light_Breeze:WorkshopTree/WorkshopData"
+  TALENT_DATA_PAGE: "Module:TalentTree/TalentData"
+  TECH_DATA_PAGE: "Module:TechTree/TechData"
+  ANIMAL_TALENT_DATA_PAGE: "Module:AnimalTalentTree/AnimalTalentData"
+  MISSION_DATA_PAGE: "Module:MissionTree/MissionData"
+  WORKSHOP_DATA_PAGE: "Module:WorkshopTree/WorkshopData"
 
 concurrency:
   group: publish-wiki-modules
@@ -36,7 +36,7 @@ jobs:
           fetch-depth: 1
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: "3.12"
 
@@ -48,7 +48,7 @@ jobs:
         run: |
           python scripts/publish_wiki_modules.py \
             --api-url "$WIKI_API_URL" \
-            --summary "Automated update from TreeUI ${GITHUB_SHA}" \
+            --summary "Automated update from https://github.com/IcarusWiki/TreeUI ${GITHUB_SHA}" \
             --map "generated/TalentData.lua=${TALENT_DATA_PAGE}" \
             --map "generated/TechData.lua=${TECH_DATA_PAGE}" \
             --map "generated/AnimalTalentData.lua=${ANIMAL_TALENT_DATA_PAGE}" \
