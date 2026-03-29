@@ -1,0 +1,55 @@
+name: Publish Wiki Modules
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "generated/*.lua"
+
+permissions:
+  contents: read
+
+# Edit these five page titles to point at sandbox pages while testing.
+env:
+  WIKI_API_URL: "https://icarus.wiki.gg/api.php"
+  TALENT_DATA_PAGE: "Module:Light_Breeze:TalentTree/TalentData"
+  TECH_DATA_PAGE: "Module:Light_Breeze:TechTree/TechData"
+  ANIMAL_TALENT_DATA_PAGE: "Module:Light_Breeze:AnimalTalentTree/AnimalTalentData"
+  MISSION_DATA_PAGE: "Module:Light_Breeze:MissionTree/MissionData"
+  WORKSHOP_DATA_PAGE: "Module:Light_Breeze:WorkshopTree/WorkshopData"
+
+concurrency:
+  group: publish-wiki-modules
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout TreeUI
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 1
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Publish Lua module pages
+        shell: bash
+        env:
+          WIKIGG_USERNAME: ${{ secrets.WIKIGG_USERNAME }}
+          WIKIGG_APP_PASSWORD: ${{ secrets.WIKIGG_APP_PASSWORD }}
+        run: |
+          python scripts/publish_wiki_modules.py \
+            --api-url "$WIKI_API_URL" \
+            --summary "Automated update from TreeUI ${GITHUB_SHA}" \
+            --map "generated/TalentData.lua=${TALENT_DATA_PAGE}" \
+            --map "generated/TechData.lua=${TECH_DATA_PAGE}" \
+            --map "generated/AnimalTalentData.lua=${ANIMAL_TALENT_DATA_PAGE}" \
+            --map "generated/MissionData.lua=${MISSION_DATA_PAGE}" \
+            --map "generated/WorkshopData.lua=${WORKSHOP_DATA_PAGE}"

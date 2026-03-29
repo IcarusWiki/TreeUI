@@ -82,6 +82,7 @@ jobs:
         shell: bash
         env:
           DATA_REF: ${{ steps.resolve-ref.outputs.data_ref }}
+          ORG_PAT: ${{ secrets.ORG_PAT }}
         run: |
           git config user.name "github-actions"
           git config user.email "actions@github.com"
@@ -95,5 +96,10 @@ jobs:
 
           SHORT_REF="${DATA_REF:0:12}"
           git commit -m "Update generated Lua data (${SHORT_REF})"
+          if [ -z "$ORG_PAT" ]; then
+            echo "::error::ORG_PAT is required so this push can trigger publish-wiki-modules.yml."
+            exit 1
+          fi
+          git remote set-url origin "https://x-access-token:${ORG_PAT}@github.com/${GITHUB_REPOSITORY}.git"
           git push
           echo "changed=true" >> "$GITHUB_OUTPUT"
