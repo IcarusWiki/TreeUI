@@ -11,7 +11,6 @@ on:
 permissions:
   contents: read
 
-# Edit these data page titles to point at sandbox pages while testing.
 env:
   WIKI_API_URL: "https://icarus.wiki.gg/api.php"
   TALENT_DATA_PAGE: "Module:TalentTree/TalentData"
