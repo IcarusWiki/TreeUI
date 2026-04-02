@@ -4,6 +4,18 @@
 /* =====================================================================
    1. THEME VARIABLES
    ===================================================================== */
+.iww-workshop-tree-ui-wrapper {
+    --iww-tree-node-frame-image: url('/wiki/Special:Redirect/file/OrbitalNode_Unlocked_Normal.png');
+    --iww-tree-node-frame-image-hover: url('/wiki/Special:Redirect/file/OrbitalNode_Unlocked_Hovered.png');
+    --iww-tree-node-frame-filter:
+        brightness(0.98)
+        saturate(1.03)
+        drop-shadow(0 0 6px color-mix(in srgb, var(--iww-tree-theme-accent) 16%, transparent));
+    --iww-tree-node-frame-filter-hover:
+        brightness(1.04)
+        saturate(1.08)
+        drop-shadow(0 0 10px color-mix(in srgb, var(--iww-tree-theme-accent) 30%, transparent));
+}
 
 /* =====================================================================
    2. SIDEBAR

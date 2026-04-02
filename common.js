@@ -6,10 +6,39 @@ mw.loader.using(['jquery'], function () {
         var WIKI_FILE_REDIRECT_PATH = '/wiki/Special:Redirect/file/';
         var EVENT_NS = '.iwwTreeUi';
         var observedWrapperEntries = [];
+        var preloadedTreeAssets = Object.create(null);
         var dragState = null;
 
         function sanitizeTabId(value) {
             return String(value || '').replace(/[^\w-]/g, '');
+        }
+
+        function extractCssUrl(value) {
+            var match = String(value || '').match(/url\((['"]?)(.*?)\1\)/i);
+            return match && match[2] ? match[2] : '';
+        }
+
+        function preloadTreeAsset(url) {
+            var safeUrl = String(url || '').trim();
+            if (!safeUrl || preloadedTreeAssets[safeUrl] || !window.Image) {
+                return;
+            }
+
+            var img = new window.Image();
+            img.decoding = 'async';
+            img.src = safeUrl;
+            preloadedTreeAssets[safeUrl] = img;
+        }
+
+        function preloadTreeFrameAssets($wrapper) {
+            var wrapperEl = $wrapper && $wrapper.get ? $wrapper.get(0) : null;
+            if (!wrapperEl) {
+                return;
+            }
+
+            var styles = getComputedStyle(wrapperEl);
+            preloadTreeAsset(extractCssUrl(styles.getPropertyValue('--iww-tree-node-frame-image')));
+            preloadTreeAsset(extractCssUrl(styles.getPropertyValue('--iww-tree-node-frame-image-hover')));
         }
 
         function getPanBuffer(contentEl, side) {
@@ -1175,6 +1204,7 @@ mw.loader.using(['jquery'], function () {
         function initTreeWrapper($wrapper) {
             var isNewWrapper = !$wrapper.data('iwwTreeInitialized');
             $wrapper.addClass('js-ready');
+            preloadTreeFrameAssets($wrapper);
 
             if ($wrapper.hasClass('iww-talent-tree-ui-wrapper')) {
                 var $tabButtons = $wrapper.find('.iww-talent-tree-tab-btn');

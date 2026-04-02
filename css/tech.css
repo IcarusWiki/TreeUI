@@ -2,6 +2,16 @@
 
 .iww-tree-tier-ui-wrapper {
     --iww-tree-pan-buffer-top: 0px;
+    --iww-tree-node-frame-image: url('/wiki/Special:Redirect/file/BlueprintNode_Unlocked_Normal.png');
+    --iww-tree-node-frame-image-hover: url('/wiki/Special:Redirect/file/BlueprintNode_Unlocked_Hovered.png');
+    --iww-tree-node-frame-filter:
+        brightness(1)
+        saturate(1.02)
+        drop-shadow(0 0 6px color-mix(in srgb, var(--iww-tree-theme-accent) 16%, transparent));
+    --iww-tree-node-frame-filter-hover:
+        brightness(1.05)
+        saturate(1.08)
+        drop-shadow(0 0 10px color-mix(in srgb, var(--iww-tree-theme-accent) 32%, transparent));
     flex-direction: column;
     background: var(--iww-tree-tier-shell-bg);
 }
@@ -101,22 +111,12 @@
 }
 
 .iww-tree-tier-ui-wrapper .iww-tree-node {
-    background: var(--iww-tree-node-fill);
-    box-shadow: var(--iww-tree-node-outline);
-}
-
-.iww-tree-tier-ui-wrapper .iww-tree-node-frame {
-    background-image: url('/wiki/Special:Redirect/file/BlueprintNode_Unlocked_Normal.png');
-    filter: none;
+    background: transparent;
+    box-shadow: none;
 }
 
 .iww-tree-tier-ui-wrapper .iww-tree-node:hover {
-    background: var(--iww-tree-node-fill-hover);
-}
-
-.iww-tree-tier-ui-wrapper .iww-tree-node:hover .iww-tree-node-frame {
-    background-image: url('/wiki/Special:Redirect/file/BlueprintNode_Unlocked_Hovered.png');
-    filter: none;
+    background: transparent;
 }
 
 .iww-tree-tooltip-floating {

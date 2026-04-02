@@ -102,6 +102,16 @@
         transparent 70%
     ), color-mix(in srgb, var(--iww-tree-surface-bg) 86%, var(--iww-tree-theme-tooltip-bg));
     --iww-tree-node-outline: inset 0 0 0 1px color-mix(in srgb, var(--iww-tree-theme-text) 18%, transparent);
+    --iww-tree-node-frame-image: url('/wiki/Special:Redirect/file/OrbitalNode_Unlocked_Normal.png');
+    --iww-tree-node-frame-image-hover: var(--iww-tree-node-frame-image);
+    --iww-tree-node-frame-filter:
+        brightness(0.98)
+        saturate(1.04)
+        drop-shadow(0 0 6px color-mix(in srgb, var(--iww-tree-theme-accent) 14%, transparent));
+    --iww-tree-node-frame-filter-hover:
+        brightness(1.05)
+        saturate(1.08)
+        drop-shadow(0 0 10px color-mix(in srgb, var(--iww-tree-theme-accent) 28%, transparent));
     --iww-tree-inbox-bg: color-mix(in srgb, var(--iww-tree-surface-bg) 88%, var(--iww-tree-surface-bg-alt));
     --iww-tree-rank-badge-bg: color-mix(in srgb, var(--iww-tree-surface-bg) 88%, var(--iww-tree-surface-bg-alt));
     --iww-tree-rich-title-bg: linear-gradient(
@@ -555,13 +565,14 @@
 .iww-tree-node-frame {
     position: absolute;
     inset: 0;
-    background-image: url('/wiki/Special:Redirect/file/OrbitalNode_Unlocked_Normal.png');
+    background-image: var(--iww-tree-node-frame-image, url('/wiki/Special:Redirect/file/OrbitalNode_Unlocked_Normal.png'));
     background-position: center;
     background-repeat: no-repeat;
     background-size: 100% 100%;
     pointer-events: none;
     z-index: 4;
-    transition: filter 0.25s;
+    filter: var(--iww-tree-node-frame-filter, none);
+    transition: filter 0.25s, background-image 0.25s;
 }
 
 /* Icon wrapper - clips broken File: text for missing images */
@@ -656,7 +667,8 @@
 }
 
 .iww-tree-node:hover .iww-tree-node-frame {
-    filter: brightness(1.08) saturate(1.12);
+    background-image: var(--iww-tree-node-frame-image-hover, var(--iww-tree-node-frame-image, url('/wiki/Special:Redirect/file/OrbitalNode_Unlocked_Normal.png')));
+    filter: var(--iww-tree-node-frame-filter-hover, var(--iww-tree-node-frame-filter, none));
 }
 
 .iww-tree-node:hover .iww-tree-glow {

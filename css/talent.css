@@ -6,6 +6,10 @@
    ===================================================================== */
 .iww-talent-tree-ui-wrapper {
     --iww-tree-pan-buffer-top: 0px;
+    --iww-tree-node-frame-image: url('/wiki/Special:Redirect/file/TalentNode_Normal.png');
+    --iww-tree-node-frame-image-hover: var(--iww-tree-node-frame-image);
+    --iww-tree-node-frame-filter: none;
+    --iww-tree-node-frame-filter-hover: brightness(1.08) saturate(1.12);
 }
 
 /* =====================================================================
