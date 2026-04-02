@@ -6,7 +6,6 @@ on:
 permissions:
   contents: read
 
-# Edit these UI page titles to point at sandbox pages while testing.
 env:
   WIKI_API_URL: "https://icarus.wiki.gg/api.php"
   TREE_CORE_LUA_PAGE: "Module:TreeCore"
