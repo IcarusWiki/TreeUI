@@ -1,5 +1,4 @@
 name: Update Generated Tree Data
-
 on:
   repository_dispatch:
     types:
@@ -21,13 +20,19 @@ concurrency:
 jobs:
   regenerate:
     runs-on: ubuntu-latest
-
     steps:
+      - name: Generate app token
+        id: app-token
+        uses: actions/create-github-app-token@v3
+        with:
+          app-id: ${{ secrets.APP_ID }}
+          private-key: ${{ secrets.APP_PRIVATE_KEY }}
+
       - name: Checkout TreeUI
         uses: actions/checkout@v6
         with:
           fetch-depth: 0
-          token: ${{ secrets.ORG_PAT }}
+          token: ${{ steps.app-token.outputs.token }}
 
       - name: Resolve upstream ref
         id: resolve-ref
@@ -43,7 +48,6 @@ jobs:
           if [ -z "$DATA_REF" ]; then
             DATA_REF="main"
           fi
-
           echo "data_ref=$DATA_REF" >> "$GITHUB_OUTPUT"
           echo "Using IcarusWiki/Data ref: $DATA_REF"
 
@@ -55,7 +59,6 @@ jobs:
           path: upstream-data
           fetch-depth: 1
           persist-credentials: false
-          token: ${{ secrets.ORG_PAT != '' && secrets.ORG_PAT || github.token }}
 
       - name: Verify upstream files
         shell: bash
@@ -84,8 +87,9 @@ jobs:
         env:
           DATA_REF: ${{ steps.resolve-ref.outputs.data_ref }}
         run: |
-          git config user.name "github-actions"
-          git config user.email "actions@github.com"
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
           git add generated/*.lua
 
           if git diff --cached --quiet -- generated/; then
@@ -98,4 +102,3 @@ jobs:
           git commit -m "Update generated Lua data (${SHORT_REF})"
           git push
           echo "changed=true" >> "$GITHUB_OUTPUT"
-
