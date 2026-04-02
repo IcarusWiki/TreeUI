@@ -2,8 +2,6 @@ local p = {}
 local core = require("Module:TreeCore")
 local workshopData = require("Module:WorkshopTree/WorkshopData")
 
-local WORKSHOP_LINE_COLOR = "#b580c9"
-
 -- ============================================================================
 -- WORKSHOP NODE BUILDER
 -- ============================================================================
@@ -135,8 +133,7 @@ function p.render(frame)
                     tree_nodes,
                     tree_conns,
                     cat_data.line_method,
-                    cat_data.node_size,
-                    WORKSHOP_LINE_COLOR
+                    cat_data.node_size
                 )
             end
 

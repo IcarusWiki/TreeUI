@@ -2,7 +2,6 @@ local p = {}
 local core = require("Module:TreeCore")
 local missionData = require("Module:MissionTree/MissionData")
 
-local MISSION_LINE_COLOR = "#a6c66d"
 local FEATURE_ICONS = {
     ["New Frontiers"] = "T_FeatureLevelIcon_NewFrontiers3",
     ["Dangerous Horizons"] = "T_FeatureLevel_DH",
@@ -16,16 +15,14 @@ local function file_redirect_url(file_name)
     return "/wiki/Special:Redirect/file/" .. file_name .. ".png"
 end
 
-local function set_preview_background(node, image_name, overlay)
+local function set_preview_background(node, image_name)
     if not image_name or image_name == "" then
         return
     end
 
-    local gradient = overlay or "linear-gradient(180deg, rgba(7, 9, 6, 0.08) 0%, rgba(7, 9, 6, 0.72) 100%)"
-    node:css(
-        "background-image",
-        gradient .. ", url('" .. file_redirect_url(image_name) .. "')"
-    )
+    node
+        :addClass("has-image")
+        :css("--iww-tree-mission-image-url", "url('" .. file_redirect_url(image_name) .. "')")
 end
 
 local function make_file_icon(file_name, size, alt_text)
@@ -111,11 +108,7 @@ local function make_mission_node(node_id, data)
     local body = card:tag("div"):addClass("iww-mission-tree-node-body")
     local image = body:tag("span"):addClass("iww-mission-tree-node-image")
     if data.image and data.image ~= "" then
-        set_preview_background(
-            image,
-            data.image,
-            "linear-gradient(180deg, rgba(10, 11, 8, 0.05) 0%, rgba(10, 11, 8, 0.12) 42%, rgba(10, 11, 8, 0.72) 100%)"
-        )
+        set_preview_background(image, data.image)
     else
         image:addClass("is-empty")
     end
@@ -153,11 +146,6 @@ local function make_mission_node(node_id, data)
             :addClass("iww-mission-tree-node-reward")
             :addClass("iww-mission-tree-node-reward--" .. css_key(reward.name))
             :attr("title", label)
-
-        if reward.color and reward.color ~= "" then
-            chip:css("color", reward.color)
-            chip:css("border-color", reward.color)
-        end
 
         if reward.icon and reward.icon ~= "" then
             chip:tag("span")
@@ -344,8 +332,7 @@ function p.render(frame)
                     tree_nodes,
                     tree_conns,
                     region.line_method,
-                    region.node_size,
-                    MISSION_LINE_COLOR
+                    region.node_size
                 )
             end
 

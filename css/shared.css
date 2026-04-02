@@ -18,18 +18,127 @@
     --iww-tree-surface-bg-alt: var(--wiki-content-background-color--secondary, #080808);
     --iww-tree-surface-border: var(--wiki-content-border-color, #333);
     --iww-tree-surface-border-soft: var(--wiki-content-body-border-color, #222);
+    --iww-tree-surface-border-accent: var(--wiki-content-border-color--accent, var(--wiki-content-border-color, var(--wiki-accent-color, #b580c9)));
     --iww-tree-surface-text: var(--wiki-content-text-color, #e0e0e0);
+    --iww-tree-surface-text-muted: var(--wiki-content-text-mix-color, #9a9a9a);
+    --iww-tree-surface-text-strong: var(--wiki-content-dynamic-color, #ffffff);
+    --iww-tree-surface-text-inverse: var(--wiki-content-dynamic-color--inverted, #000000);
     --iww-tree-heading-text: var(--wiki-content-heading-color, #f0f0f0);
     --iww-tree-link-text: var(--wiki-content-link-color, #e0c56a);
+    --iww-tree-link-text-hover: var(--wiki-content-link-color--hover, var(--wiki-content-link-color, #e0c56a));
     --iww-tree-pan-buffer-left: 180px;
     --iww-tree-pan-buffer-right: 180px;
     --iww-tree-pan-buffer-top: 140px;
     --iww-tree-pan-buffer-bottom: 140px;
+    --iww-tree-theme-accent: var(--wiki-accent-color, #b580c9);
+    --iww-tree-theme-accent-dim: var(--iww-tree-surface-border-accent);
+    --iww-tree-theme-text: var(--iww-tree-link-text);
     --iww-tree-theme-tooltip-bg: var(--wiki-content-background-color--secondary, #1a1a1a);
+    --iww-tree-theme-tooltip-text: var(--wiki-content-dynamic-color, #ffffff);
+    --iww-tree-theme-accent-link: var(--wiki-accent-link-color, var(--wiki-content-link-color, #e0c56a));
+    --iww-tree-theme-accent-contrast: var(--wiki-accent-label-color, #000000);
+    --iww-tree-theme-neutral: var(--wiki-neutral-color, var(--wiki-content-text-mix-color, #9a9a9a));
+    --iww-tree-theme-success: var(--wiki-success-color, #13aa45);
+    --iww-tree-theme-warning: var(--wiki-warning-color, #cf721c);
+    --iww-tree-theme-alert: var(--wiki-alert-color, #ff576a);
+    --iww-tree-theme-line-color: var(--iww-tree-theme-accent);
     --iww-tree-theme-glow-18: color-mix(in srgb, var(--iww-tree-theme-accent) 18%, transparent);
     --iww-tree-theme-glow-30: color-mix(in srgb, var(--iww-tree-theme-accent) 30%, transparent);
     --iww-tree-theme-glow-35: color-mix(in srgb, var(--iww-tree-theme-accent) 35%, transparent);
     --iww-tree-theme-glow-50: color-mix(in srgb, var(--iww-tree-theme-accent) 50%, transparent);
+    --iww-tree-theme-shadow-soft: 0 5px 15px color-mix(in srgb, var(--iww-tree-surface-border) 45%, transparent);
+    --iww-tree-theme-shadow-strong: 0 0 22px color-mix(in srgb, var(--iww-tree-theme-accent) 18%, transparent);
+    --iww-tree-panel-bg: color-mix(in srgb, var(--iww-tree-surface-bg) 88%, var(--iww-tree-surface-bg-alt));
+    --iww-tree-panel-bg-strong: color-mix(in srgb, var(--iww-tree-surface-bg) 92%, var(--iww-tree-theme-accent) 8%);
+    --iww-tree-panel-border: color-mix(in srgb, var(--iww-tree-theme-accent) 28%, var(--iww-tree-surface-border) 72%);
+    --iww-tree-panel-border-strong: color-mix(in srgb, var(--iww-tree-theme-accent) 48%, var(--iww-tree-surface-border) 52%);
+    --iww-tree-nav-panel-bg: var(--iww-tree-panel-bg);
+    --iww-tree-nav-text-muted: color-mix(in srgb, var(--iww-tree-surface-text) 46%, transparent);
+    --iww-tree-nav-text: var(--iww-tree-theme-text);
+    --iww-tree-nav-text-hover: var(--iww-tree-surface-text-strong);
+    --iww-tree-nav-hover-bg: linear-gradient(
+        180deg,
+        transparent 0%,
+        color-mix(in srgb, var(--iww-tree-theme-accent) 15%, transparent) 100%
+    );
+    --iww-tree-nav-active-bg: linear-gradient(
+        180deg,
+        transparent 0%,
+        color-mix(in srgb, var(--iww-tree-theme-accent) 18%, transparent) 40%,
+        color-mix(in srgb, var(--iww-tree-theme-accent) 30%, transparent) 100%
+    );
+    --iww-tree-nav-active-bg-strong: linear-gradient(
+        180deg,
+        transparent 0%,
+        color-mix(in srgb, var(--iww-tree-theme-accent) 22%, transparent) 40%,
+        color-mix(in srgb, var(--iww-tree-theme-accent) 35%, transparent) 100%
+    );
+    --iww-tree-nav-sidebar-hover-bg: linear-gradient(
+        90deg,
+        color-mix(in srgb, var(--iww-tree-theme-accent) 35%, transparent) 0%,
+        color-mix(in srgb, var(--iww-tree-theme-accent) 8%, transparent) 100%
+    );
+    --iww-tree-nav-sidebar-active-bg: linear-gradient(
+        90deg,
+        color-mix(in srgb, var(--iww-tree-theme-accent) 12%, transparent) 0%,
+        transparent 100%
+    );
+    --iww-tree-nav-sidebar-active-bg-strong: linear-gradient(
+        90deg,
+        color-mix(in srgb, var(--iww-tree-theme-accent) 30%, transparent) 0%,
+        color-mix(in srgb, var(--iww-tree-theme-accent) 6%, transparent) 100%
+    );
+    --iww-tree-nav-active-shadow: 0 6px 14px -4px color-mix(in srgb, var(--iww-tree-theme-accent) 40%, transparent);
+    --iww-tree-section-divider: linear-gradient(
+        90deg,
+        color-mix(in srgb, var(--iww-tree-theme-accent-dim) 60%, transparent) 0%,
+        transparent 100%
+    );
+    --iww-tree-mobile-label-text: var(--iww-tree-surface-text-muted);
+    --iww-tree-node-fill: color-mix(in srgb, var(--iww-tree-surface-bg-alt) 82%, var(--iww-tree-theme-tooltip-bg));
+    --iww-tree-node-fill-hover: radial-gradient(
+        circle at bottom left,
+        var(--iww-tree-theme-glow-30) 0%,
+        transparent 70%
+    ), color-mix(in srgb, var(--iww-tree-surface-bg) 86%, var(--iww-tree-theme-tooltip-bg));
+    --iww-tree-node-outline: inset 0 0 0 1px color-mix(in srgb, var(--iww-tree-theme-text) 18%, transparent);
+    --iww-tree-inbox-bg: color-mix(in srgb, var(--iww-tree-surface-bg) 88%, var(--iww-tree-surface-bg-alt));
+    --iww-tree-rank-badge-bg: color-mix(in srgb, var(--iww-tree-surface-bg) 88%, var(--iww-tree-surface-bg-alt));
+    --iww-tree-rich-title-bg: linear-gradient(
+        180deg,
+        color-mix(in srgb, var(--iww-tree-theme-accent) 78%, var(--iww-tree-surface-text-strong) 22%) 0%,
+        color-mix(in srgb, var(--iww-tree-theme-accent-dim) 78%, var(--iww-tree-surface-text-inverse) 22%) 100%
+    );
+    --iww-tree-rich-title-text: var(--iww-tree-theme-accent-contrast);
+    --iww-tree-rich-title-shadow: 0 4px 12px color-mix(in srgb, var(--iww-tree-theme-accent) 40%, transparent);
+    --iww-tree-divider-line: color-mix(in srgb, var(--iww-tree-surface-border) 70%, transparent);
+    --iww-tree-collapsible-border: color-mix(in srgb, var(--iww-tree-theme-accent) 28%, transparent);
+    --iww-tree-collapsible-bg: linear-gradient(
+        180deg,
+        color-mix(in srgb, var(--iww-tree-surface-bg) 92%, var(--iww-tree-theme-accent) 8%) 0%,
+        color-mix(in srgb, var(--iww-tree-surface-bg) 96%, var(--iww-tree-surface-bg-alt) 4%) 100%
+    );
+    --iww-tree-collapsible-shadow: 0 16px 36px color-mix(in srgb, var(--iww-tree-surface-border) 32%, transparent);
+    --iww-tree-collapsible-bar-bg: radial-gradient(
+        circle at center,
+        color-mix(in srgb, var(--iww-tree-theme-accent) 18%, transparent) 0%,
+        color-mix(in srgb, var(--iww-tree-theme-accent) 6%, transparent) 38%,
+        transparent 72%
+    ), linear-gradient(
+        180deg,
+        color-mix(in srgb, var(--iww-tree-surface-text-strong) 2%, transparent) 0%,
+        color-mix(in srgb, var(--iww-tree-surface-text-inverse) 8%, transparent) 100%
+    );
+    --iww-tree-collapsible-bar-divider: color-mix(in srgb, var(--iww-tree-theme-accent) 22%, transparent);
+    --iww-tree-collapsible-toggle-border: color-mix(in srgb, var(--iww-tree-theme-accent) 50%, transparent);
+    --iww-tree-collapsible-toggle-bg: linear-gradient(
+        180deg,
+        color-mix(in srgb, var(--iww-tree-theme-accent) 22%, transparent) 0%,
+        color-mix(in srgb, var(--iww-tree-theme-accent) 9%, transparent) 100%
+    ), color-mix(in srgb, var(--iww-tree-surface-bg) 90%, var(--iww-tree-surface-bg-alt));
+    --iww-tree-collapsible-toggle-shadow: inset 0 0 0 1px color-mix(in srgb, var(--iww-tree-surface-text-strong) 4%, transparent), 0 0 18px color-mix(in srgb, var(--iww-tree-theme-accent) 12%, transparent);
+    --iww-tree-collapsible-toggle-shadow-hover: inset 0 0 0 1px color-mix(in srgb, var(--iww-tree-surface-text-strong) 8%, transparent), 0 0 24px color-mix(in srgb, var(--iww-tree-theme-accent) 22%, transparent);
+    --iww-tree-focus-ring: color-mix(in srgb, var(--iww-tree-theme-accent) 55%, transparent);
     display: flex;
     background-color: var(--iww-tree-surface-bg);
     border: 1px solid var(--iww-tree-surface-border);
@@ -41,6 +150,175 @@
     overflow: hidden;
     -webkit-user-select: none;
     user-select: none;
+}
+
+.iww-tree-tier-ui-wrapper {
+    --iww-tree-theme-accent-dim: var(--iww-tree-surface-border-accent);
+    --iww-tree-tier-shell-bg: radial-gradient(
+        circle at top center,
+        color-mix(in srgb, var(--iww-tree-theme-accent) 32%, transparent),
+        transparent 52%
+    ), linear-gradient(
+        180deg,
+        color-mix(in srgb, var(--iww-tree-surface-bg-alt) 88%, var(--iww-tree-theme-tooltip-bg) 12%) 0%,
+        color-mix(in srgb, var(--iww-tree-surface-bg) 92%, var(--iww-tree-theme-tooltip-bg) 8%) 100%
+    );
+    --iww-tree-tier-content-bg: radial-gradient(
+        circle at 50% 0%,
+        color-mix(in srgb, var(--iww-tree-theme-accent) 16%, transparent),
+        transparent 34%
+    ), linear-gradient(
+        180deg,
+        color-mix(in srgb, var(--iww-tree-surface-bg) 92%, var(--iww-tree-theme-tooltip-bg) 8%) 0%,
+        color-mix(in srgb, var(--iww-tree-surface-bg-alt) 88%, var(--iww-tree-theme-tooltip-bg) 12%) 100%
+    );
+    --iww-tree-tier-button-border: color-mix(in srgb, var(--iww-tree-theme-text) 16%, transparent);
+    --iww-tree-tier-button-active-bg: linear-gradient(
+        180deg,
+        color-mix(in srgb, var(--iww-tree-surface-bg) 52%, transparent) 0%,
+        color-mix(in srgb, var(--iww-tree-theme-tooltip-bg) 18%, transparent) 46%,
+        color-mix(in srgb, var(--iww-tree-theme-accent) 22%, transparent) 100%
+    );
+    --iww-tree-tier-button-active-bg-strong: linear-gradient(
+        180deg,
+        color-mix(in srgb, var(--iww-tree-surface-bg) 48%, transparent) 0%,
+        color-mix(in srgb, var(--iww-tree-theme-tooltip-bg) 18%, transparent) 42%,
+        color-mix(in srgb, var(--iww-tree-theme-accent) 25%, transparent) 100%
+    );
+    --iww-tree-tier-button-shadow: inset 0 1px 0 color-mix(in srgb, var(--iww-tree-theme-text) 10%, transparent), 0 14px 28px -26px color-mix(in srgb, var(--iww-tree-theme-accent) 58%, transparent);
+    --iww-tree-node-fill: radial-gradient(
+        circle at 32% 24%,
+        color-mix(in srgb, var(--iww-tree-theme-text) 34%, transparent),
+        transparent 26%
+    ), linear-gradient(
+        180deg,
+        color-mix(in srgb, var(--iww-tree-theme-text) 78%, var(--iww-tree-surface-text-strong) 22%) 0%,
+        color-mix(in srgb, var(--iww-tree-theme-accent) 82%, var(--iww-tree-surface-text-strong) 18%) 58%,
+        color-mix(in srgb, var(--iww-tree-theme-accent-dim) 82%, var(--iww-tree-surface-text-inverse) 18%) 100%
+    );
+    --iww-tree-node-fill-hover: radial-gradient(
+        circle at 30% 24%,
+        color-mix(in srgb, var(--iww-tree-theme-text) 40%, transparent) 0%,
+        transparent 28%
+    ), linear-gradient(
+        180deg,
+        color-mix(in srgb, var(--iww-tree-theme-text) 84%, var(--iww-tree-surface-text-strong) 16%) 0%,
+        color-mix(in srgb, var(--iww-tree-theme-accent) 88%, var(--iww-tree-surface-text-strong) 12%) 54%,
+        color-mix(in srgb, var(--iww-tree-theme-accent-dim) 76%, var(--iww-tree-surface-text-inverse) 24%) 100%
+    );
+}
+
+.iww-talent-tree-ui-wrapper {
+    --iww-tree-rank-badge-bg: color-mix(in srgb, var(--iww-tree-surface-bg) 88%, var(--iww-tree-surface-bg-alt));
+}
+
+.iww-mission-tree-ui-wrapper {
+    --iww-tree-theme-text: var(--iww-tree-heading-text);
+    --iww-tree-theme-line-color: var(--iww-tree-theme-accent);
+    --iww-tree-mission-shell-bg: color-mix(in srgb, var(--iww-tree-surface-bg) 94%, var(--iww-tree-surface-bg-alt) 6%);
+    --iww-tree-mission-shell-border: color-mix(in srgb, var(--iww-tree-theme-accent) 30%, transparent);
+    --iww-tree-mission-bg: color-mix(in srgb, var(--iww-tree-surface-bg) 92%, var(--iww-tree-surface-bg-alt) 8%);
+    --iww-tree-mission-bg-overlay: radial-gradient(
+        circle at 50% 18%,
+        color-mix(in srgb, var(--iww-tree-theme-text) 12%, transparent),
+        transparent 22%
+    ), linear-gradient(
+        180deg,
+        color-mix(in srgb, var(--iww-tree-surface-bg) 16%, transparent) 0%,
+        color-mix(in srgb, var(--iww-tree-surface-bg) 52%, transparent) 48%,
+        color-mix(in srgb, var(--iww-tree-surface-bg) 82%, transparent) 100%
+    );
+    --iww-tree-mission-card-border: color-mix(in srgb, var(--iww-tree-theme-accent) 28%, transparent);
+    --iww-tree-mission-card-bg: color-mix(in srgb, var(--iww-tree-surface-bg) 82%, transparent);
+    --iww-tree-mission-card-border-hover: color-mix(in srgb, var(--iww-tree-theme-text) 46%, transparent);
+    --iww-tree-mission-card-border-active: color-mix(in srgb, var(--iww-tree-theme-text) 52%, transparent);
+    --iww-tree-mission-card-bg-hover: color-mix(in srgb, var(--iww-tree-theme-accent) 74%, var(--iww-tree-surface-bg) 26%);
+    --iww-tree-mission-card-bg-active: color-mix(in srgb, var(--iww-tree-theme-accent) 82%, var(--iww-tree-surface-bg) 18%);
+    --iww-tree-mission-card-shadow-hover: inset 0 0 0 1px color-mix(in srgb, var(--iww-tree-theme-text) 10%, transparent), 0 24px 44px -32px color-mix(in srgb, var(--iww-tree-theme-accent) 62%, transparent);
+    --iww-tree-mission-card-shadow-active: inset 0 0 0 1px color-mix(in srgb, var(--iww-tree-theme-text) 12%, transparent), 0 24px 44px -32px color-mix(in srgb, var(--iww-tree-theme-accent) 78%, transparent);
+    --iww-tree-mission-preview-border: color-mix(in srgb, var(--iww-tree-theme-accent) 48%, transparent);
+    --iww-tree-mission-preview-border-hover: color-mix(in srgb, var(--iww-tree-theme-text) 84%, transparent);
+    --iww-tree-mission-preview-border-active: color-mix(in srgb, var(--iww-tree-theme-text) 92%, transparent);
+    --iww-tree-mission-preview-shadow-hover: inset 0 0 0 999px color-mix(in srgb, var(--iww-tree-theme-accent) 8%, transparent), 0 0 20px color-mix(in srgb, var(--iww-tree-theme-accent) 10%, transparent);
+    --iww-tree-mission-preview-shadow-active: inset 0 0 0 999px color-mix(in srgb, var(--iww-tree-theme-accent) 9%, transparent), 0 0 28px color-mix(in srgb, var(--iww-tree-theme-accent) 14%, transparent);
+    --iww-tree-mission-preview-empty-bg: linear-gradient(
+        180deg,
+        color-mix(in srgb, var(--iww-tree-surface-bg) 88%, var(--iww-tree-surface-bg-alt)) 0%,
+        color-mix(in srgb, var(--iww-tree-surface-bg) 96%, var(--iww-tree-surface-bg-alt) 4%) 100%
+    ), linear-gradient(
+        135deg,
+        color-mix(in srgb, var(--iww-tree-theme-accent) 12%, transparent),
+        transparent 62%
+    );
+    --iww-tree-mission-copy-bg: linear-gradient(
+        180deg,
+        color-mix(in srgb, var(--iww-tree-surface-bg) 2%, transparent) 0%,
+        color-mix(in srgb, var(--iww-tree-surface-bg) 8%, transparent) 18%,
+        color-mix(in srgb, var(--iww-tree-surface-bg) 24%, transparent) 52%,
+        color-mix(in srgb, var(--iww-tree-surface-bg) 76%, transparent) 100%
+    );
+    --iww-tree-mission-count-border: color-mix(in srgb, var(--iww-tree-theme-accent-dim) 80%, transparent);
+    --iww-tree-mission-count-bg: color-mix(in srgb, var(--iww-tree-theme-accent) 78%, var(--iww-tree-surface-text-strong) 22%);
+    --iww-tree-mission-count-text: var(--iww-tree-theme-accent-contrast);
+    --iww-tree-mission-count-diamond: color-mix(in srgb, var(--iww-tree-surface-bg) 74%, var(--iww-tree-theme-accent-dim) 26%);
+    --iww-tree-mission-desc-text: color-mix(in srgb, var(--iww-tree-theme-text) 86%, var(--iww-tree-surface-text) 14%);
+    --iww-tree-mission-desc-shadow: 0 1px 6px color-mix(in srgb, var(--iww-tree-surface-border) 52%, transparent);
+    --iww-tree-mission-feature-border: color-mix(in srgb, var(--iww-tree-theme-text) 24%, transparent);
+    --iww-tree-mission-feature-bg: linear-gradient(
+        180deg,
+        color-mix(in srgb, var(--iww-tree-surface-bg) 84%, transparent) 0%,
+        color-mix(in srgb, var(--iww-tree-surface-bg) 92%, var(--iww-tree-surface-bg-alt) 8%) 100%
+    );
+    --iww-tree-mission-feature-shadow: inset 0 0 0 1px color-mix(in srgb, var(--iww-tree-surface-text-strong) 3%, transparent);
+    --iww-tree-mission-feature-text: color-mix(in srgb, var(--iww-tree-theme-text) 88%, var(--iww-tree-surface-text) 12%);
+    --iww-tree-mission-detail-overlay: linear-gradient(
+        180deg,
+        color-mix(in srgb, var(--iww-tree-surface-bg) 22%, transparent) 0%,
+        color-mix(in srgb, var(--iww-tree-surface-bg) 48%, transparent) 100%
+    );
+    --iww-tree-mission-detail-corner: color-mix(in srgb, var(--iww-tree-theme-text) 82%, transparent);
+    --iww-tree-mission-button-border: color-mix(in srgb, var(--iww-tree-theme-text) 32%, transparent);
+    --iww-tree-mission-button-border-hover: color-mix(in srgb, var(--iww-tree-theme-text) 50%, transparent);
+    --iww-tree-mission-button-bg: color-mix(in srgb, var(--iww-tree-surface-bg) 72%, transparent);
+    --iww-tree-mission-button-bg-hover: color-mix(in srgb, var(--iww-tree-surface-bg) 78%, var(--iww-tree-theme-accent) 22%);
+    --iww-tree-mission-button-text: color-mix(in srgb, var(--iww-tree-theme-text) 90%, transparent);
+    --iww-tree-mission-node-title: var(--iww-tree-theme-accent-contrast);
+    --iww-tree-mission-node-border: color-mix(in srgb, var(--iww-tree-theme-text) 8%, transparent);
+    --iww-tree-mission-node-image-overlay: linear-gradient(
+        180deg,
+        color-mix(in srgb, var(--iww-tree-surface-bg) 22%, transparent) 0%,
+        color-mix(in srgb, var(--iww-tree-surface-bg) 86%, transparent) 100%
+    ), linear-gradient(
+        135deg,
+        color-mix(in srgb, var(--iww-tree-theme-accent) 16%, transparent),
+        color-mix(in srgb, var(--iww-tree-surface-bg) 2%, transparent)
+    );
+    --iww-tree-mission-node-image-empty: linear-gradient(
+        180deg,
+        color-mix(in srgb, var(--iww-tree-surface-bg) 84%, var(--iww-tree-surface-bg-alt)) 0%,
+        color-mix(in srgb, var(--iww-tree-surface-bg) 96%, var(--iww-tree-surface-bg-alt) 4%) 100%
+    ), linear-gradient(
+        135deg,
+        color-mix(in srgb, var(--iww-tree-theme-accent) 12%, transparent),
+        transparent 70%
+    );
+    --iww-tree-mission-tech-border: color-mix(in srgb, var(--iww-tree-link-text) 50%, transparent);
+    --iww-tree-mission-tech-bg: color-mix(in srgb, var(--iww-tree-surface-bg) 55%, var(--iww-tree-link-text) 45%);
+    --iww-tree-mission-tech-text: var(--iww-tree-link-text-hover);
+    --iww-tree-mission-danger-inactive: color-mix(in srgb, var(--iww-tree-theme-text) 30%, transparent);
+    --iww-tree-mission-danger-success-shadow: 0 0 8px color-mix(in srgb, var(--iww-tree-theme-success) 44%, transparent);
+    --iww-tree-mission-danger-neutral-shadow: 0 0 8px color-mix(in srgb, var(--iww-tree-theme-neutral) 44%, transparent);
+    --iww-tree-mission-danger-warning-shadow: 0 0 8px color-mix(in srgb, var(--iww-tree-theme-warning) 44%, transparent);
+    --iww-tree-mission-danger-alert-shadow: 0 0 8px color-mix(in srgb, var(--iww-tree-theme-alert) 44%, transparent);
+    --iww-tree-mission-node-type-border: color-mix(in srgb, var(--iww-tree-theme-text) 18%, transparent);
+    --iww-tree-mission-node-type-bg: color-mix(in srgb, var(--iww-tree-surface-bg) 74%, transparent);
+    --iww-tree-mission-node-type-shadow: inset 0 0 0 1px color-mix(in srgb, var(--iww-tree-surface-text-strong) 2%, transparent);
+    --iww-tree-reward-credits: var(--iww-tree-theme-warning);
+    --iww-tree-reward-exotic1: var(--iww-tree-theme-neutral);
+    --iww-tree-reward-exotic-red: var(--iww-tree-theme-alert);
+    --iww-tree-duration-text: color-mix(in srgb, var(--iww-tree-theme-text) 90%, var(--iww-tree-surface-text-strong) 10%);
+    --iww-tree-duration-label: color-mix(in srgb, var(--iww-tree-theme-text) 55%, var(--iww-tree-surface-text) 45%);
+    --iww-tree-mission-tooltip-bg: color-mix(in srgb, var(--iww-tree-theme-tooltip-bg) 96%, transparent);
 }
 
 /* =====================================================================
@@ -138,7 +416,7 @@
 .iww-tree-node {
     width: var(--iww-tree-node-size);
     height: var(--iww-tree-node-size);
-    background: color-mix(in srgb, var(--iww-tree-surface-bg-alt) 82%, #121217);
+    background: var(--iww-tree-node-fill);
     border: none;
     display: flex;
     justify-content: center;
@@ -284,11 +562,7 @@
    ===================================================================== */
 .iww-tree-node:hover {
     box-shadow: 0 0 18px var(--iww-tree-theme-glow-35);
-    background: radial-gradient(
-        circle at bottom left,
-        var(--iww-tree-theme-glow-30) 0%,
-        transparent 70%
-    ), color-mix(in srgb, var(--iww-tree-surface-bg) 86%, #141414);
+    background: var(--iww-tree-node-fill-hover);
 }
 
 .iww-tree-node:hover img {
@@ -316,7 +590,7 @@
     left: 50%;
     transform: translateX(-50%);
     background-color: var(--iww-tree-theme-tooltip-bg, #1a1a1a);
-    color: #fff;
+    color: var(--iww-tree-theme-tooltip-text);
     font-size: 11px;
     font-weight: bold;
     text-transform: uppercase;
@@ -324,7 +598,7 @@
     padding: 6px 10px;
     border: 1px solid var(--iww-tree-theme-accent);
     border-top: 3px solid var(--iww-tree-theme-accent);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.8);
+    box-shadow: var(--iww-tree-theme-shadow-soft);
     pointer-events: none;
     z-index: 999;
 }
@@ -349,11 +623,11 @@
     font-weight: 700;
     line-height: 1.2;
     text-transform: uppercase;
-    color: #fff;
+    color: var(--iww-tree-theme-tooltip-text);
     background-color: var(--iww-tree-theme-tooltip-bg, #1a1a1a);
-    border: 1px solid #b580c9;
-    border-top: 3px solid #b580c9;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.8);
+    border: 1px solid var(--iww-tree-theme-accent);
+    border-top: 3px solid var(--iww-tree-theme-accent);
+    box-shadow: var(--iww-tree-theme-shadow-soft);
 }
 
 /* =====================================================================
@@ -363,12 +637,12 @@
     margin-top: 40px;
     padding: 15px;
     border: 1px dashed var(--iww-tree-surface-border);
-    background: color-mix(in srgb, var(--iww-tree-surface-bg) 88%, #0a0a0a);
+    background: var(--iww-tree-inbox-bg);
 }
 
 .iww-tree-inbox h3,
 .iww-tree-inbox-title {
-    color: color-mix(in srgb, var(--iww-tree-surface-text) 35%, transparent);
+    color: var(--iww-tree-surface-text-muted);
     font-size: 11px;
     text-transform: uppercase;
     margin-bottom: 10px;

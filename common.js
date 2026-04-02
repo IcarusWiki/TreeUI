@@ -2,7 +2,7 @@
 mw.loader.using(['jquery'], function () {
     $(function() {
         var MOBILE_BP = 768;  // Must match CSS @media breakpoint
-        var DEFAULT_TREE_LINE_COLOR = '#b8860b';
+        var DEFAULT_TREE_LINE_COLOR = '#808080';
         var WIKI_FILE_REDIRECT_PATH = '/wiki/Special:Redirect/file/';
         var EVENT_NS = '.iwwTreeUi';
         var observedWrapperEntries = [];
@@ -455,7 +455,8 @@ mw.loader.using(['jquery'], function () {
 
             var styles = getComputedStyle(wrapperEl);
             var accent = styles.getPropertyValue('--iww-tree-theme-accent').trim();
-            var text = styles.getPropertyValue('--iww-tree-theme-text').trim();
+            var text = styles.getPropertyValue('--iww-tree-theme-tooltip-text').trim()
+                || styles.getPropertyValue('--iww-tree-theme-text').trim();
             var bg = styles.getPropertyValue('--iww-tree-theme-tooltip-bg').trim();
 
             $floatingTooltip.css({
@@ -479,13 +480,13 @@ mw.loader.using(['jquery'], function () {
         function buildTalentTooltipDOM(info) {
             var frag = document.createDocumentFragment();
 
-            // Title bar (yellow rectangle with underglow)
+            // Title bar (accent rectangle with underglow)
             var nameEl = document.createElement('div');
             nameEl.className = 'iww-talent-tree-tip-name';
             nameEl.textContent = String(info.name || '');
             frag.appendChild(nameEl);
 
-            // Description (white medium text)
+            // Description (medium body text)
             var desc = String(info.description || '');
             if (desc) {
                 var descEl = document.createElement('div');
@@ -494,7 +495,7 @@ mw.loader.using(['jquery'], function () {
                 frag.appendChild(descEl);
             }
 
-            // Levels section (yellow text, separated by horizontal lines)
+            // Levels section (accent text separated by horizontal lines)
             if (info.levels && info.levels.length > 0) {
                 var hr1 = document.createElement('hr');
                 hr1.className = 'iww-talent-tree-tip-hr';
@@ -689,7 +690,9 @@ mw.loader.using(['jquery'], function () {
                     var wrapperEl = $canvas.closest('.iww-tree-ui-wrapper').get(0);
                     if (wrapperEl) {
                         lineColor = String(
-                            getComputedStyle(wrapperEl).getPropertyValue('--iww-tree-theme-accent') || ''
+                            getComputedStyle(wrapperEl).getPropertyValue('--iww-tree-theme-line-color')
+                            || getComputedStyle(wrapperEl).getPropertyValue('--iww-tree-theme-accent')
+                            || ''
                         ).trim();
                     }
                 }

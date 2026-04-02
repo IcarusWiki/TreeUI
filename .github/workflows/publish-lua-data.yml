@@ -1,4 +1,4 @@
-name: Publish Wiki Modules
+name: Publish Lua Data
 
 on:
   push:
@@ -11,7 +11,7 @@ on:
 permissions:
   contents: read
 
-# Edit these five page titles to point at sandbox pages while testing.
+# Edit these data page titles to point at sandbox pages while testing.
 env:
   WIKI_API_URL: "https://icarus.wiki.gg/api.php"
   TALENT_DATA_PAGE: "Module:TalentTree/TalentData"
@@ -21,7 +21,7 @@ env:
   WORKSHOP_DATA_PAGE: "Module:WorkshopTree/WorkshopData"
 
 concurrency:
-  group: publish-wiki-modules
+  group: publish-lua-data
   cancel-in-progress: false
 
 jobs:
@@ -40,7 +40,7 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Publish Lua module pages
+      - name: Publish Lua data pages
         shell: bash
         env:
           WIKIGG_USERNAME: ${{ secrets.WIKIGG_USERNAME }}

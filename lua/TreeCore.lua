@@ -7,7 +7,7 @@
 
 local core = {}
 
-local DEFAULT_LINE_COLOR = "#b8860b"
+local DEFAULT_LINE_COLOR = "#808080"
 
 -- -- String utilities ----------------------------------------------------
 
@@ -250,8 +250,7 @@ end
 -- @param connections  Array of { from = "id", to = "id" } tables
 -- @param line_method  "YThenX", "XThenY", or "ShortestDistance"
 -- @param node_size    Node size in px (for center calculation)
--- @param line_color   CSS color string (optional)
-function core.set_connection_data(canvas, connections, line_method, node_size, line_color)
+function core.set_connection_data(canvas, connections, line_method, node_size)
     if not connections or #connections == 0 then
         return
     end
@@ -270,9 +269,6 @@ function core.set_connection_data(canvas, connections, line_method, node_size, l
     canvas:attr("data-iww-tree-connections", json_str)
     canvas:attr("data-iww-tree-node-size", tostring(node_size))
     canvas:attr("data-iww-tree-line-method", line_method or "YThenX")
-    if line_color then
-        canvas:attr("data-iww-tree-line-color", line_color)
-    end
 end
 
 return core

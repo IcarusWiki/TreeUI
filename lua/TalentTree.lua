@@ -2,8 +2,6 @@ local p = {}
 local core = require("Module:TreeCore")
 local talentData = require("Module:TalentTree/TalentData")
 
-local TALENT_LINE_COLOR = "#d4a832"
-
 -- Rank badge images (index = rank level)
 local rank_icons = {
     [1] = "ICARUS-Talents_Tree-Rank-1.png",  -- Apprentice
@@ -201,8 +199,7 @@ function p.render(frame)
                             tree_nodes,
                             tree_conns,
                             view_data.line_method,
-                            view_data.node_size,
-                            TALENT_LINE_COLOR
+                            view_data.node_size
                         )
                     end
 
@@ -270,8 +267,7 @@ function p.render(frame)
                         tree_nodes,
                         tree_conns,
                         solo_view_data.line_method,
-                        solo_view_data.node_size,
-                        TALENT_LINE_COLOR
+                        solo_view_data.node_size
                     )
                 end
 

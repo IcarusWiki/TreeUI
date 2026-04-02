@@ -2,8 +2,6 @@ local p = {}
 local core = require("Module:TreeCore")
 local techData = require("Module:TechTree/TechData")
 
-local TECH_LINE_COLOR = "#59bfff"
-
 local function make_tech_node(node_id, data)
     if data.reroute then
         return mw.html.create("div")
@@ -118,8 +116,7 @@ function p.render(frame)
                     tree_nodes,
                     tree_conns,
                     tier_data.line_method,
-                    tier_data.node_size,
-                    TECH_LINE_COLOR
+                    tier_data.node_size
                 )
             end
 

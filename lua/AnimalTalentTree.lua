@@ -2,8 +2,6 @@ local p = {}
 local core = require("Module:TreeCore")
 local animalData = require("Module:AnimalTalentTree/AnimalTalentData")
 
-local TALENT_LINE_COLOR = "#d4a832"
-
 local function normalize_lookup_key(value)
     return string.lower(tostring(value or "")):gsub("[^%a%d]+", "")
 end
@@ -173,8 +171,7 @@ local function build_tree_wrapper(tree_key, tree_meta)
             tree_nodes,
             tree_conns,
             tree_meta.line_method,
-            tree_meta.node_size,
-            TALENT_LINE_COLOR
+            tree_meta.node_size
         )
     end
 

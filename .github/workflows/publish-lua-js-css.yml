@@ -1,0 +1,65 @@
+name: Publish Lua JS CSS
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+# Edit these UI page titles to point at sandbox pages while testing.
+env:
+  WIKI_API_URL: "https://icarus.wiki.gg/api.php"
+  TREE_CORE_LUA_PAGE: "Module:TreeCore"
+  TREE_CORE_CSS_PAGE: "MediaWiki:Gadgets/treeCore/main.css"
+  TREE_CORE_JS_PAGE: "MediaWiki:Gadgets/treeCore/main.js"
+  TALENT_LUA_PAGE: "Module:TalentTree"
+  TALENT_CSS_PAGE: "Module:TalentTree/styles.css"
+  ANIMAL_TALENT_LUA_PAGE: "Module:AnimalTalentTree"
+  WORKSHOP_LUA_PAGE: "Module:WorkshopTree"
+  WORKSHOP_CSS_PAGE: "Module:WorkshopTree/styles.css"
+  MISSION_LUA_PAGE: "Module:MissionTree"
+  MISSION_CSS_PAGE: "Module:MissionTree/styles.css"
+  TECH_LUA_PAGE: "Module:TechTree"
+  TECH_CSS_PAGE: "Module:TechTree/styles.css"
+
+concurrency:
+  group: publish-lua-js-css
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout TreeUI
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 1
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - name: Publish Lua JS CSS pages
+        shell: bash
+        env:
+          WIKIGG_USERNAME: ${{ secrets.WIKIGG_UI_USERNAME }}
+          WIKIGG_APP_PASSWORD: ${{ secrets.WIKIGG_UI_APP_PASSWORD }}
+        run: |
+          python scripts/publish_wiki_modules.py \
+            --api-url "$WIKI_API_URL" \
+            --summary "Manual update from https://github.com/IcarusWiki/TreeUI ${GITHUB_SHA}" \
+            --map "lua/TreeCore.lua=${TREE_CORE_LUA_PAGE}" \
+            --map "css/shared.css=${TREE_CORE_CSS_PAGE}" \
+            --map "common.js=${TREE_CORE_JS_PAGE}" \
+            --map "lua/TalentTree.lua=${TALENT_LUA_PAGE}" \
+            --map "css/talent.css=${TALENT_CSS_PAGE}" \
+            --map "lua/AnimalTalentTree.lua=${ANIMAL_TALENT_LUA_PAGE}" \
+            --map "lua/WorkshopTree.lua=${WORKSHOP_LUA_PAGE}" \
+            --map "css/workshop.css=${WORKSHOP_CSS_PAGE}" \
+            --map "lua/MissionTree.lua=${MISSION_LUA_PAGE}" \
+            --map "css/mission.css=${MISSION_CSS_PAGE}" \
+            --map "lua/TechTree.lua=${TECH_LUA_PAGE}" \
+            --map "css/tech.css=${TECH_CSS_PAGE}"

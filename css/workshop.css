@@ -2,21 +2,15 @@
 /* Loaded alongside TreeShared/styles.css by WorkshopTree.lua. */
 
 /* =====================================================================
-   1. THEME VARIABLES (purple)
+   1. THEME VARIABLES
    ===================================================================== */
-.iww-workshop-tree-ui-wrapper {
-    --iww-tree-theme-accent:        var(--wiki-accent-color, #b580c9);
-    --iww-tree-theme-accent-dim:    var(--wiki-content-border-color, #8e6896);
-    --iww-tree-theme-text:          var(--iww-tree-link-text, #d698e8);
-    --iww-tree-theme-tooltip-bg:    var(--wiki-content-background-color--secondary, #1a1a1a);
-}
 
 /* =====================================================================
    2. SIDEBAR
    ===================================================================== */
 .iww-workshop-tree-ui-wrapper .iww-tree-sidebar {
     width: 220px;
-    background-color: color-mix(in srgb, var(--iww-tree-surface-bg) 88%, #0b0b0b);
+    background-color: var(--iww-tree-nav-panel-bg);
     border-right: 1px solid var(--iww-tree-surface-border-soft);
     display: flex;
     flex-direction: column;
@@ -29,7 +23,7 @@
 
 .iww-workshop-tree-ui-wrapper .iww-tree-sidebar-title {
     padding: 0 0 15px 25px;
-    color: #fff;
+    color: var(--iww-tree-nav-text-hover);
     font-size: 12px;
     font-weight: bold;
     letter-spacing: 1px;
@@ -40,7 +34,7 @@
 .iww-workshop-tree-ui-wrapper .iww-tree-sidebar-button {
     padding: 12px 0 12px 25px;
     cursor: pointer;
-    color: #666;
+    color: var(--iww-tree-nav-text-muted);
     transition: color 0.2s, background 0.2s, border-color 0.2s, box-shadow 0.2s;
     font-size: 13px;
     text-transform: uppercase;
@@ -50,35 +44,23 @@
     position: relative;
 }
 
-/* Hover: purple fill gradient */
+/* Hover: themed fill gradient */
 .iww-workshop-tree-ui-wrapper .iww-tree-sidebar-button:hover {
-    color: #fff;
-    background: linear-gradient(
-        90deg,
-        color-mix(in srgb, var(--iww-tree-theme-accent) 35%, transparent) 0%,
-        color-mix(in srgb, var(--iww-tree-theme-accent) 8%, transparent) 100%
-    );
+    color: var(--iww-tree-nav-text-hover);
+    background: var(--iww-tree-nav-sidebar-hover-bg);
 }
 
-/* Active: purple text + underglow */
+/* Active: themed text + underglow */
 .iww-workshop-tree-ui-wrapper .iww-tree-sidebar-button.active {
     color: var(--iww-tree-theme-text);
     border-left-color: var(--iww-tree-theme-accent);
-    background: linear-gradient(
-        90deg,
-        color-mix(in srgb, var(--iww-tree-theme-accent) 12%, transparent) 0%,
-        transparent 100%
-    );
-    box-shadow: 0 6px 14px -4px color-mix(in srgb, var(--iww-tree-theme-accent) 40%, transparent);
+    background: var(--iww-tree-nav-sidebar-active-bg);
+    box-shadow: var(--iww-tree-nav-active-shadow);
 }
 
 /* Active + Hover */
 .iww-workshop-tree-ui-wrapper .iww-tree-sidebar-button.active:hover {
-    background: linear-gradient(
-        90deg,
-        color-mix(in srgb, var(--iww-tree-theme-accent) 30%, transparent) 0%,
-        color-mix(in srgb, var(--iww-tree-theme-accent) 6%, transparent) 100%
-    );
+    background: var(--iww-tree-nav-sidebar-active-bg-strong);
 }
 
 /* =====================================================================
@@ -102,11 +84,7 @@
     content: '';
     flex: 1;
     height: 1px;
-    background: linear-gradient(
-        90deg,
-        color-mix(in srgb, var(--iww-tree-theme-accent-dim) 60%, transparent) 0%,
-        transparent 100%
-    );
+    background: var(--iww-tree-section-divider);
 }
 
 /* =====================================================================
@@ -166,7 +144,7 @@
         background: none !important;
         border: none !important;
         box-shadow: none !important;
-        color: #aaa !important;
+        color: var(--iww-tree-mobile-label-text) !important;
         font-size: 7px !important;
         font-weight: 600 !important;
         padding: 2px 0 0 !important;
