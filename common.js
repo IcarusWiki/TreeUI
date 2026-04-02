@@ -437,7 +437,28 @@ mw.loader.using(['jquery'], function () {
         $floatingTooltip.appendTo($tooltipParent);
         $('.iww-tree-tooltip-floating[data-iww-tree-global-tooltip="1"]').not($floatingTooltip).remove();
 
+        var FLOATING_TOOLTIP_THEME_VARS = [
+            '--iww-tree-theme-accent',
+            '--iww-tree-theme-text',
+            '--iww-tree-theme-tooltip-text',
+            '--iww-tree-theme-tooltip-bg',
+            '--iww-tree-theme-shadow-soft',
+            '--iww-tree-surface-border',
+            '--iww-tree-surface-text',
+            '--iww-tree-rich-title-bg',
+            '--iww-tree-rich-title-text',
+            '--iww-tree-rich-title-shadow',
+            '--iww-tree-divider-line'
+        ];
+
         function clearFloatingTooltipTheme() {
+            var tooltipEl = $floatingTooltip.get(0);
+            if (tooltipEl) {
+                FLOATING_TOOLTIP_THEME_VARS.forEach(function(varName) {
+                    tooltipEl.style.removeProperty(varName);
+                });
+            }
+
             $floatingTooltip.css({
                 color: '',
                 backgroundColor: '',
@@ -454,16 +475,18 @@ mw.loader.using(['jquery'], function () {
             }
 
             var styles = getComputedStyle(wrapperEl);
-            var accent = styles.getPropertyValue('--iww-tree-theme-accent').trim();
-            var text = styles.getPropertyValue('--iww-tree-theme-tooltip-text').trim()
-                || styles.getPropertyValue('--iww-tree-theme-text').trim();
-            var bg = styles.getPropertyValue('--iww-tree-theme-tooltip-bg').trim();
+            var tooltipEl = $floatingTooltip.get(0);
+            if (!tooltipEl) {
+                return;
+            }
 
-            $floatingTooltip.css({
-                color: text || '',
-                backgroundColor: bg || '',
-                borderColor: accent || '',
-                borderTopColor: accent || ''
+            FLOATING_TOOLTIP_THEME_VARS.forEach(function(varName) {
+                var value = styles.getPropertyValue(varName).trim();
+                if (value) {
+                    tooltipEl.style.setProperty(varName, value);
+                } else {
+                    tooltipEl.style.removeProperty(varName);
+                }
             });
         }
 
@@ -531,7 +554,7 @@ mw.loader.using(['jquery'], function () {
             if (talentJson) {
                 try {
                     var info = JSON.parse(talentJson);
-                    clearFloatingTooltipTheme();
+                    applyFloatingTooltipTheme(nodeEl);
                     $floatingTooltip
                         .empty().append(buildTalentTooltipDOM(info))
                         .addClass('iww-talent-tree-tooltip-rich')

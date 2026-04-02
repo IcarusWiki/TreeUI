@@ -113,12 +113,34 @@
     --iww-tree-rich-title-shadow: 0 4px 12px color-mix(in srgb, var(--iww-tree-theme-accent) 40%, transparent);
     --iww-tree-divider-line: color-mix(in srgb, var(--iww-tree-surface-border) 70%, transparent);
     --iww-tree-collapsible-border: color-mix(in srgb, var(--iww-tree-theme-accent) 28%, transparent);
-    --iww-tree-collapsible-bg: linear-gradient(
+    --iww-tree-collapsible-bg: radial-gradient(
+        circle at 16% 18%,
+        color-mix(in srgb, var(--iww-tree-theme-accent) 14%, transparent) 0%,
+        transparent 34%
+    ), linear-gradient(
+        135deg,
+        color-mix(in srgb, var(--iww-tree-surface-bg-alt) 18%, transparent) 0%,
+        transparent 42%
+    ), linear-gradient(
         180deg,
-        color-mix(in srgb, var(--iww-tree-surface-bg) 92%, var(--iww-tree-theme-accent) 8%) 0%,
-        color-mix(in srgb, var(--iww-tree-surface-bg) 96%, var(--iww-tree-surface-bg-alt) 4%) 100%
+        color-mix(in srgb, var(--iww-tree-surface-bg) 90%, var(--iww-tree-theme-accent) 10%) 0%,
+        color-mix(in srgb, var(--iww-tree-surface-bg) 94%, var(--iww-tree-surface-bg-alt) 6%) 100%
     );
     --iww-tree-collapsible-shadow: 0 16px 36px color-mix(in srgb, var(--iww-tree-surface-border) 32%, transparent);
+    --iww-tree-collapsible-collapsed-bg: repeating-linear-gradient(
+        135deg,
+        color-mix(in srgb, var(--iww-tree-theme-accent) 8%, transparent) 0 18px,
+        transparent 18px 36px
+    ), linear-gradient(
+        135deg,
+        color-mix(in srgb, var(--iww-tree-surface-text-strong) 4%, transparent) 0%,
+        transparent 45%
+    ), linear-gradient(
+        180deg,
+        color-mix(in srgb, var(--iww-tree-surface-bg) 88%, var(--iww-tree-theme-accent) 12%) 0%,
+        color-mix(in srgb, var(--iww-tree-surface-bg-alt) 92%, var(--iww-tree-surface-bg) 8%) 100%
+    );
+    --iww-tree-collapsible-collapsed-shadow: inset 0 0 0 1px color-mix(in srgb, var(--iww-tree-surface-text-strong) 4%, transparent), 0 18px 40px color-mix(in srgb, var(--iww-tree-surface-border) 34%, transparent);
     --iww-tree-collapsible-bar-bg: radial-gradient(
         circle at center,
         color-mix(in srgb, var(--iww-tree-theme-accent) 18%, transparent) 0%,
@@ -150,6 +172,70 @@
     overflow: hidden;
     -webkit-user-select: none;
     user-select: none;
+}
+
+.iww-animal-talent-tree-collapsible {
+    --iww-tree-surface-bg: var(--wiki-content-background-color, #050505);
+    --iww-tree-surface-bg-alt: var(--wiki-content-background-color--secondary, #080808);
+    --iww-tree-surface-border: var(--wiki-content-border-color, #333);
+    --iww-tree-surface-border-accent: var(--wiki-content-border-color--accent, var(--wiki-content-border-color, var(--wiki-accent-color, #b580c9)));
+    --iww-tree-surface-text: var(--wiki-content-text-color, #e0e0e0);
+    --iww-tree-surface-text-strong: var(--wiki-content-dynamic-color, #ffffff);
+    --iww-tree-surface-text-inverse: var(--wiki-content-dynamic-color--inverted, #000000);
+    --iww-tree-link-text: var(--wiki-content-link-color, #e0c56a);
+    --iww-tree-theme-accent: var(--wiki-accent-color, #b580c9);
+    --iww-tree-theme-accent-dim: var(--iww-tree-surface-border-accent);
+    --iww-tree-theme-text: var(--iww-tree-link-text);
+    --iww-tree-panel-border-strong: color-mix(in srgb, var(--iww-tree-theme-accent) 48%, var(--iww-tree-surface-border) 52%);
+    --iww-tree-collapsible-border: color-mix(in srgb, var(--iww-tree-theme-accent) 28%, transparent);
+    --iww-tree-collapsible-bg: radial-gradient(
+        circle at 16% 18%,
+        color-mix(in srgb, var(--iww-tree-theme-accent) 14%, transparent) 0%,
+        transparent 34%
+    ), linear-gradient(
+        135deg,
+        color-mix(in srgb, var(--iww-tree-surface-bg-alt) 18%, transparent) 0%,
+        transparent 42%
+    ), linear-gradient(
+        180deg,
+        color-mix(in srgb, var(--iww-tree-surface-bg) 90%, var(--iww-tree-theme-accent) 10%) 0%,
+        color-mix(in srgb, var(--iww-tree-surface-bg) 94%, var(--iww-tree-surface-bg-alt) 6%) 100%
+    );
+    --iww-tree-collapsible-shadow: 0 16px 36px color-mix(in srgb, var(--iww-tree-surface-border) 32%, transparent);
+    --iww-tree-collapsible-collapsed-bg: repeating-linear-gradient(
+        135deg,
+        color-mix(in srgb, var(--iww-tree-theme-accent) 8%, transparent) 0 18px,
+        transparent 18px 36px
+    ), linear-gradient(
+        135deg,
+        color-mix(in srgb, var(--iww-tree-surface-text-strong) 4%, transparent) 0%,
+        transparent 45%
+    ), linear-gradient(
+        180deg,
+        color-mix(in srgb, var(--iww-tree-surface-bg) 88%, var(--iww-tree-theme-accent) 12%) 0%,
+        color-mix(in srgb, var(--iww-tree-surface-bg-alt) 92%, var(--iww-tree-surface-bg) 8%) 100%
+    );
+    --iww-tree-collapsible-collapsed-shadow: inset 0 0 0 1px color-mix(in srgb, var(--iww-tree-surface-text-strong) 4%, transparent), 0 18px 40px color-mix(in srgb, var(--iww-tree-surface-border) 34%, transparent);
+    --iww-tree-collapsible-bar-bg: radial-gradient(
+        circle at center,
+        color-mix(in srgb, var(--iww-tree-theme-accent) 18%, transparent) 0%,
+        color-mix(in srgb, var(--iww-tree-theme-accent) 6%, transparent) 38%,
+        transparent 72%
+    ), linear-gradient(
+        180deg,
+        color-mix(in srgb, var(--iww-tree-surface-text-strong) 2%, transparent) 0%,
+        color-mix(in srgb, var(--iww-tree-surface-text-inverse) 8%, transparent) 100%
+    );
+    --iww-tree-collapsible-bar-divider: color-mix(in srgb, var(--iww-tree-theme-accent) 22%, transparent);
+    --iww-tree-collapsible-toggle-border: color-mix(in srgb, var(--iww-tree-theme-accent) 50%, transparent);
+    --iww-tree-collapsible-toggle-bg: linear-gradient(
+        180deg,
+        color-mix(in srgb, var(--iww-tree-theme-accent) 22%, transparent) 0%,
+        color-mix(in srgb, var(--iww-tree-theme-accent) 9%, transparent) 100%
+    ), color-mix(in srgb, var(--iww-tree-surface-bg) 90%, var(--iww-tree-surface-bg-alt));
+    --iww-tree-collapsible-toggle-shadow: inset 0 0 0 1px color-mix(in srgb, var(--iww-tree-surface-text-strong) 4%, transparent), 0 0 18px color-mix(in srgb, var(--iww-tree-theme-accent) 12%, transparent);
+    --iww-tree-collapsible-toggle-shadow-hover: inset 0 0 0 1px color-mix(in srgb, var(--iww-tree-surface-text-strong) 8%, transparent), 0 0 24px color-mix(in srgb, var(--iww-tree-theme-accent) 22%, transparent);
+    --iww-tree-focus-ring: color-mix(in srgb, var(--iww-tree-theme-accent) 55%, transparent);
 }
 
 .iww-tree-tier-ui-wrapper {

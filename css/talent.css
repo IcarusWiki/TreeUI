@@ -264,9 +264,19 @@
     overflow: hidden;
 }
 
+.iww-animal-talent-tree-collapsible.mw-collapsed {
+    border-color: var(--iww-tree-panel-border-strong);
+    background: var(--iww-tree-collapsible-collapsed-bg);
+    box-shadow: var(--iww-tree-collapsible-collapsed-shadow);
+}
+
 .iww-animal-talent-tree-toggle-bar {
     padding: 18px;
     background: var(--iww-tree-collapsible-bar-bg);
+}
+
+.iww-animal-talent-tree-collapsible.mw-collapsed .iww-animal-talent-tree-toggle-bar {
+    background: var(--iww-tree-collapsible-collapsed-bg);
 }
 
 .iww-animal-talent-tree-collapsible:not(.mw-collapsed) .iww-animal-talent-tree-toggle-bar {
