@@ -3758,7 +3758,7 @@ data.nodes = {
         tree = "Blueprint_T3_Machine",
         x = 4235,
         y = 110,
-        desc = "Repairs any item, requiring power to repair tier 4 or workshop items.",
+        desc = "Repairs any item, requiring power to repair Tier 4, Tier 5, and Workshop items.",
     },
     ["Rifle_Round"] = {
         name = "7.62mm Round",

@@ -857,7 +857,7 @@ data.nodes = {
         desc = "Instantly removes a large amount of Radiation Exposure.",
     },
     ["Workshop_Antibiotic_Vaccine_Alpha"] = {
-        name = "Bacterial Vaccine I",
+        name = "Antibiotic Vaccine I",
         icon = "ITEM_Meta_Vaccine_Antibiotic",
         tree = "Workshop_Consumables",
         x = 1250,
@@ -865,7 +865,7 @@ data.nodes = {
         desc = "Provides temporary immunity to a range of infections commonly encountered on Icarus, including cave sickness and infected wounds.",
     },
     ["Workshop_Antibiotic_Vaccine_Beta"] = {
-        name = "Bacterial Vaccine II",
+        name = "Antibiotic Vaccine II",
         icon = "ITEM_Meta_Vaccine_Antibiotic_1",
         tree = "Workshop_Consumables",
         x = 1410,
@@ -873,7 +873,7 @@ data.nodes = {
         desc = "Provides temporary immunity to a range of infections commonly encountered on Icarus, including cave sickness and infected wounds.",
     },
     ["Workshop_Antibiotic_Vaccine_Charlie"] = {
-        name = "Bacterial Vaccine III",
+        name = "Antibiotic Vaccine III",
         icon = "ITEM_Meta_Vaccine_Antibiotic_2",
         tree = "Workshop_Consumables",
         x = 1410,
@@ -897,7 +897,7 @@ data.nodes = {
         desc = "Temporary, heavyweight prevention against festering wounds, dysentry and other parasites.",
     },
     ["Workshop_Antiparasitic_Vaccine_Charlie"] = {
-        name = "Antiparasitic Vaccine III",
+        name = "Anti-parasitic Vaccine III",
         icon = "ITEM_Meta_Vaccine_Antiparasitic_2",
         tree = "Workshop_Consumables",
         x = 1030,
@@ -2494,7 +2494,7 @@ data.nodes = {
         tree = "Workshop_Resources",
         x = 490,
         y = 130,
-        desc = "A collection of 100 Coal ore collected from Space. 'CONSUME' to open bundle.",
+        desc = "A collection of 100 Coal collected from Space. 'CONSUME' to open bundle.",
     },
     ["Workshop_Resource_Pack_Aluminium"] = {
         name = "UDA Aluminium Ore Resource Supply",
@@ -2502,7 +2502,7 @@ data.nodes = {
         tree = "Workshop_Resources",
         x = 490,
         y = 270,
-        desc = "A collection of 100 Aluminium ore collected by another prospector for you. 'CONSUME' to open bundle.",
+        desc = "A collection of 100 Aluminium Ore collected by another prospector for you. 'CONSUME' to open bundle.",
     },
     ["Workshop_Resource_Pack_Clay"] = {
         name = "UDA Clay Resource Supply",
@@ -2518,7 +2518,7 @@ data.nodes = {
         tree = "Workshop_Resources",
         x = 170,
         y = 270,
-        desc = "A collection of 100 Copper collected by another prospector for you. 'CONSUME' to open bundle.",
+        desc = "A collection of 100 Copper Ore collected by another prospector for you. 'CONSUME' to open bundle.",
     },
     ["Workshop_Resource_Pack_Dirt"] = {
         name = "UDA Dirt Resource Supply",
@@ -2534,10 +2534,10 @@ data.nodes = {
         tree = "Workshop_Resources",
         x = 330,
         y = 270,
-        desc = "A collection of 100 Gold ore collected by another prospector for you. 'CONSUME' to open bundle.",
+        desc = "A collection of 100 Gold Ore collected by another prospector for you. 'CONSUME' to open bundle.",
     },
     ["Workshop_Resource_Pack_Limestone"] = {
-        name = "UDA Limestone Ore Resource Supply",
+        name = "UDA Limestone Resource Supply",
         icon = "T_ITEM_Resource_Pack_Limestone",
         tree = "Workshop_Resources",
         x = 10,
@@ -2550,7 +2550,7 @@ data.nodes = {
         tree = "Workshop_Resources",
         x = 170,
         y = 550,
-        desc = "A collection of 100 Lithium collected by another prospector for you. 'CONSUME' to open bundle.",
+        desc = "A collection of 100 Lithium Ore collected by another prospector for you. 'CONSUME' to open bundle.",
     },
     ["Workshop_Resource_Pack_Obsidian"] = {
         name = "UDA Obsidian Resource Supply",
@@ -2561,12 +2561,12 @@ data.nodes = {
         desc = "A collection of 100 Obsidian collected by another prospector for you. 'CONSUME' to open bundle.",
     },
     ["Workshop_Resource_Pack_Oxite"] = {
-        name = "UDA Oxite Ore Resource Supply",
+        name = "UDA Oxite Resource Supply",
         icon = "T_ITEM_Resource_Pack_Oxite",
         tree = "Workshop_Resources",
         x = 10,
         y = 130,
-        desc = "A collection of 100 Oxite Ore collected by another prospector for you. 'CONSUME' to open bundle.",
+        desc = "A collection of 100 Oxite collected by another prospector for you. 'CONSUME' to open bundle.",
     },
     ["Workshop_Resource_Pack_Platinum"] = {
         name = "UDA Platinum Ore Resource Supply",
@@ -2574,7 +2574,15 @@ data.nodes = {
         tree = "Workshop_Resources",
         x = 650,
         y = 270,
-        desc = "A collection of 100 Platinum ore collected by another prospector for you. 'CONSUME' to open bundle.",
+        desc = "A collection of 100 Platinum Ore collected by another prospector for you. 'CONSUME' to open bundle.",
+    },
+    ["Workshop_Resource_Pack_Ruby"] = {
+        name = "UDA Crystallized Ruby Resource Supply",
+        icon = "T_ITEM_Resource_Pack_Ruby",
+        tree = "Workshop_Resources",
+        x = 330,
+        y = 550,
+        desc = "A collection of 50 Crystallized Ruby collected by another prospector for you. 'CONSUME' to open bundle.",
     },
     ["Workshop_Resource_Pack_Scoria"] = {
         name = "UDA Scoria Resource Supply",
@@ -2601,7 +2609,7 @@ data.nodes = {
         desc = "A collection of 250 Stone collected by another prospector for you.",
     },
     ["Workshop_Resource_Pack_Sulfur"] = {
-        name = "UDA Sulfur Ore Resource Supply",
+        name = "UDA Sulfur Resource Supply",
         icon = "T_ITEM_Resource_Pack_Sulfur",
         tree = "Workshop_Resources",
         x = 330,
@@ -2614,7 +2622,7 @@ data.nodes = {
         tree = "Workshop_Resources",
         x = 10,
         y = 270,
-        desc = "A collection of 100 Iron collected by another prospector for you. 'CONSUME' to open bundle.",
+        desc = "A collection of 100 Iron Ore collected by another prospector for you. 'CONSUME' to open bundle.",
     },
     ["Workshop_Resource_Pack_Titanium"] = {
         name = "UDA Titanium Ore Resource Supply",
@@ -2622,7 +2630,7 @@ data.nodes = {
         tree = "Workshop_Resources",
         x = 790,
         y = 270,
-        desc = "A collection of 100 Titanium ore collected by another prospector for you. 'CONSUME' to open bundle.",
+        desc = "A collection of 100 Titanium Ore collected by another prospector for you. 'CONSUME' to open bundle.",
     },
     ["Workshop_Resource_Pack_Wood"] = {
         name = "UDA Wood Resource Supply",
@@ -2638,7 +2646,7 @@ data.nodes = {
         tree = "Workshop_Resources_Refined",
         x = 10,
         y = 10,
-        desc = "A collection of 100 Synthetic collected by another prospector for you. 'CONSUME' to open bundle.",
+        desc = "A collection of 100 Synthetic Enzymes collected by another prospector for you. 'CONSUME' to open bundle.",
     },
     ["Workshop_Sickle_Inaris_00"] = {
         name = "Inaris \"Reaper\" Sickle",
