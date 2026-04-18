@@ -462,7 +462,10 @@
     gap: 6px;
     min-height: 22px;
     padding: 2px 8px 2px 4px;
-    background: url('/wiki/Special:Redirect/file/T_FRAME_MISSION_TitleBar.png') no-repeat center / 100% 100%;
+    background-image: url('/wiki/Special:Redirect/file/T_FRAME_MISSION_TitleBar.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
 }
 
 .iww-mission-tree-node-title {
@@ -542,12 +545,7 @@
     bottom: 0;
     z-index: 8;
     padding: 6px 8px 7px;
-    background: linear-gradient(
-        180deg,
-        color-mix(in srgb, var(--iww-tree-surface-bg) 0%, transparent) 0%,
-        color-mix(in srgb, var(--iww-tree-surface-bg) 82%, transparent) 40%,
-        color-mix(in srgb, var(--iww-tree-surface-bg) 92%, transparent) 100%
-    );
+    background-image: var(--iww-tree-mission-node-effect-bg);
     color: var(--iww-tree-surface-text-strong, #ffffff);
     font-size: 9px;
     font-weight: 700;
@@ -629,7 +627,10 @@
     gap: 8px;
     min-height: 26px;
     padding: 3px 10px;
-    background: url('/wiki/Special:Redirect/file/ProspectMission_MissionName.png') no-repeat center / 100% 100%;
+    background-image: url('/wiki/Special:Redirect/file/ProspectMission_MissionName.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
 }
 
 .iww-mission-tree-node-rewards {

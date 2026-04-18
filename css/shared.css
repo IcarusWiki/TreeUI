@@ -386,6 +386,12 @@
         color-mix(in srgb, var(--iww-tree-surface-bg) 12%, transparent) 70%,
         color-mix(in srgb, var(--iww-tree-surface-bg) 22%, transparent) 100%
     );
+    --iww-tree-mission-node-effect-bg: linear-gradient(
+        180deg,
+        color-mix(in srgb, var(--iww-tree-surface-bg) 0%, transparent) 0%,
+        color-mix(in srgb, var(--iww-tree-surface-bg) 82%, transparent) 40%,
+        color-mix(in srgb, var(--iww-tree-surface-bg) 92%, transparent) 100%
+    );
     --iww-tree-mission-node-image-empty: linear-gradient(
         180deg,
         color-mix(in srgb, var(--iww-tree-surface-bg) 84%, var(--iww-tree-surface-bg-alt)) 0%,
