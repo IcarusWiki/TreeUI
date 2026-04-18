@@ -378,16 +378,13 @@
     --iww-tree-mission-button-bg: color-mix(in srgb, var(--iww-tree-surface-bg) 72%, transparent);
     --iww-tree-mission-button-bg-hover: color-mix(in srgb, var(--iww-tree-surface-bg) 78%, var(--iww-tree-theme-accent) 22%);
     --iww-tree-mission-button-text: color-mix(in srgb, var(--iww-tree-theme-text) 90%, transparent);
-    --iww-tree-mission-node-title: var(--iww-tree-theme-accent-contrast);
+    --iww-tree-mission-node-title: var(--iww-tree-surface-text-strong, #ffffff);
     --iww-tree-mission-node-border: color-mix(in srgb, var(--iww-tree-theme-text) 8%, transparent);
     --iww-tree-mission-node-image-overlay: linear-gradient(
         180deg,
-        color-mix(in srgb, var(--iww-tree-surface-bg) 22%, transparent) 0%,
-        color-mix(in srgb, var(--iww-tree-surface-bg) 86%, transparent) 100%
-    ), linear-gradient(
-        135deg,
-        color-mix(in srgb, var(--iww-tree-theme-accent) 16%, transparent),
-        color-mix(in srgb, var(--iww-tree-surface-bg) 2%, transparent)
+        color-mix(in srgb, var(--iww-tree-surface-bg) 0%, transparent) 0%,
+        color-mix(in srgb, var(--iww-tree-surface-bg) 12%, transparent) 70%,
+        color-mix(in srgb, var(--iww-tree-surface-bg) 22%, transparent) 100%
     );
     --iww-tree-mission-node-image-empty: linear-gradient(
         180deg,
@@ -398,9 +395,10 @@
         color-mix(in srgb, var(--iww-tree-theme-accent) 12%, transparent),
         transparent 70%
     );
-    --iww-tree-mission-tech-border: color-mix(in srgb, var(--iww-tree-link-text) 50%, transparent);
-    --iww-tree-mission-tech-bg: color-mix(in srgb, var(--iww-tree-surface-bg) 55%, var(--iww-tree-link-text) 45%);
-    --iww-tree-mission-tech-text: var(--iww-tree-link-text-hover);
+    --iww-tree-mission-tech-accent: #3ea0c8;
+    --iww-tree-mission-tech-border: color-mix(in srgb, var(--iww-tree-mission-tech-accent) 70%, transparent);
+    --iww-tree-mission-tech-bg: color-mix(in srgb, var(--iww-tree-surface-bg) 30%, var(--iww-tree-mission-tech-accent) 70%);
+    --iww-tree-mission-tech-text: #ffffff;
     --iww-tree-mission-danger-inactive: color-mix(in srgb, var(--iww-tree-theme-text) 30%, transparent);
     --iww-tree-mission-danger-success-shadow: 0 0 8px color-mix(in srgb, var(--iww-tree-theme-success) 44%, transparent);
     --iww-tree-mission-danger-neutral-shadow: 0 0 8px color-mix(in srgb, var(--iww-tree-theme-neutral) 44%, transparent);

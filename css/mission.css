@@ -203,37 +203,29 @@
 }
 
 .iww-mission-tree-selector-count-icon {
-    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     width: 13px;
     height: 13px;
-    flex: 0 0 auto;
-}
-
-.iww-mission-tree-selector-count-diamond {
-    position: absolute;
-    display: block;
-    box-sizing: border-box;
     line-height: 0;
-    width: 10px;
-    height: 10px;
-    transform: rotate(45deg);
+    flex: 0 0 auto;
+    filter: var(--wiki-icon-to-link-filter);
 }
 
-.iww-mission-tree-selector-count-diamond.is-fill {
-    top: 0;
-    left: 0;
-    z-index: 2;
-    background: var(--iww-tree-mission-count-diamond);
-    opacity: 1;
+.iww-mission-tree-selector-count-icon a,
+.iww-mission-tree-selector-count-icon > span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    line-height: 0;
 }
 
-.iww-mission-tree-selector-count-diamond.is-outline {
-    top: 4px;
-    left: 0;
-    z-index: 1;
-    border: 1px solid var(--iww-tree-mission-count-diamond);
-    background: transparent;
-    opacity: 1;
+.iww-mission-tree-selector-count-icon img {
+    max-width: 13px !important;
+    max-height: 13px !important;
 }
 
 .iww-mission-tree-selector-count-text {
@@ -444,20 +436,6 @@
     box-shadow: none;
 }
 
-.iww-mission-tree-node .iww-tree-node-frame {
-    background-image: url('/wiki/Special:Redirect/file/ProspectMission_Base.png');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    filter: brightness(0.98);
-    z-index: 4;
-}
-
-.iww-mission-tree-node:hover .iww-tree-node-frame {
-    background-image: url('/wiki/Special:Redirect/file/ProspectMission_BaseHovered.png');
-    filter: brightness(1.03);
-}
-
 .iww-mission-tree-node .iww-tree-glow {
     inset: -10px;
 }
@@ -473,24 +451,33 @@
     flex-direction: column;
     width: 100%;
     height: 100%;
-    padding: 7px 8px 8px;
-    overflow: hidden;
+    overflow: visible;
 }
 
-.iww-mission-tree-node-header {
+.iww-mission-tree-node-tab {
     position: relative;
     z-index: 9;
-    min-height: 18px;
-    padding: 1px 22px 0 6px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    min-height: 22px;
+    padding: 2px 8px 2px 4px;
+    background: url('/wiki/Special:Redirect/file/T_FRAME_MISSION_TitleBar.png') no-repeat center / 100% 100%;
 }
 
 .iww-mission-tree-node-title {
+    flex: 1 1 auto;
+    min-width: 0;
+    padding-right: 2px;
     color: var(--iww-tree-mission-node-title);
     font-size: 10px;
     font-weight: 900;
     letter-spacing: 0.55px;
-    line-height: 0.96;
+    line-height: 1;
     text-transform: uppercase;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .iww-mission-tree-node-body {
@@ -503,6 +490,10 @@
     background: var(--iww-tree-theme-tooltip-bg, #10140d);
 }
 
+.iww-mission-tree-node:hover .iww-mission-tree-node-body {
+    border-color: var(--iww-tree-theme-accent);
+}
+
 .iww-mission-tree-node-image {
     position: absolute;
     inset: 0;
@@ -510,6 +501,7 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    transition: filter 0.2s ease;
 }
 
 .iww-mission-tree-node-image.has-image {
@@ -520,39 +512,58 @@
     background-image: var(--iww-tree-mission-node-image-empty);
 }
 
-.iww-mission-tree-node-top {
-    position: absolute;
-    top: 7px;
-    left: 7px;
-    right: 7px;
-    z-index: 10;
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 8px;
+.iww-mission-tree-node:hover .iww-mission-tree-node-image {
+    filter: brightness(1.08);
 }
 
 .iww-mission-tree-node-tech {
     display: inline-flex;
     align-items: center;
-    min-height: 22px;
-    padding: 0 6px;
+    flex: 0 0 auto;
+    min-height: 18px;
+    padding: 0 5px;
     border: 1px solid var(--iww-tree-mission-tech-border);
     background: var(--iww-tree-mission-tech-bg);
     color: var(--iww-tree-mission-tech-text);
-    font-size: 11px;
+    font-size: 10px;
     font-weight: 800;
     letter-spacing: 0.3px;
+    line-height: 1;
 }
 
 .iww-mission-tree-node-tech.is-empty {
     opacity: 0;
 }
 
+.iww-mission-tree-node-effect {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 8;
+    padding: 6px 8px 7px;
+    background: linear-gradient(
+        180deg,
+        color-mix(in srgb, var(--iww-tree-surface-bg) 0%, transparent) 0%,
+        color-mix(in srgb, var(--iww-tree-surface-bg) 82%, transparent) 40%,
+        color-mix(in srgb, var(--iww-tree-surface-bg) 92%, transparent) 100%
+    );
+    color: var(--iww-tree-surface-text-strong, #ffffff);
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.35px;
+    line-height: 1.22;
+    text-transform: uppercase;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+    pointer-events: none;
+}
+
 .iww-mission-tree-node-danger {
     display: inline-flex;
     align-items: center;
+    flex: 0 0 auto;
     gap: 1px;
+    margin-left: auto;
 }
 
 .iww-mission-tree-node-danger-skull {
@@ -583,9 +594,9 @@
 
 .iww-mission-tree-node-rail {
     position: absolute;
-    top: 46px;
+    top: 6px;
     right: 5px;
-    bottom: 8px;
+    bottom: 6px;
     z-index: 11;
     display: flex;
     flex-direction: column;
@@ -613,11 +624,12 @@
     position: relative;
     z-index: 9;
     display: flex;
-    align-items: flex-end;
+    align-items: center;
     justify-content: space-between;
     gap: 8px;
-    min-height: 28px;
-    padding: 4px 4px 0;
+    min-height: 26px;
+    padding: 3px 10px;
+    background: url('/wiki/Special:Redirect/file/ProspectMission_MissionName.png') no-repeat center / 100% 100%;
 }
 
 .iww-mission-tree-node-rewards {

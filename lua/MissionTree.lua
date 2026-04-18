@@ -57,7 +57,7 @@ local function add_world_skulls(parent, active_count, total_count, theme)
         if i <= active_count then
             skull:addClass("is-active")
         end
-        skull:wikitext(make_file_icon("Icon_Skull", "18x18px", "Difficulty"))
+        skull:wikitext(make_file_icon("ICON_MISSION_Dangerous", "18x18px", "Difficulty"))
     end
 end
 
@@ -95,15 +95,18 @@ local function make_mission_node(node_id, data)
         or data.background ~= "" and data.background
         or display_name
 
-    node:tag("span"):addClass("iww-tree-node-frame"):addClass("iww-mission-tree-node-frame")
-
     local card = node:tag("div"):addClass("iww-mission-tree-node-card")
 
-    card:tag("div")
-        :addClass("iww-mission-tree-node-header")
-        :tag("div")
-            :addClass("iww-mission-tree-node-title")
-            :wikitext(display_name)
+    local tab = card:tag("div"):addClass("iww-mission-tree-node-tab")
+    if data.tech and data.tech ~= "" then
+        tab:tag("span"):addClass("iww-mission-tree-node-tech"):wikitext(data.tech)
+    else
+        tab:tag("span"):addClass("iww-mission-tree-node-tech"):addClass("is-empty")
+    end
+    tab:tag("span")
+        :addClass("iww-mission-tree-node-title")
+        :wikitext(display_name)
+    add_mission_skulls(tab, data.difficulty_rank, data.difficulty)
 
     local body = card:tag("div"):addClass("iww-mission-tree-node-body")
     local image = body:tag("span"):addClass("iww-mission-tree-node-image")
@@ -112,14 +115,6 @@ local function make_mission_node(node_id, data)
     else
         image:addClass("is-empty")
     end
-
-    local top = body:tag("div"):addClass("iww-mission-tree-node-top")
-    if data.tech and data.tech ~= "" then
-        top:tag("span"):addClass("iww-mission-tree-node-tech"):wikitext(data.tech)
-    else
-        top:tag("span"):addClass("iww-mission-tree-node-tech"):addClass("is-empty")
-    end
-    add_mission_skulls(top, data.difficulty_rank, data.difficulty)
 
     local mission_types = data.types or {}
     if #mission_types > 0 then
@@ -135,6 +130,10 @@ local function make_mission_node(node_id, data)
                     :wikitext(make_file_icon(mission_type.icon, "15x15px", label))
             end
         end
+    end
+
+    if data.effect and data.effect ~= "" then
+        body:tag("div"):addClass("iww-mission-tree-node-effect"):wikitext(data.effect)
     end
 
     local footer = card:tag("div"):addClass("iww-mission-tree-node-footer")
@@ -225,12 +224,7 @@ function p.render(frame)
             local top = copy:tag("span"):addClass("iww-mission-tree-selector-top")
             local count = top:tag("span"):addClass("iww-mission-tree-selector-count")
             local count_icon = count:tag("span"):addClass("iww-mission-tree-selector-count-icon")
-            count_icon:tag("span")
-                :addClass("iww-mission-tree-selector-count-diamond")
-                :addClass("is-fill")
-            count_icon:tag("span")
-                :addClass("iww-mission-tree-selector-count-diamond")
-                :addClass("is-outline")
+            count_icon:wikitext(make_file_icon("Icon_Missions", "13x13px", "Missions"))
             count:tag("span"):addClass("iww-mission-tree-selector-count-text")
                 :wikitext(region.mission_count_label or (tostring(region.mission_count) .. "/" .. tostring(region.mission_count)))
             add_world_skulls(

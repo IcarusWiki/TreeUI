@@ -16,7 +16,7 @@ data.regions = {
         icon = "Icon_Consume",
         preview_image = "T_Prospect_Forest_ExpeditionSpear01_Large",
         preview_title = "BEACHHEAD",
-        selector_image = "T_IMG_Terrain_Olympus",
+        selector_image = "T_IMG_Terrain_Olypmus",
         background_image = "T_IMG_TRBG_Olympus",
         selector_description = "First Cohort ground zero, where fortunes are found and lives are lost. Earth-like terrazone centered on a mountainous arctic region.",
         selector_difficulty = 2,
@@ -114,6 +114,7 @@ data.nodes = {
         duration_mins = 0,
         availability = "Base",
         feature = "Dangerous Horizons",
+        effect = "",
         prospect_key = "ELY_Story_1",
         types = {
             {
@@ -164,6 +165,7 @@ data.nodes = {
         duration_mins = 0,
         availability = "Base",
         feature = "Dangerous Horizons",
+        effect = "",
         prospect_key = "ELY_SQ_Igloo",
         types = {
             {
@@ -224,6 +226,7 @@ data.nodes = {
         duration_mins = 0,
         availability = "Base",
         feature = "Dangerous Horizons",
+        effect = "Unlocks the Fisheries Officer in this Open World region, allowing Fish to be traded for Ren.",
         prospect_key = "ELY_SQ_Fisher",
         types = {
             {
@@ -284,6 +287,7 @@ data.nodes = {
         duration_mins = 0,
         availability = "Base",
         feature = "Dangerous Horizons",
+        effect = "",
         prospect_key = "ELY_Story_2",
         types = {
             {
@@ -334,6 +338,7 @@ data.nodes = {
         duration_mins = 0,
         availability = "Base",
         feature = "Dangerous Horizons",
+        effect = "",
         prospect_key = "ELY_SQ_Yeti",
         types = {
             {
@@ -394,6 +399,7 @@ data.nodes = {
         duration_mins = 0,
         availability = "Base",
         feature = "Dangerous Horizons",
+        effect = "Unlocks the Cultivation Specialist in this Open World region, allowing Crops to be traded for Ren.",
         prospect_key = "ELY_SQ_Farmer",
         types = {
             {
@@ -454,6 +460,7 @@ data.nodes = {
         duration_mins = 0,
         availability = "Base",
         feature = "Dangerous Horizons",
+        effect = "",
         prospect_key = "ELY_Story_3",
         types = {
             {
@@ -509,6 +516,7 @@ data.nodes = {
         duration_mins = 0,
         availability = "Base",
         feature = "Dangerous Horizons",
+        effect = "",
         prospect_key = "ELY_SQ_Fish",
         types = {
             {
@@ -569,6 +577,7 @@ data.nodes = {
         duration_mins = 0,
         availability = "Base",
         feature = "Dangerous Horizons",
+        effect = "Unlocks the Predator Control Specialist in this Open World region, allowing Vestiges to be traded for Ren.",
         prospect_key = "ELY_SQ_Hunter",
         types = {
             {
@@ -624,6 +633,7 @@ data.nodes = {
         duration_mins = 0,
         availability = "Base",
         feature = "Dangerous Horizons",
+        effect = "",
         prospect_key = "ELY_Story_4",
         types = {
             {
@@ -674,6 +684,7 @@ data.nodes = {
         duration_mins = 0,
         availability = "Base",
         feature = "Dangerous Horizons",
+        effect = "Unlocks the Norex Liason in this Open World region, allowing Biomass to be traded for Creature Parts.",
         prospect_key = "ELY_SQ_Norex",
         types = {
             {
@@ -734,6 +745,7 @@ data.nodes = {
         duration_mins = 0,
         availability = "Base",
         feature = "Dangerous Horizons",
+        effect = "",
         prospect_key = "ELY_SQ_Ambush",
         types = {
             {
@@ -794,6 +806,7 @@ data.nodes = {
         duration_mins = 0,
         availability = "Base",
         feature = "Dangerous Horizons",
+        effect = "Unlocks the Sandwyrm Queen. A new World Boss who Appears on Elysium.",
         prospect_key = "ELY_Story_5",
         types = {
             {
@@ -844,6 +857,7 @@ data.nodes = {
         duration_mins = 0,
         availability = "Base",
         feature = "Dangerous Horizons",
+        effect = "",
         prospect_key = "ELY_SQ_Lifeline",
         types = {
             {
@@ -899,6 +913,7 @@ data.nodes = {
         duration_mins = 0,
         availability = "Base",
         feature = "Dangerous Horizons",
+        effect = "",
         prospect_key = "ELY_Story_6",
         types = {
             {
@@ -954,6 +969,7 @@ data.nodes = {
         duration_mins = 0,
         availability = "Base",
         feature = "Dangerous Horizons",
+        effect = "",
         prospect_key = "ELY_SQ_Courier",
         types = {
             {
@@ -1009,6 +1025,7 @@ data.nodes = {
         duration_mins = 0,
         availability = "Base",
         feature = "Dangerous Horizons",
+        effect = "",
         prospect_key = "ELY_SQ_Trials",
         types = {
             {
@@ -1064,6 +1081,7 @@ data.nodes = {
         duration_mins = 0,
         availability = "",
         feature = "",
+        effect = "",
         prospect_key = "Tier1_Forest_Recon_0",
         types = {
             {
@@ -1122,6 +1140,7 @@ data.nodes = {
         duration_mins = 0,
         availability = "Base",
         feature = "",
+        effect = "",
         prospect_key = "Tier1_Forest_Range",
         types = {
             {
@@ -1165,6 +1184,7 @@ data.nodes = {
         duration_mins = 0,
         availability = "Base",
         feature = "",
+        effect = "",
         prospect_key = "Tier1_Forest_WS_Stockpile",
         types = {
             {
@@ -1218,6 +1238,7 @@ data.nodes = {
         duration_mins = 0,
         availability = "Base",
         feature = "",
+        effect = "",
         prospect_key = "Tier1_Forest_Extermination_0",
         types = {
             {
@@ -1261,6 +1282,7 @@ data.nodes = {
         duration_mins = 0,
         availability = "Base",
         feature = "",
+        effect = "",
         prospect_key = "Tier1_Forest_Stockpile",
         types = {
             {
@@ -1324,6 +1346,7 @@ data.nodes = {
         duration_mins = 0,
         availability = "Base",
         feature = "",
+        effect = "",
         prospect_key = "Tier1_Forest_Scan_0",
         types = {
             {
@@ -1367,6 +1390,7 @@ data.nodes = {
         duration_mins = 0,
         availability = "Base",
         feature = "",
+        effect = "",
         prospect_key = "Tier1_Forest_Construction",
         types = {
             {
@@ -1410,6 +1434,7 @@ data.nodes = {
         duration_mins = 0,
         availability = "Base",
         feature = "",
+        effect = "",
         prospect_key = "Tier1_Forest_Defence",
         types = {
             {
@@ -1453,6 +1478,7 @@ data.nodes = {
         duration_mins = 0,
         availability = "Base",
         feature = "",
+        effect = "",
         prospect_key = "Tier1_Forest_Survey_0",
         types = {
             {
@@ -1496,6 +1522,7 @@ data.nodes = {
         duration_mins = 0,
         availability = "Base",
         feature = "Dangerous Horizons",
+        effect = "Unlocks the Cultivation Specialist in this Open World region, allowing Crops to be traded for Ren.",
         prospect_key = "OLY_SQ_Farmer",
         types = {
             {
@@ -1556,6 +1583,7 @@ data.nodes = {
         duration_mins = 0,
         availability = "Base",
         feature = "",
+        effect = "",
         prospect_key = "Tier1_Forest_Research_0",
         types = {
             {
@@ -1604,6 +1632,7 @@ data.nodes = {
         duration_mins = 0,
         availability = "Base",
         feature = "",
+        effect = "",
         prospect_key = "Tier2_Glacier_Extraction_0",
         types = {
             {
@@ -1652,6 +1681,7 @@ data.nodes = {
         duration_mins = 0,
         availability = "Base",
         feature = "",
+        effect = "",
         prospect_key = "Tier2_Canyon_Expedition_0",
         types = {
             {
@@ -1695,6 +1725,7 @@ data.nodes = {
         duration_mins = 0,
         availability = "Base",
         feature = "",
+        effect = "",
         prospect_key = "Tier2_Glacier_Expedition_0",
         types = {
             {
@@ -1763,6 +1794,7 @@ data.nodes = {
         duration_mins = 0,
         availability = "Upgrade1",
         feature = "",
+        effect = "",
         prospect_key = "Tier2_Canyon_Stockpile",
         types = {
             {
@@ -1811,6 +1843,7 @@ data.nodes = {
         duration_mins = 0,
         availability = "Base",
         feature = "",
+        effect = "",
         prospect_key = "Tier2_Canyon_Scan_0",
         types = {
             {
@@ -1854,6 +1887,7 @@ data.nodes = {
         duration_mins = 0,
         availability = "Base",
         feature = "",
+        effect = "",
         prospect_key = "Tier2_Glacier_Construction_0",
         types = {
             {
@@ -1897,6 +1931,7 @@ data.nodes = {
         duration_mins = 0,
         availability = "Upgrade1",
         feature = "",
+        effect = "",
         prospect_key = "Tier2_Canyon_Stockpile2",
         types = {
             {
@@ -1945,6 +1980,7 @@ data.nodes = {
         duration_mins = 0,
         availability = "Base",
         feature = "",
+        effect = "",
         prospect_key = "Tier2_Canyon_Construction_0",
         types = {
             {
@@ -1988,6 +2024,7 @@ data.nodes = {
         duration_mins = 0,
         availability = "Base",
         feature = "",
+        effect = "",
         prospect_key = "Tier2_Glacier_Research_0",
         types = {
             {
@@ -2031,6 +2068,7 @@ data.nodes = {
         duration_mins = 0,
         availability = "Base",
         feature = "",
+        effect = "",
         prospect_key = "Tier2_Canyon_Survey_0",
         types = {
             {
@@ -2074,6 +2112,7 @@ data.nodes = {
         duration_mins = 0,
         availability = "Base",
         feature = "",
+        effect = "",
         prospect_key = "Tier2_Glacier_Scan_0",
         types = {
             {
@@ -2117,6 +2156,7 @@ data.nodes = {
         duration_mins = 0,
         availability = "Base",
         feature = "",
+        effect = "",
         prospect_key = "Tier2_Canyon_Recovery_0",
         types = {
             {
@@ -2160,6 +2200,7 @@ data.nodes = {
         duration_mins = 0,
         availability = "Upgrade1",
         feature = "",
+        effect = "",
         prospect_key = "Tier2_Canyon_LongSurvey_0",
         types = {
             {
@@ -2203,6 +2244,7 @@ data.nodes = {
         duration_mins = 0,
         availability = "Base",
         feature = "",
+        effect = "",
         prospect_key = "Tier2_Glacier_Recovery_0",
         types = {
             {
@@ -2246,6 +2288,7 @@ data.nodes = {
         duration_mins = 0,
         availability = "Base",
         feature = "Dangerous Horizons",
+        effect = "Unlocks the Fisheries Officer in this Open World region, allowing Fish to be traded for Ren.",
         prospect_key = "OLY_SQ_Fisher",
         types = {
             {
@@ -2306,6 +2349,7 @@ data.nodes = {
         duration_mins = 0,
         availability = "Base",
         feature = "Dangerous Horizons",
+        effect = "Unlocks the Predator Control Specialist in this Open World region, allowing Vestiges to be traded for Ren.",
         prospect_key = "OLY_SQ_Hunter",
         types = {
             {
@@ -2361,6 +2405,7 @@ data.nodes = {
         duration_mins = 0,
         availability = "Upgrade1",
         feature = "",
+        effect = "",
         prospect_key = "Tier3_RiverLands_Expedition_0",
         types = {
             {
@@ -2404,6 +2449,7 @@ data.nodes = {
         duration_mins = 0,
         availability = "Base",
         feature = "",
+        effect = "",
         prospect_key = "Tier1_Farming",
         types = {
             {
@@ -2447,6 +2493,7 @@ data.nodes = {
         duration_mins = 0,
         availability = "",
         feature = "",
+        effect = "",
         prospect_key = "Tier3_Riverlands_Extraction",
         types = {
         },
@@ -2488,6 +2535,7 @@ data.nodes = {
         duration_mins = 0,
         availability = "Upgrade1",
         feature = "",
+        effect = "",
         prospect_key = "Tier3_RiverLands_Construction",
         types = {
             {
@@ -2531,6 +2579,7 @@ data.nodes = {
         duration_mins = 0,
         availability = "Upgrade1",
         feature = "",
+        effect = "",
         prospect_key = "Tier4_Arctic_Extraction_0",
         types = {
             {
@@ -2584,6 +2633,7 @@ data.nodes = {
         duration_mins = 0,
         availability = "Upgrade1",
         feature = "",
+        effect = "",
         prospect_key = "Tier3_RiverLands_Survey_0",
         types = {
             {
@@ -2627,6 +2677,7 @@ data.nodes = {
         duration_mins = 0,
         availability = "Upgrade1",
         feature = "",
+        effect = "",
         prospect_key = "Tier3_RiverLands_Stockpile_0",
         types = {
             {
@@ -2670,6 +2721,7 @@ data.nodes = {
         duration_mins = 0,
         availability = "Upgrade1",
         feature = "",
+        effect = "",
         prospect_key = "Tier3_RiverLands_Extermination_0",
         types = {
             {
@@ -2713,6 +2765,7 @@ data.nodes = {
         duration_mins = 0,
         availability = "Upgrade1",
         feature = "",
+        effect = "",
         prospect_key = "Tier3_RiverLands_Delivery",
         types = {
             {
@@ -2756,6 +2809,7 @@ data.nodes = {
         duration_mins = 0,
         availability = "Upgrade1",
         feature = "",
+        effect = "",
         prospect_key = "Tier3_RiverLands_Stockpile_2",
         types = {
             {
@@ -2809,6 +2863,7 @@ data.nodes = {
         duration_mins = 0,
         availability = "Upgrade1",
         feature = "",
+        effect = "",
         prospect_key = "Tier3_RiverLands_Scan_0",
         types = {
             {
@@ -2852,6 +2907,7 @@ data.nodes = {
         duration_mins = 0,
         availability = "Upgrade1",
         feature = "",
+        effect = "",
         prospect_key = "Tier3_RiverLands_Research_0",
         types = {
             {
@@ -2895,6 +2951,7 @@ data.nodes = {
         duration_mins = 0,
         availability = "Upgrade1",
         feature = "",
+        effect = "",
         prospect_key = "Tier4_Desert_Recovery",
         types = {
             {
@@ -2943,6 +3000,7 @@ data.nodes = {
         duration_mins = 0,
         availability = "Base",
         feature = "Dangerous Horizons",
+        effect = "Unlocks the Norex Liason in this Open World region, allowing Biomass to be traded for Creature Parts.",
         prospect_key = "OLY_SQ_Norex",
         types = {
             {
@@ -3003,6 +3061,7 @@ data.nodes = {
         duration_mins = 0,
         availability = "Upgrade1",
         feature = "Laika",
+        effect = "",
         prospect_key = "Tier4_Desert_Recovery_2",
         types = {
             {
@@ -3051,6 +3110,7 @@ data.nodes = {
         duration_mins = 0,
         availability = "Upgrade1",
         feature = "",
+        effect = "",
         prospect_key = "Tier4_Arctic_Expedition_0",
         types = {
             {
@@ -3094,6 +3154,7 @@ data.nodes = {
         duration_mins = 0,
         availability = "Upgrade1",
         feature = "",
+        effect = "",
         prospect_key = "Tier4_Desert_Expedition_0",
         types = {
             {
@@ -3162,6 +3223,7 @@ data.nodes = {
         duration_mins = 0,
         availability = "Upgrade1",
         feature = "",
+        effect = "",
         prospect_key = "Tier4_Desert_Research_2",
         types = {
             {
@@ -3210,6 +3272,7 @@ data.nodes = {
         duration_mins = 0,
         availability = "Upgrade1",
         feature = "",
+        effect = "",
         prospect_key = "Tier4_Arctic_Extermination_0",
         types = {
             {
@@ -3253,6 +3316,7 @@ data.nodes = {
         duration_mins = 0,
         availability = "Upgrade1",
         feature = "",
+        effect = "",
         prospect_key = "Tier4_Desert_Extermination_2",
         types = {
             {
@@ -3301,6 +3365,7 @@ data.nodes = {
         duration_mins = 0,
         availability = "Upgrade1",
         feature = "",
+        effect = "",
         prospect_key = "Tier4_Arctic_Recovery_0",
         types = {
             {
@@ -3344,6 +3409,7 @@ data.nodes = {
         duration_mins = 0,
         availability = "Upgrade1",
         feature = "",
+        effect = "",
         prospect_key = "Tier4_Desert_Research_0",
         types = {
             {
@@ -3387,6 +3453,7 @@ data.nodes = {
         duration_mins = 0,
         availability = "Upgrade1",
         feature = "",
+        effect = "",
         prospect_key = "Tier4_Arctic_Scan_0",
         types = {
             {
@@ -3430,6 +3497,7 @@ data.nodes = {
         duration_mins = 0,
         availability = "Upgrade1",
         feature = "",
+        effect = "",
         prospect_key = "Tier4_Desert_Survey",
         types = {
             {
@@ -3480,6 +3548,7 @@ data.nodes = {
         duration_mins = 0,
         availability = "Upgrade1",
         feature = "",
+        effect = "",
         prospect_key = "Tier4_Desert_Construction_0",
         types = {
             {
@@ -3523,6 +3592,7 @@ data.nodes = {
         duration_mins = 0,
         availability = "Upgrade1",
         feature = "",
+        effect = "",
         prospect_key = "Tier4_Arctic_Stockpile",
         types = {
             {
@@ -3566,6 +3636,7 @@ data.nodes = {
         duration_mins = 0,
         availability = "Upgrade1",
         feature = "",
+        effect = "",
         prospect_key = "Tier4_Desert_Scan_0",
         types = {
             {
@@ -3609,6 +3680,7 @@ data.nodes = {
         duration_mins = 0,
         availability = "Upgrade1",
         feature = "",
+        effect = "",
         prospect_key = "Tier4_Arctic_Survey_0",
         types = {
             {
@@ -3652,6 +3724,7 @@ data.nodes = {
         duration_mins = 0,
         availability = "Upgrade1",
         feature = "",
+        effect = "",
         prospect_key = "Tier4_Desert_Extermination_0",
         types = {
             {
@@ -3695,6 +3768,7 @@ data.nodes = {
         duration_mins = 0,
         availability = "Upgrade2",
         feature = "",
+        effect = "",
         prospect_key = "Tier5_Omni_Olympus",
         types = {
             {
@@ -3750,6 +3824,7 @@ data.nodes = {
         duration_mins = 0,
         availability = "",
         feature = "",
+        effect = "",
         prospect_key = "Tier5_Omni_Exploration_0",
         types = {
             {
@@ -3791,6 +3866,7 @@ data.nodes = {
         duration_mins = 0,
         availability = "Upgrade2",
         feature = "",
+        effect = "",
         prospect_key = "Tier5_Omni_Recovery",
         types = {
             {
@@ -3846,6 +3922,7 @@ data.nodes = {
         duration_mins = 0,
         availability = "Upgrade2",
         feature = "",
+        effect = "",
         prospect_key = "Tier5_Omni_Research",
         types = {
             {
@@ -3896,6 +3973,7 @@ data.nodes = {
         duration_mins = 0,
         availability = "Upgrade2",
         feature = "",
+        effect = "",
         prospect_key = "Tier5_Omni_Research_2",
         types = {
             {
@@ -3951,6 +4029,7 @@ data.nodes = {
         duration_mins = 0,
         availability = "Base",
         feature = "New Frontiers",
+        effect = "",
         prospect_key = "PRO_Story_1",
         types = {
             {
@@ -4006,6 +4085,7 @@ data.nodes = {
         duration_mins = 0,
         availability = "Base",
         feature = "Dangerous Horizons",
+        effect = "Unlocks the Cultivation Specialist in this Open World region, allowing Crops to be traded for Ren.",
         prospect_key = "PRO_SQ_Farmer",
         types = {
             {
@@ -4066,6 +4146,7 @@ data.nodes = {
         duration_mins = 0,
         availability = "Base",
         feature = "New Frontiers",
+        effect = "",
         prospect_key = "PRO_Story_2",
         types = {
             {
@@ -4116,6 +4197,7 @@ data.nodes = {
         duration_mins = 0,
         availability = "Upgrade1",
         feature = "New Frontiers",
+        effect = "",
         prospect_key = "PRO_A_Extraction",
         types = {
             {
@@ -4176,6 +4258,7 @@ data.nodes = {
         duration_mins = 0,
         availability = "Base",
         feature = "Dangerous Horizons",
+        effect = "Unlocks the Fisheries Officer in this Open World region, allowing Fish to be traded for Ren.",
         prospect_key = "PRO_SQ_Fisher",
         types = {
             {
@@ -4246,6 +4329,7 @@ data.nodes = {
         duration_mins = 0,
         availability = "Upgrade1",
         feature = "New Frontiers",
+        effect = "",
         prospect_key = "PRO_A_Stockpile",
         types = {
             {
@@ -4296,6 +4380,7 @@ data.nodes = {
         duration_mins = 0,
         availability = "Upgrade1",
         feature = "New Frontiers",
+        effect = "",
         prospect_key = "PRO_C_Construction",
         types = {
             {
@@ -4346,6 +4431,7 @@ data.nodes = {
         duration_mins = 0,
         availability = "Upgrade1",
         feature = "New Frontiers",
+        effect = "",
         prospect_key = "PRO_Story_3",
         types = {
             {
@@ -4406,6 +4492,7 @@ data.nodes = {
         duration_mins = 0,
         availability = "Base",
         feature = "Dangerous Horizons",
+        effect = "Unlocks the Predator Control Specialist in this Open World region, allowing Vestiges to be traded for Ren.",
         prospect_key = "PRO_SQ_Hunter",
         types = {
             {
@@ -4461,6 +4548,7 @@ data.nodes = {
         duration_mins = 0,
         availability = "Upgrade1",
         feature = "New Frontiers",
+        effect = "",
         prospect_key = "PRO_C_Research",
         types = {
             {
@@ -4516,6 +4604,7 @@ data.nodes = {
         duration_mins = 0,
         availability = "Upgrade2",
         feature = "New Frontiers",
+        effect = "",
         prospect_key = "PRO_Story_4",
         types = {
             {
@@ -4571,6 +4660,7 @@ data.nodes = {
         duration_mins = 0,
         availability = "Base",
         feature = "Dangerous Horizons",
+        effect = "Unlocks the Norex Liason in this Open World region, allowing Biomass to be traded for Creature Parts.",
         prospect_key = "PRO_SQ_Norex",
         types = {
             {
@@ -4641,6 +4731,7 @@ data.nodes = {
         duration_mins = 0,
         availability = "Upgrade1",
         feature = "New Frontiers",
+        effect = "",
         prospect_key = "PRO_B_Extermination",
         types = {
             {
@@ -4696,6 +4787,7 @@ data.nodes = {
         duration_mins = 0,
         availability = "Upgrade2",
         feature = "New Frontiers",
+        effect = "",
         prospect_key = "PRO_Story_5",
         types = {
             {
@@ -4746,6 +4838,7 @@ data.nodes = {
         duration_mins = 0,
         availability = "Upgrade2",
         feature = "New Frontiers",
+        effect = "",
         prospect_key = "PRO_Ashlands_Story",
         types = {
             {
@@ -4801,6 +4894,7 @@ data.nodes = {
         duration_mins = 0,
         availability = "Upgrade2",
         feature = "New Frontiers",
+        effect = "",
         prospect_key = "PRO_Story_6",
         types = {
             {
@@ -4856,6 +4950,7 @@ data.nodes = {
         duration_mins = 0,
         availability = "Upgrade2",
         feature = "New Frontiers",
+        effect = "",
         prospect_key = "PRO_D_Recovery",
         types = {
             {
@@ -4911,6 +5006,7 @@ data.nodes = {
         duration_mins = 0,
         availability = "Upgrade2",
         feature = "",
+        effect = "",
         prospect_key = "PRO_D_Research",
         types = {
             {
@@ -4971,6 +5067,7 @@ data.nodes = {
         duration_mins = 0,
         availability = "Upgrade2",
         feature = "New Frontiers",
+        effect = "",
         prospect_key = "PRO_Icesheet_Story",
         types = {
             {
@@ -5026,6 +5123,7 @@ data.nodes = {
         duration_mins = 0,
         availability = "Upgrade2",
         feature = "New Frontiers",
+        effect = "",
         prospect_key = "PRO_D_Resupply",
         types = {
             {
@@ -5081,6 +5179,7 @@ data.nodes = {
         duration_mins = 0,
         availability = "Upgrade2",
         feature = "",
+        effect = "",
         prospect_key = "PRO_E_Research",
         types = {
             {
@@ -5136,6 +5235,7 @@ data.nodes = {
         duration_mins = 0,
         availability = "Upgrade2",
         feature = "New Frontiers",
+        effect = "",
         prospect_key = "PRO_Nullsector_Story",
         types = {
             {
@@ -5186,6 +5286,7 @@ data.nodes = {
         duration_mins = 0,
         availability = "Upgrade2",
         feature = "New Frontiers",
+        effect = "",
         prospect_key = "PRO_D_Rescue",
         types = {
             {
@@ -5236,6 +5337,7 @@ data.nodes = {
         duration_mins = 0,
         availability = "Base",
         feature = "Styx",
+        effect = "",
         prospect_key = "STYX_A_Expedition",
         types = {
             {
@@ -5294,6 +5396,7 @@ data.nodes = {
         duration_mins = 0,
         availability = "Base",
         feature = "",
+        effect = "",
         prospect_key = "STYX_A_Research",
         types = {
         },
@@ -5339,6 +5442,7 @@ data.nodes = {
         duration_mins = 0,
         availability = "Base",
         feature = "Styx",
+        effect = "",
         prospect_key = "STYX_A_Extermination2",
         types = {
             {
@@ -5394,6 +5498,7 @@ data.nodes = {
         duration_mins = 0,
         availability = "Base",
         feature = "Styx",
+        effect = "",
         prospect_key = "STYX_A_Construction",
         types = {
             {
@@ -5437,6 +5542,7 @@ data.nodes = {
         duration_mins = 0,
         availability = "Base",
         feature = "Dangerous Horizons",
+        effect = "Unlocks the Cultivation Specialist in this Open World region, allowing Crops to be traded for Ren.",
         prospect_key = "STYX_SQ_Farmer",
         types = {
             {
@@ -5507,6 +5613,7 @@ data.nodes = {
         duration_mins = 0,
         availability = "Upgrade2",
         feature = "Styx",
+        effect = "",
         prospect_key = "STYX_B_Research",
         types = {
             {
@@ -5562,6 +5669,7 @@ data.nodes = {
         duration_mins = 0,
         availability = "Upgrade1",
         feature = "Styx",
+        effect = "Unlocks Shortcut between The Wall and Dry Ridge",
         prospect_key = "STYX_B_Expedition",
         types = {
             {
@@ -5617,6 +5725,7 @@ data.nodes = {
         duration_mins = 0,
         availability = "Base",
         feature = "Dangerous Horizons",
+        effect = "Unlocks the Predator Control Specialist in this Open World region, allowing Vestiges to be traded for Ren.",
         prospect_key = "STYX_SQ_Hunter",
         types = {
             {
@@ -5682,6 +5791,7 @@ data.nodes = {
         duration_mins = 0,
         availability = "Upgrade2",
         feature = "Styx",
+        effect = "",
         prospect_key = "STYX_B_Stockpile",
         types = {
             {
@@ -5732,6 +5842,7 @@ data.nodes = {
         duration_mins = 0,
         availability = "Upgrade2",
         feature = "Styx",
+        effect = "",
         prospect_key = "STYX_A_Extermination",
         types = {
             {
@@ -5782,6 +5893,7 @@ data.nodes = {
         duration_mins = 0,
         availability = "Upgrade1",
         feature = "Styx",
+        effect = "Unlocks Shortcut between Enclosed Wood and Oasis",
         prospect_key = "STYX_C_Expedition",
         types = {
             {
@@ -5837,6 +5949,7 @@ data.nodes = {
         duration_mins = 0,
         availability = "Upgrade2",
         feature = "Styx",
+        effect = "",
         prospect_key = "STYX_C_Construction",
         types = {
             {
@@ -5887,6 +6000,7 @@ data.nodes = {
         duration_mins = 0,
         availability = "Upgrade2",
         feature = "Styx",
+        effect = "",
         prospect_key = "STYX_B_Extermination",
         types = {
             {
@@ -5952,6 +6066,7 @@ data.nodes = {
         duration_mins = 0,
         availability = "Upgrade2",
         feature = "Styx",
+        effect = "",
         prospect_key = "STYX_C_Fishing",
         types = {
             {
@@ -6007,6 +6122,7 @@ data.nodes = {
         duration_mins = 0,
         availability = "Upgrade2",
         feature = "Styx",
+        effect = "",
         prospect_key = "STYX_C_Extermination2",
         types = {
             {
@@ -6062,6 +6178,7 @@ data.nodes = {
         duration_mins = 0,
         availability = "Base",
         feature = "Dangerous Horizons",
+        effect = "Unlocks the Fisheries Officer in this Open World region, allowing Fish to be traded for Ren.",
         prospect_key = "STYX_SQ_Fisher",
         types = {
             {
@@ -6122,6 +6239,7 @@ data.nodes = {
         duration_mins = 0,
         availability = "Upgrade2",
         feature = "Styx",
+        effect = "",
         prospect_key = "STYX_C_Extermination",
         types = {
             {
@@ -6165,6 +6283,7 @@ data.nodes = {
         duration_mins = 0,
         availability = "Upgrade2",
         feature = "Styx",
+        effect = "",
         prospect_key = "STYX_E_Survey",
         types = {
             {
@@ -6213,6 +6332,7 @@ data.nodes = {
         duration_mins = 0,
         availability = "Upgrade1",
         feature = "Styx",
+        effect = "Unlocks Shortcut between The Great River and Dry Ridge",
         prospect_key = "STYX_E_Expedition",
         types = {
             {
@@ -6278,6 +6398,7 @@ data.nodes = {
         duration_mins = 0,
         availability = "Upgrade1",
         feature = "Styx",
+        effect = "",
         prospect_key = "STYX_D_Recovery",
         types = {
         },
@@ -6323,6 +6444,7 @@ data.nodes = {
         duration_mins = 0,
         availability = "Upgrade2",
         feature = "Styx",
+        effect = "",
         prospect_key = "STYX_E_Research",
         types = {
             {
@@ -6378,6 +6500,7 @@ data.nodes = {
         duration_mins = 0,
         availability = "Base",
         feature = "Styx",
+        effect = "",
         prospect_key = "STYX_E_Extraction",
         types = {
             {
@@ -6438,6 +6561,7 @@ data.nodes = {
         duration_mins = 0,
         availability = "Upgrade1",
         feature = "Styx",
+        effect = "Unlocks Shortcut between Frozen Traverse and Ring Lake",
         prospect_key = "STYX_D_Expedition",
         types = {
             {
@@ -6498,6 +6622,7 @@ data.nodes = {
         duration_mins = 0,
         availability = "Base",
         feature = "Styx",
+        effect = "",
         prospect_key = "STYX_D_Delivery",
         types = {
             {
@@ -6548,6 +6673,7 @@ data.nodes = {
         duration_mins = 0,
         availability = "Upgrade2",
         feature = "Styx",
+        effect = "",
         prospect_key = "STYX_D_Extermination",
         types = {
             {
@@ -6608,6 +6734,7 @@ data.nodes = {
         duration_mins = 0,
         availability = "Base",
         feature = "Dangerous Horizons",
+        effect = "Unlocks the Norex Liason in this Open World region, allowing Biomass to be traded for Creature Parts.",
         prospect_key = "STYX_SQ_Norex",
         types = {
             {
@@ -6668,6 +6795,7 @@ data.nodes = {
         duration_mins = 0,
         availability = "Base",
         feature = "Styx",
+        effect = "",
         prospect_key = "STYX_D_Research_2",
         types = {
             {
@@ -6723,6 +6851,7 @@ data.nodes = {
         duration_mins = 0,
         availability = "Upgrade2",
         feature = "Styx",
+        effect = "",
         prospect_key = "STYX_D_Research",
         types = {
             {

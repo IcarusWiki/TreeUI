@@ -88,7 +88,7 @@ MISSION_REGION_STYLE = {
         "selector_key": "Outpost006_Olympus",
         "selector_difficulty": 2,
         "selector_color": "#b9c890",
-        "selector_image": "T_IMG_Terrain_Olympus",
+        "selector_image": "T_IMG_Terrain_Olypmus",
         "background_image": "T_IMG_TRBG_Olympus",
         "selector_description": (
             "First Cohort ground zero, where fortunes are found and lives are lost. "
@@ -648,6 +648,7 @@ def main():
     faction_missions_data = load_json("Factions", "D_FactionMissions.json")
     mission_types_data = load_json("Factions", "D_MissionTypes.json")
     meta_currency_data = load_json("Currency", "D_MetaCurrency.json")
+    character_flags_data = load_json("Flags", "D_CharacterFlags.json")
 
     # ── Build archetype lookup from D_TalentArchetypes ─────────────────────
     # archetype_info: name → { model, display_name, icon, row_index }
@@ -774,6 +775,15 @@ def main():
             "color": color_to_css(row.get("Color", {})),
         }
 
+    character_flag_descriptions = {}
+    for row in character_flags_data.get("Rows", []):
+        flag_name = row.get("Name", "")
+        if not flag_name:
+            continue
+        description = parse_nsloctext(row.get("Description", ""))
+        if description:
+            character_flag_descriptions[flag_name] = description
+
     faction_defaults = faction_missions_data.get("Defaults", {})
     faction_mission_info = {}
     for row in faction_missions_data.get("Rows", []):
@@ -808,9 +818,23 @@ def main():
                 "amount": amount,
             })
 
+        effect_text = ""
+        flags_rewarded = row.get(
+            "CharacterFlagsRewarded",
+            faction_defaults.get("CharacterFlagsRewarded", []),
+        ) or []
+        for flag_ref in flags_rewarded:
+            flag_name = (flag_ref or {}).get("RowName", "")
+            if flag_name.endswith("_TooltipOnly"):
+                description = character_flag_descriptions.get(flag_name, "")
+                if description:
+                    effect_text = description.strip()
+                    break
+
         faction_mission_info[name] = {
             "types": mission_types,
             "currency_rewards": currency_rewards,
+            "effect": effect_text,
             "account_experience": row.get(
                 "AccountExperience",
                 faction_defaults.get("AccountExperience", 0),
@@ -1008,6 +1032,7 @@ def main():
             "faction_mission": faction_mission.get("RowName", ""),
             "mission_types": faction_mission_info.get(faction_mission.get("RowName", ""), {}).get("types", []),
             "currency_rewards": faction_mission_info.get(faction_mission.get("RowName", ""), {}).get("currency_rewards", []),
+            "effect": faction_mission_info.get(faction_mission.get("RowName", ""), {}).get("effect", ""),
             "operator": flavour_sections.get("operator", ""),
             "biome": flavour_sections.get("biome", ""),
             "mission": flavour_sections.get("mission", ""),
@@ -1821,6 +1846,7 @@ def generate_mission_data(prospect_nodes, all_connections, tree_info,
             lines.append(f"        duration_mins = {duration_mins},")
             lines.append(f"        availability = {lua_string(availability_label)},")
             lines.append(f"        feature = {lua_string(feature_label)},")
+            lines.append(f"        effect = {lua_string(prospect.get('effect', ''))},")
             lines.append(f"        prospect_key = {lua_string(extra_key)},")
             lines.append("        types = {")
             for mission_type in type_entries:
