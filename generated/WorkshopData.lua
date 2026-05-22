@@ -1864,6 +1864,14 @@ data.nodes = {
         y = 10,
         desc = "A Box of 25 CHAC 7.62mm Ammo. 'CONSUME' to open box.",
     },
+    ["Workshop_Sawblades"] = {
+        name = "Sawblade Workshop Bundle",
+        icon = "T_ITEM_Sawblade_Workshop_Bundle",
+        tree = "Workshop_Firearms",
+        x = 410,
+        y = 330,
+        desc = "A Stack of 20 Sawblades for the Timber Extraction Unit. 'CONSUME' to open box.",
+    },
     ["Workshop_Shotgun_Ammo"] = {
         name = "12-Gauge CHAC Shell Box",
         icon = "T_ITEM_Shell_Workshop_Bundle",

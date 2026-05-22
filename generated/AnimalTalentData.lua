@@ -1391,7 +1391,7 @@ data.nodes = {
         tree = "Creature_Chew",
         x = 270,
         y = 270,
-        desc = "Can be specialized into carry capacity improvements",
+        desc = "Can be specialized into carry capacity improvements.",
     },
     ["Creature_Chew_DamageReduction"] = {
         name = "Thick Hide",
@@ -2494,11 +2494,12 @@ data.nodes = {
         levels = "+8% Movement Speed in Shallow Water\\n+20% Movement Speed in Shallow Water\\n+35% Movement Speed in Shallow Water",
     },
     ["Orka_Base"] = {
-        name = "[DNT] Free tile, creature name and icon",
+        name = "Skulk",
         icon = "T_Talent_Base_Orka",
         tree = "Creature_Orka",
         x = 270,
         y = 270,
+        desc = "Can be specialized into a viscious killing machine.",
     },
     ["Orka_Bleed"] = {
         name = "Razor Sharp Teeth",
@@ -2520,7 +2521,7 @@ data.nodes = {
     },
     ["Orka_Damage2"] = {
         name = "Unhinged Jaw",
-        icon = "T_Talent_Orka_Teeth2",
+        icon = "T_Talent_Orka_Teeth",
         tree = "Creature_Orka",
         x = 530,
         y = 530,
@@ -2588,7 +2589,7 @@ data.nodes = {
         x = 400,
         y = 530,
         desc = "Recover Health when Dealing Damage to Creatures",
-        levels = "5% chance to Leech Health on Hit with Attacks\\n10% chance to Leech Health on Hit with Attacks\\n15% chance to Leech Health on Hit with Attacks",
+        levels = "10% chance to Leech Health on Hit with Attacks, 25% Damage Leeched as Health On Hit\\n25% chance to Leech Health on Hit with Attacks, 33% Damage Leeched as Health On Hit\\n50% chance to Leech Health on Hit with Attacks, 50% Damage Leeched as Health On Hit",
     },
     ["Orka_Penetration"] = {
         name = "Piercing Fangs",
@@ -2737,7 +2738,7 @@ data.nodes = {
         tree = "Creature_Raptor",
         x = 270,
         y = 270,
-        desc = "Can be Specialized into Combat Bonuses or Movement Bonuses",
+        desc = "Can be Specialized into combat or movement bonuses.",
     },
     ["Raptor_AttackSpeed"] = {
         name = "Speedy Attacks",
@@ -2942,7 +2943,7 @@ data.nodes = {
         tree = "Creature_Raptor_Desert",
         x = 270,
         y = 270,
-        desc = "Can be Specialized into Combat Bonuses or Movement Bonuses",
+        desc = "Can be Specialized into combat or movement bonuses.",
     },
     ["RaptorDesert_AttackSpeed"] = {
         name = "Speedy Attacks",
@@ -3496,7 +3497,7 @@ data.nodes = {
         x = 140,
         y = 10,
         desc = "Recover Health when Dealing Damage to Creatures",
-        levels = "5% chance to Leech Health on Hit with Attacks\\n10% chance to Leech Health on Hit with Attacks\\n15% chance to Leech Health on Hit with Attacks",
+        levels = "5% chance to Leech Health on Hit with Attacks, 25% Damage Leeched as Health On Hit\\n10% chance to Leech Health on Hit with Attacks, 33% Damage Leeched as Health On Hit\\n15% chance to Leech Health on Hit with Attacks, 50% Damage Leeched as Health On Hit",
     },
     ["Slinker_MovementSpeed"] = {
         name = "Racing Ready",
@@ -4459,7 +4460,7 @@ data.nodes = {
         tree = "Creature_Tundra_Monkey",
         x = 270,
         y = 270,
-        desc = "Can be specialized into combat or bonuses",
+        desc = "Can be specialized into combat and debuffs.",
     },
     ["CombatPet_DamageReduction_TundraMonkey"] = {
         name = "Tough as Leather",
