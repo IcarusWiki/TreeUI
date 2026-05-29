@@ -1408,7 +1408,7 @@ data.nodes = {
         tree = "Creature_Chew",
         x = 140,
         y = 10,
-        desc = "Reduces the weight of any Exotics Carried.",
+        desc = "Reduces the weight of any Exotics Carried",
         levels = "-25% Carry Weight of Exotics\\n-50% Carry Weight of Exotics",
     },
     ["Creature_Chew_FallDamageReduction"] = {
@@ -1552,7 +1552,7 @@ data.nodes = {
         tree = "Creature_Chew",
         x = 400,
         y = 400,
-        desc = "Increased Physical Damage Reduction",
+        desc = "Reduced Water Consumption for nearby allies",
     },
     ["Creature_Chew_WeightCapacity"] = {
         name = "Strong Back",
