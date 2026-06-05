@@ -2499,7 +2499,7 @@ data.nodes = {
         tree = "Creature_Orka",
         x = 270,
         y = 270,
-        desc = "Can be specialized into a viscious killing machine.",
+        desc = "Can be specialized into a vicious killing machine.",
     },
     ["Orka_Bleed"] = {
         name = "Razor Sharp Teeth",
