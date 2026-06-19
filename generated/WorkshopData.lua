@@ -8,7 +8,7 @@ data.categories = {
         icon = "ITEM_Meta_Pickaxe",
         line_method = "XThenY",
         node_size = 100,
-        canvas_w = 1480,
+        canvas_w = 1680,
         canvas_h = 520,
     },
     ["Workshop_Armors"] = {
@@ -1448,6 +1448,13 @@ data.nodes = {
         y = 210,
         desc = "A lightly armored, double-module S5 suit with micro-texturing to reduce reflectivity.",
     },
+    ["Workshop_Envirosuit_Colonist"] = {
+        name = "[DNT] Colonist Envirosuit",
+        icon = "ITEM_[DNT]_Colonist_Envirosuit",
+        tree = "Workshop_Envirosuits",
+        x = 1570,
+        y = 110,
+    },
     ["Workshop_Envirosuit_Inaris"] = {
         name = "Inaris \"Lua\" Envirosuit",
         icon = "ITEM_InarisEnvirosuit_1",
@@ -1472,6 +1479,13 @@ data.nodes = {
         y = 310,
         desc = "The Larkwell Bulwark is your defense against the elements. Integrated with adaptive climate control technology.",
     },
+    ["Workshop_Envirosuit_Radiation"] = {
+        name = "Envirosuit Radiation",
+        icon = "ITEM_Envirosuit_Radiation",
+        tree = "Workshop_Envirosuits",
+        x = 1570,
+        y = 290,
+    },
     ["Workshop_Envirosuit_Reroute"] = {
         name = "",
         icon = "",
@@ -1484,8 +1498,8 @@ data.nodes = {
         name = "Scouts Arctic Envirosuit",
         icon = "T_ITEM_Envirosuit_Larkwell_White",
         tree = "Workshop_Envirosuits",
-        x = 1370,
-        y = 210,
+        x = 1390,
+        y = 110,
         desc = "A specialised envirosuit designed for the Eden Scouts.",
     },
     ["Workshop_Envirosuit_Shengong"] = {
@@ -2918,8 +2932,10 @@ data.connections = {
     { from = "Workshop_Envirosuit_7", to = "Workshop_Envirosuit_Shengong", method = "YThenX" },
     { from = "Workshop_Envirosuit_7", to = "Workshop_Envirosuit_Shengong2", method = "XThenY" },
     { from = "Workshop_Envirosuit_Inaris", to = "Workshop_Envirosuit_Reroute", method = "XThenY" },
+    { from = "Workshop_Envirosuit_Reroute", to = "Workshop_Envirosuit_Colonist" },
     { from = "Workshop_Envirosuit_Reroute", to = "Workshop_Envirosuit_Larkwell_Alpha", method = "XThenY" },
     { from = "Workshop_Envirosuit_Reroute", to = "Workshop_Envirosuit_Larkwell_Bravo", method = "XThenY" },
+    { from = "Workshop_Envirosuit_Reroute", to = "Workshop_Envirosuit_Radiation" },
     { from = "Workshop_Envirosuit_Reroute", to = "Workshop_Envirosuit_Scout" },
     { from = "Workshop_Envirosuit_Shengong", to = "Workshop_Envirosuit_Reroute", method = "XThenY" },
     { from = "Workshop_Envirosuit_Shengong2", to = "Workshop_Envirosuit_Reroute", method = "XThenY" },
