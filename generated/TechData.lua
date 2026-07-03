@@ -4642,7 +4642,7 @@ data.nodes = {
         tree = "Blueprint_T4_Fabricator",
         x = 285,
         y = 385,
-        desc = "A semi-automatic rifle, ideal for big game hunting.",
+        desc = "A powerful rifle, ideal for big game hunting.",
     },
     ["Hydro_Crop_Plot"] = {
         name = "Hydroponic Crop Plot",

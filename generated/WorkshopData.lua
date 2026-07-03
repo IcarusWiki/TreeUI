@@ -152,8 +152,8 @@ data.categories = {
         icon = "ITEM_Meta_Pickaxe",
         line_method = "XThenY",
         node_size = 100,
-        canvas_w = 900,
-        canvas_h = 660,
+        canvas_w = 920,
+        canvas_h = 680,
     },
     ["Workshop_Resources_Refined"] = {
         label = "Refined Resources",
@@ -1322,10 +1322,10 @@ data.nodes = {
     },
     ["Workshop_Campfire_Printed"] = {
         name = "MXC Campfire",
-        icon = "ITEM_Meta_Campfire_Printed",
+        icon = "T_ITEM_Meta_Campfire_Printed",
         tree = "Workshop_Deployables",
         x = 10,
-        y = 150,
+        y = 290,
         desc = "A simple, prefabricated campfire for heat, light and cooking, designed to remain lit under all conditions.",
     },
     ["Workshop_Crate_Printed"] = {
@@ -1333,15 +1333,15 @@ data.nodes = {
         icon = "ITEM_Meta_Crate_Printed",
         tree = "Workshop_Deployables",
         x = 190,
-        y = 290,
+        y = 150,
         desc = "A premade crate to store your supplies",
     },
     ["Workshop_Furnace_Printed"] = {
         name = "MXC Furnace",
-        icon = "ITEM_Meta_Furnace_Printed",
+        icon = "T_ITEM_Meta_Furnace_Printed",
         tree = "Workshop_Deployables",
-        x = 190,
-        y = 150,
+        x = 370,
+        y = 290,
         desc = "A premade furnace for all of your basic smelting needs",
     },
     ["Workshop_Hydrazine_Canister"] = {
@@ -1384,12 +1384,20 @@ data.nodes = {
         y = 10,
         desc = "A makeshift oil canister, that can hold Refined Oil, comes pre-filled.",
     },
+    ["Workshop_Oxite_Dissolver_Printed"] = {
+        name = "MXC Oxite Dissolver",
+        icon = "T_ITEM_Electric_Oxite_Dissolver",
+        tree = "Workshop_Deployables",
+        x = 190,
+        y = 290,
+        desc = "A lightweight dissolver to fill a container with Oxygen.  ",
+    },
     ["Workshop_Printed_Cot"] = {
         name = "MXC Cot",
         icon = "ITEM_Meta_Cot_Printed",
         tree = "Workshop_Deployables",
         x = 10,
-        y = 290,
+        y = 150,
         desc = "Once placed in shelter, a bed can be set as a respawn location. Can also be used to sleep through the night.",
     },
     ["Workshop_Deluxe_Envirosuit"] = {
@@ -2501,7 +2509,7 @@ data.nodes = {
         icon = "T_ITEM_Resource_Pack_Coal",
         tree = "Workshop_Resources",
         x = 490,
-        y = 130,
+        y = 150,
         desc = "A collection of 100 Coal collected from Space. 'CONSUME' to open bundle.",
     },
     ["Workshop_Resource_Pack_Aluminium"] = {
@@ -2509,7 +2517,7 @@ data.nodes = {
         icon = "T_ITEM_Resource_Pack_Bauxite",
         tree = "Workshop_Resources",
         x = 490,
-        y = 270,
+        y = 290,
         desc = "A collection of 100 Aluminium Ore collected by another prospector for you. 'CONSUME' to open bundle.",
     },
     ["Workshop_Resource_Pack_Clay"] = {
@@ -2517,7 +2525,7 @@ data.nodes = {
         icon = "T_ITEM_Resource_Pack_Clay",
         tree = "Workshop_Resources",
         x = 10,
-        y = 410,
+        y = 430,
         desc = "A collection of 100 Clay collected by another prospector for you. 'CONSUME' to open bundle.",
     },
     ["Workshop_Resource_Pack_Copper"] = {
@@ -2525,7 +2533,7 @@ data.nodes = {
         icon = "T_ITEM_Resource_Pack_Copper",
         tree = "Workshop_Resources",
         x = 170,
-        y = 270,
+        y = 290,
         desc = "A collection of 100 Copper Ore collected by another prospector for you. 'CONSUME' to open bundle.",
     },
     ["Workshop_Resource_Pack_Dirt"] = {
@@ -2541,7 +2549,7 @@ data.nodes = {
         icon = "T_ITEM_Resource_Pack_Gold",
         tree = "Workshop_Resources",
         x = 330,
-        y = 270,
+        y = 290,
         desc = "A collection of 100 Gold Ore collected by another prospector for you. 'CONSUME' to open bundle.",
     },
     ["Workshop_Resource_Pack_Limestone"] = {
@@ -2549,7 +2557,7 @@ data.nodes = {
         icon = "T_ITEM_Resource_Pack_Limestone",
         tree = "Workshop_Resources",
         x = 10,
-        y = 550,
+        y = 570,
         desc = "A collection of 100 Limestone collected by another prospector for you. 'CONSUME' to open bundle.",
     },
     ["Workshop_Resource_Pack_Lithium"] = {
@@ -2557,7 +2565,7 @@ data.nodes = {
         icon = "T_ITEM_Resource_Pack_Lithium",
         tree = "Workshop_Resources",
         x = 170,
-        y = 550,
+        y = 570,
         desc = "A collection of 100 Lithium Ore collected by another prospector for you. 'CONSUME' to open bundle.",
     },
     ["Workshop_Resource_Pack_Obsidian"] = {
@@ -2565,7 +2573,7 @@ data.nodes = {
         icon = "T_ITEM_Resource_Pack_Obsidian",
         tree = "Workshop_Resources",
         x = 330,
-        y = 410,
+        y = 430,
         desc = "A collection of 100 Obsidian collected by another prospector for you. 'CONSUME' to open bundle.",
     },
     ["Workshop_Resource_Pack_Oxite"] = {
@@ -2573,7 +2581,7 @@ data.nodes = {
         icon = "T_ITEM_Resource_Pack_Oxite",
         tree = "Workshop_Resources",
         x = 10,
-        y = 130,
+        y = 150,
         desc = "A collection of 100 Oxite collected by another prospector for you. 'CONSUME' to open bundle.",
     },
     ["Workshop_Resource_Pack_Platinum"] = {
@@ -2581,7 +2589,7 @@ data.nodes = {
         icon = "T_ITEM_Resource_Pack_Platinum",
         tree = "Workshop_Resources",
         x = 650,
-        y = 270,
+        y = 290,
         desc = "A collection of 100 Platinum Ore collected by another prospector for you. 'CONSUME' to open bundle.",
     },
     ["Workshop_Resource_Pack_Ruby"] = {
@@ -2589,7 +2597,7 @@ data.nodes = {
         icon = "T_ITEM_Resource_Pack_Ruby",
         tree = "Workshop_Resources",
         x = 330,
-        y = 550,
+        y = 570,
         desc = "A collection of 50 Crystallized Ruby collected by another prospector for you. 'CONSUME' to open bundle.",
     },
     ["Workshop_Resource_Pack_Scoria"] = {
@@ -2597,7 +2605,7 @@ data.nodes = {
         icon = "T_ITEM_Resource_Pack_Scoria",
         tree = "Workshop_Resources",
         x = 170,
-        y = 410,
+        y = 430,
         desc = "A collection of 100 Scoria collected by another prospector for you. 'CONSUME' to open bundle.",
     },
     ["Workshop_Resource_Pack_Silica"] = {
@@ -2605,7 +2613,7 @@ data.nodes = {
         icon = "T_ITEM_Resource_Pack_Silica",
         tree = "Workshop_Resources",
         x = 170,
-        y = 130,
+        y = 150,
         desc = "A collection of 100 Silica Ore collected by another prospector for you. 'CONSUME' to open bundle.",
     },
     ["Workshop_Resource_Pack_Stone"] = {
@@ -2621,7 +2629,7 @@ data.nodes = {
         icon = "T_ITEM_Resource_Pack_Sulfur",
         tree = "Workshop_Resources",
         x = 330,
-        y = 130,
+        y = 150,
         desc = "A collection of 100 Sulfur collected by another prospector for you. 'CONSUME' to open bundle.",
     },
     ["Workshop_Resource_Pack_Sulfur_0"] = {
@@ -2629,15 +2637,15 @@ data.nodes = {
         icon = "T_ITEM_Resource_Pack_Iron",
         tree = "Workshop_Resources",
         x = 10,
-        y = 270,
+        y = 290,
         desc = "A collection of 100 Iron Ore collected by another prospector for you. 'CONSUME' to open bundle.",
     },
     ["Workshop_Resource_Pack_Titanium"] = {
         name = "UDA Titanium Ore Resource Supply",
         icon = "T_ITEM_Resource_Pack_Titanium",
         tree = "Workshop_Resources",
-        x = 790,
-        y = 270,
+        x = 810,
+        y = 290,
         desc = "A collection of 100 Titanium Ore collected by another prospector for you. 'CONSUME' to open bundle.",
     },
     ["Workshop_Resource_Pack_Wood"] = {
