@@ -1366,8 +1366,8 @@ data.nodes = {
         },
     },
     ["Prospect_OLY_Forest_Construction"] = {
-        name = "HOMESTEAD",
-        page_name = "Homestead",
+        name = "RUSTIC",
+        page_name = "Rustic",
         tree = "Prospect_Olympus",
         x = 818,
         y = 392,
