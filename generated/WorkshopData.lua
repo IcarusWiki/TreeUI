@@ -1928,6 +1928,14 @@ data.nodes = {
         y = 230,
         desc = "A 3D printed fire fighting device.",
     },
+    ["Workshop_Flashlight"] = {
+        name = "Inaris Flashlight",
+        icon = "T_ITEM_Meta_Flashlight",
+        tree = "Workshop_Gadgets",
+        x = 610,
+        y = 450,
+        desc = "An LED flashlight for illuminating dark corners. Can be recharged in a Charging Station.",
+    },
     ["Workshop_Heated_Canteen_Larkwell"] = {
         name = "Larkwell Martinez Heated Canteen",
         icon = "T_ITEM_Meta_Heated_Canteen_Larkwell",
