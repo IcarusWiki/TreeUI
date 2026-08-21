@@ -4063,6 +4063,14 @@ data.nodes = {
         y = 485,
         reroute = true,
     },
+    ["T3_Weapon_Rack"] = {
+        name = "Metal Weapon Rack",
+        icon = "T_ITEM_Weapon_Rack_T3",
+        tree = "Blueprint_T3_Machine",
+        x = 8160,
+        y = 385,
+        desc = "A metal rack to display your weapons.",
+    },
     ["T3_Windmill"] = {
         name = "Windmill",
         icon = "T_ITEM_Windmill",
@@ -5576,7 +5584,7 @@ data.nodes = {
         tree = "Blueprint_T5_Manufacturer",
         x = 2860,
         y = 460,
-        desc = "A compact device that creates hard light bullets through a complication process of focusing energy through a ruby lens.",
+        desc = "A compact device that creates hard light bullets through a complicated process of focusing energy through a ruby lens.",
     },
     ["Lithium_Ammo"] = {
         name = "Lithium Ammo",
@@ -5866,7 +5874,7 @@ data.nodes = {
     },
     ["Speeder_Kit"] = {
         name = "Prototype Hoverframe",
-        icon = "T_Speeder_kit",
+        icon = "T_ITEM_Speeder_Kit",
         tree = "Blueprint_T5_Manufacturer",
         x = 3910,
         y = 410,
@@ -6440,6 +6448,7 @@ data.connections = {
     { from = "Medicine_Bench_Reroute_0", to = "Wine" },
     { from = "Metal_Crate_Medium", to = "Metal_Cupboard", method = "XThenY" },
     { from = "Metal_Crate_Small", to = "Metal_Crate_Medium" },
+    { from = "Metal_Crate_Small", to = "T3_Weapon_Rack" },
     { from = "Metal_Grate_Floor", to = "Metal_Grate_Stair" },
     { from = "Metal_Rain_Catcher", to = "Homestead_Well" },
     { from = "Mission_Communicator_T2", to = "Exotic_Delivery_Interface" },
