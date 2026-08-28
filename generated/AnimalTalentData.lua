@@ -2299,7 +2299,7 @@ data.nodes = {
     },
     ["CombatPet_Base_Kiwi"] = {
         name = "Kiwi",
-        icon = "Talent Kiwi",
+        icon = "T_Talent_Basr_Kiwi",
         tree = "Creature_Kiwi",
         x = 270,
         y = 270,
