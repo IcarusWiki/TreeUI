@@ -40,7 +40,7 @@ data.categories = {
         icon = "ITEM_Meta_Pickaxe",
         line_method = "XThenY",
         node_size = 100,
-        canvas_w = 720,
+        canvas_w = 1020,
         canvas_h = 560,
     },
     ["Workshop_Axes"] = {
@@ -1983,6 +1983,14 @@ data.nodes = {
         x = 310,
         y = 310,
         desc = "A cheap, reliable air system.",
+    },
+    ["Workshop_Powerbank"] = {
+        name = "Inaris Powerbank",
+        icon = "T_ITEM_Meta_Powerbank",
+        tree = "Workshop_Gadgets",
+        x = 910,
+        y = 450,
+        desc = "Next-gen power solution for recharging devices. Use it to charge items on the go with secondary fire.",
     },
     ["Workshop_Workshop_Repair"] = {
         name = "Workshop Repair Kit Bundle",
