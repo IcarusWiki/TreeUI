@@ -1921,7 +1921,7 @@ data.nodes = {
         desc = "Once thrown if the landing area is determined to be valid, will call your dropship to your current location.",
     },
     ["Workshop_Firewhacker_Printed"] = {
-        name = "MXC Firewhacker",
+        name = "MXC Fire Whacker",
         icon = "ITEM_Meta_Firewhacker_Printed",
         tree = "Workshop_Gadgets",
         x = 10,

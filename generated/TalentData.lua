@@ -1881,7 +1881,7 @@ data.nodes = {
         tree = "Solo_Player",
         x = 550,
         y = 460,
-        desc = "Decreased stamina cost for Firewhacker use and faster repair time with hammers",
+        desc = "Decreased stamina cost for Fire whacker use and faster repair time with hammers",
         rank = 1,
     },
     ["Solo_Bow_Damage"] = {
