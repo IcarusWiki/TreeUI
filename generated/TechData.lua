@@ -771,6 +771,14 @@ data.nodes = {
         y = 10,
         desc = "A nicely carved stand where armor can be displayed.",
     },
+    ["Bandage_Poultice"] = {
+        name = "Poultice Bandage",
+        icon = "T_ITEM_Bandage_Poultice",
+        tree = "Blueprint_T2_Crafting",
+        x = 4485,
+        y = 10,
+        desc = "A cloth bandage that steams bleeding, heals minor wounds, and prevents future wounds.",
+    },
     ["Barbed_Wire"] = {
         name = "Barbed Wire Fence",
         icon = "T_ITEM_Homestead_Barbed_Wire_Fence",
@@ -6339,6 +6347,7 @@ data.connections = {
     { from = "Herbalism_Bench", to = "Antiparasitic_Tonic" },
     { from = "Herbalism_Bench", to = "Antipoison_Tonic" },
     { from = "Herbalism_Bench", to = "Ape_Tonic" },
+    { from = "Herbalism_Bench", to = "Bandage_Poultice" },
     { from = "Herbalism_Bench", to = "Blood_Thinning_Tonic" },
     { from = "Herbalism_Bench", to = "Dough_Flatbread" },
     { from = "Herbalism_Bench", to = "Fertilizer_Quality" },
