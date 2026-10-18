@@ -42,8 +42,8 @@ jobs:
       - name: Publish Lua data pages
         shell: bash
         env:
-          WIKIGG_USERNAME: ${{ secrets.WIKIGG_USERNAME }}
-          WIKIGG_APP_PASSWORD: ${{ secrets.WIKIGG_APP_PASSWORD }}
+          WIKIGG_USERNAME: ${{ secrets.WIKIGG_BOT_USERNAME }}
+          WIKIGG_APP_PASSWORD: ${{ secrets.WIKIGG_BOT_APP_PASSWORD }}
         run: |
           python scripts/publish_wiki_modules.py \
             --api-url "$WIKI_API_URL" \

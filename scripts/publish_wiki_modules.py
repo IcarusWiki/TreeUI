@@ -7,7 +7,8 @@ Usage:
         --summary "Automated update from https://github.com/IcarusWiki/TreeUI <sha>" \
         --map "generated/TalentData.lua=Module:TalentTree/TalentData"
 
-Environment:
+Environment (the workflows fill these from the org bot secrets
+WIKIGG_BOT_USERNAME / WIKIGG_BOT_APP_PASSWORD):
     WIKIGG_USERNAME
     WIKIGG_APP_PASSWORD
 """
@@ -77,6 +78,18 @@ def parse_mapping(text: str) -> tuple[Path, str]:
 
 def normalize_text(text: str) -> str:
     return text.replace("\r\n", "\n")
+
+
+def required_rights(page_title: str) -> set[str]:
+    """Rights beyond plain `edit` that MediaWiki needs to edit this page."""
+    if not page_title.startswith("MediaWiki:"):
+        return set()
+    rights = {"editinterface"}
+    if page_title.endswith(".js"):
+        rights.add("editsitejs")
+    elif page_title.endswith(".css"):
+        rights.add("editsitecss")
+    return rights
 
 
 class MediaWikiClient:
@@ -168,6 +181,18 @@ class MediaWikiClient:
         if not self.csrf_token:
             fail("Failed to obtain CSRF token after login.")
 
+    def fetch_rights(self) -> set[str]:
+        # Reflects the bot password's grants, not just the account's groups.
+        user_data = self.request(
+            {
+                "action": "query",
+                "meta": "userinfo",
+                "uiprop": "rights",
+            },
+            post=False,
+        )
+        return set(user_data["query"]["userinfo"].get("rights", []))
+
     def fetch_page_text(self, page_title: str) -> str:
         page_data = self.request(
             {
@@ -203,6 +228,8 @@ class MediaWikiClient:
                 "text": text,
                 "summary": summary,
                 "nocreate": "1",
+                "bot": "1",
+                "assert": "bot",
                 "token": self.csrf_token,
             },
             post=True,
@@ -227,6 +254,17 @@ def main() -> None:
     client = MediaWikiClient(args.api_url, username, password)
     print(f"Logging into wiki API at {args.api_url} as {username}")
     client.login()
+
+    rights = client.fetch_rights()
+    if "bot" not in rights:
+        fail(f"{username} has no bot right; check the account groups and bot password grants.")
+    for _, page_title in mappings:
+        missing = required_rights(page_title) - rights
+        if missing:
+            fail(
+                f"{username} cannot edit {page_title}: missing {', '.join(sorted(missing))}. "
+                "Add the matching grants to the bot password on Special:BotPasswords."
+            )
 
     updated_count = 0
     skipped_count = 0
