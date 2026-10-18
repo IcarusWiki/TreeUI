@@ -1402,11 +1402,12 @@ data.nodes = {
         y = 385,
     },
     ["GunPowder"] = {
-        name = "GunPowder",
-        icon = "ITEM_GunPowder",
+        name = "Gunpowder",
+        icon = "ITEM_Gunpowder",
         tree = "Blueprint_T2_Crafting",
         x = 5285,
         y = 10,
+        desc = "Creating and solving problems for over one thousand years.",
     },
     ["Health_Enhancement_Tonic"] = {
         name = "Health Recovery Tonic",
@@ -3395,11 +3396,12 @@ data.nodes = {
         desc = "Miasmic Ammo for Munitions",
     },
     ["JerryCan"] = {
-        name = "JerryCan",
+        name = "Biofuel Can",
         icon = "ITEM_JerryCan",
         tree = "Blueprint_T3_Machine",
         x = 2060,
         y = 110,
+        desc = "Canister for biofuel storage, which can be filled at a composter.",
     },
     ["Kitchen_Bench"] = {
         name = "Kitchen Bench",

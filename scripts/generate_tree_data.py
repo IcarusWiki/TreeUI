@@ -179,11 +179,14 @@ def _static_fallback_keys(static_key, item_row):
 
 
 def resolve_item(item_row, workshop_to_static, static_to_itemable,
-                 itemable_icons, itemable_names):
+                 itemable_icons, itemable_names, itemable_by_lower):
     """Resolve an ExtraData.RowName through the full chain with fallbacks.
 
     Returns (icon, display_name, description).
     """
+    # UE row names are case-insensitive (e.g. Item_GunPowder → Item_Gunpowder)
+    item_row = itemable_by_lower.get(item_row.lower(), item_row)
+
     # Fast path: item_row directly in D_Itemable
     if item_row in itemable_icons:
         info = itemable_names.get(item_row, {})
@@ -732,6 +735,7 @@ def main():
         if name:
             itemable_icons[name] = clean_icon_path(icon)
             itemable_names[name] = {"display": display, "desc": desc}
+    itemable_by_lower = {name.lower(): name for name in itemable_icons}
 
     # Build D_ItemsStatic bridge: static Name → Itemable.RowName
     static_to_itemable = {}
@@ -905,7 +909,7 @@ def main():
             item_row = extra_data["RowName"]
             resolved_icon, resolved_name, resolved_desc = resolve_item(
                 item_row, workshop_to_static, static_to_itemable,
-                itemable_icons, itemable_names
+                itemable_icons, itemable_names, itemable_by_lower
             )
             icon = resolved_icon
             if not display_name and resolved_name:
