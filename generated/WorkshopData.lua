@@ -3070,7 +3070,6 @@ data.connections = {
     { from = "Workshop_Super_Food", to = "Workshop_Blood_Thinning_Vaccine_Alpha", method = "XThenY" },
     { from = "Workshop_Super_Food", to = "Workshop_Consumable_Reroute" },
     { from = "Workshop_Survival_Backpack", to = "Workshop_Larkwell_Backpack_Alpha", method = "YThenX" },
-    { from = "Workshop_Workshop_Repair", to = "Workshop_Dropship_Beacon", method = "XThenY" },
 }
 
 return data
