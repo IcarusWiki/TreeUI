@@ -940,7 +940,7 @@ data.nodes = {
         tree = "Blueprint_T2_Crafting",
         x = 5785,
         y = 10,
-        desc = "High-tensile angling rod reinforced with a lightweight carbon-composite weave. Engineered to handle extreme bending strain when hooking heavy aquatic organisms native to Icarus waters.",
+        desc = "High-tensile angling rod reinforced with a lightweight carbon-composite weave.",
     },
     ["Carbon_Paste"] = {
         name = "Carbon Paste",
