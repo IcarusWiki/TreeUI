@@ -1944,6 +1944,14 @@ data.nodes = {
         y = 10,
         desc = "An advanced canteen that can be used to heat and store water at your desired temperature.",
     },
+    ["Workshop_Lantern"] = {
+        name = "Inaris Lantern",
+        icon = "T_ITEM_Workshop_Lantern",
+        tree = "Workshop_Gadgets",
+        x = 310,
+        y = 450,
+        desc = "An LED Lantern for illuminating dark corners. Can be recharged in a Charging Station.",
+    },
     ["Workshop_Meta_CreatureScanner"] = {
         name = "BEAST",
         icon = "T_ITEM_Creature_Scanner",
@@ -2949,6 +2957,7 @@ data.connections = {
     { from = "Workshop_Envirosuit_Shengong2", to = "Workshop_Envirosuit_Reroute", method = "XThenY" },
     { from = "Workshop_Firewhacker_Printed", to = "Workshop_Canteen_Shengong" },
     { from = "Workshop_Firewhacker_Printed", to = "Workshop_Oxygen_Tank_Shengong" },
+    { from = "Workshop_Flashlight", to = "Workshop_Lantern", method = "XThenY" },
     { from = "Workshop_Food", to = "Workshop_Super_Food" },
     { from = "Workshop_Hammer_Printed", to = "Workshop_Hammer_Shengong_Alpha", method = "YThenX" },
     { from = "Workshop_Hammer_Printed", to = "Workshop_Hammer_Shengong_Beta", method = "YThenX" },
